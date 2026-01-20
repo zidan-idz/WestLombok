@@ -1,0 +1,182 @@
+{% extends 'unfold/layouts/base.html' %}
+{% load i18n unfold dashboard_extras %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div class="px-4 md:px-8 py-6">
+    
+    <div class="flex items-center justify-between mb-8">
+        <h1 class="font-bold text-3xl text-gray-800 dark:text-gray-100 font-oswald uppercase tracking-wide">
+            Dashboard Overview
+        </h1>
+        <span class="text-sm text-gray-500">Welcome to West Lombok Admin</span>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        
+        <!-- Card: Destinasi -->
+        <a href="{% url 'admin:core_destinasi_changelist' %}" class="block group">
+            <div class="rounded-xl shadow-lg p-6 text-white transform transition hover:-translate-y-1 hover:shadow-xl relative overflow-hidden"
+                 style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
+                <div class="relative z-10">
+                    <p class="text-blue-100 text-sm font-medium uppercase tracking-wider mb-1" style="color: #dbeafe;">Destinations</p>
+                    <h2 class="text-4xl font-bold font-oswald text-white">{% get_destinasi_count %}</h2>
+                </div>
+                <div class="absolute right-4 bottom-4 opacity-20">
+                    <span class="material-symbols-outlined text-6xl text-white">place</span>
+                </div>
+                <div class="absolute top-0 left-0 w-full h-full bg-white/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+            </div>
+        </a>
+
+        <!-- Card: Kategori -->
+        <a href="{% url 'admin:core_kategori_changelist' %}" class="block group">
+            <div class="rounded-xl shadow-lg p-6 text-white transform transition hover:-translate-y-1 hover:shadow-xl relative overflow-hidden"
+                 style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);">
+                <div class="relative z-10">
+                    <p class="text-purple-100 text-sm font-medium uppercase tracking-wider mb-1" style="color: #f3e8ff;">Categories</p>
+                    <h2 class="text-4xl font-bold font-oswald text-white">{% get_kategori_count %}</h2>
+                </div>
+                <div class="absolute right-4 bottom-4 opacity-20">
+                    <span class="material-symbols-outlined text-6xl text-white">category</span>
+                </div>
+                <div class="absolute top-0 left-0 w-full h-full bg-white/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+            </div>
+        </a>
+
+        <!-- Card: Users -->
+        <a href="{% url 'admin:auth_user_changelist' %}" class="block group">
+            <div class="rounded-xl shadow-lg p-6 text-white transform transition hover:-translate-y-1 hover:shadow-xl relative overflow-hidden"
+                 style="background: linear-gradient(135deg, #10b981 0%, #047857 100%);">
+                <div class="relative z-10">
+                    <p class="text-emerald-100 text-sm font-medium uppercase tracking-wider mb-1" style="color: #d1fae5;">Total Users</p>
+                    <h2 class="text-4xl font-bold font-oswald text-white">{% get_user_count %}</h2>
+                </div>
+                <div class="absolute right-4 bottom-4 opacity-20">
+                    <span class="material-symbols-outlined text-6xl text-white">group</span>
+                </div>
+                <div class="absolute top-0 left-0 w-full h-full bg-white/10 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Charts Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+        <!-- Chart Container -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <h3 class="font-bold text-lg mb-4 text-gray-800 dark:text-gray-200 uppercase font-oswald tracking-wide">
+                Top Popular Destinations
+            </h3>
+            <div class="relative h-64 w-full">
+                <canvas id="popularDestinationsChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Recent Destinations Widget -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <h3 class="font-bold text-lg mb-4 text-gray-800 dark:text-gray-200 uppercase font-oswald tracking-wide">
+                Recent Destinations
+            </h3>
+            <div class="space-y-3">
+                {% get_recent_destinations as recent_destinations %}
+                {% for destinasi in recent_destinations %}
+                <a href="{% url 'admin:core_destinasi_change' destinasi.pk %}" class="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-gray-600 transition group">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-blue-500 group-hover:text-blue-600">place</span>
+                        <div>
+                            <p class="font-medium text-gray-800 dark:text-gray-200 text-sm">{{ destinasi.nama_destinasi|truncatechars:25 }}</p>
+                            <p class="text-xs text-gray-500">{{ destinasi.kategori.nama_kategori }}</p>
+                        </div>
+                    </div>
+                    <span class="text-xs text-gray-400">{{ destinasi.tanggal_dibuat|timesince }} ago</span>
+                </a>
+                {% empty %}
+                <p class="text-gray-500 text-sm text-center py-4">No destinations yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts for Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('popularDestinationsChart').getContext('2d');
+            
+            // Get data from Django Template Tag
+            const chartData = {% get_top_destinations_json %};
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartData.labels,
+                    datasets: [{
+                        label: 'Total Views',
+                        data: chartData.data,
+                        backgroundColor: 'rgba(59, 130, 246, 0.8)', // Blue-500
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        hoverBackgroundColor: 'rgba(29, 78, 216, 0.9)', // Blue-700
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false 
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- Quick Links / Recent Actions -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Recent Data -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <h3 class="font-bold text-lg mb-4 text-gray-800 dark:text-gray-200">Quick Actions</h3>
+            <div class="space-y-3">
+                <a href="{% url 'admin:core_destinasi_add' %}" class="flex items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition text-gray-700 dark:text-gray-300">
+                    <span class="material-symbols-outlined mr-3 text-blue-500">add_location_alt</span>
+                    <span class="font-medium">Add New Destination</span>
+                </a>
+                <a href="{% url 'admin:core_kategori_add' %}" class="flex items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition text-gray-700 dark:text-gray-300">
+                    <span class="material-symbols-outlined mr-3 text-purple-500">playlist_add</span>
+                    <span class="font-medium">Add New Category</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- System Info or other widgets -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 flex flex-col justify-center items-center text-center">
+            <h3 class="font-oswald text-2xl font-bold text-gray-400 dark:text-gray-500 mb-2">WEST LOMBOK</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Tourism Information System</p>
+            <div class="mt-6">
+                 <a href="/" target="_blank" class="px-6 py-2 bg-gray-900 dark:bg-black text-white rounded text-sm font-bold uppercase tracking-widest hover:bg-gray-700 transition">View Website</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

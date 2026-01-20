@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="bg-black min-h-screen flex flex-col items-center justify-center relative overflow-hidden py-10 pb-24">
+    
+    <!-- Background Effect -->
+    <div class="absolute inset-0 opacity-50" 
+         style="background-image: url('{% static 'img/hero.jpg' %}'); background-size: cover; background-position: center;">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-6 text-center pt-24">
+        
+        <h1 class="font-oswald text-4xl md:text-6xl text-white font-bold uppercase tracking-widest mb-2">
+            Surprise Me
+        </h1>
+        <p class="font-roboto font-light text-gray-400 mb-12">
+            Let fate decide your next adventure.
+        </p>
+
+        <!-- The Gacha Machine -->
+        <div class="w-full max-w-md mx-auto aspect-[4/3] bg-gray-900 rounded-lg shadow-2xl overflow-hidden border-4 border-gray-800 relative mb-12 group">
+            
+            <!-- Image Container -->
+            <div id="gacha-window" class="w-full h-full relative">
+                <img id="gacha-image" src="{% static 'img/hero.jpg' %}" class="w-full h-full object-cover transition-transform duration-100" alt="Random Destination">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <span id="gacha-text" class="font-oswald text-3xl md:text-4xl text-white font-bold uppercase tracking-widest text-center px-4 drop-shadow-md">
+                        Returns?
+                    </span>
+                </div>
+            </div>
+
+            <!-- Overlay Flash -->
+            <div id="flash-overlay" class="absolute inset-0 bg-white opacity-0 pointer-events-none transition duration-100"></div>
+        </div>
+
+        <!-- Control -->
+        <button id="spin-btn" class="bg-white text-black font-oswald text-lg font-bold uppercase py-4 px-12 tracking-[0.2em] rounded-full hover:bg-cyan-700 hover:text-white hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl border border-transparent">
+            Find My Destiny
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Data Passing -->
+{{ destinasi_list|json_script:"destinations-data" }}
+
+<!-- Anime.js Library -->
+<script src="{% static 'js/anime.min.js' %}"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const destinations = JSON.parse(document.getElementById('destinations-data').textContent);
+        const gachaImage = document.getElementById('gacha-image');
+        const gachaText = document.getElementById('gacha-text');
+        const spinBtn = document.getElementById('spin-btn');
+        const flashOverlay = document.getElementById('flash-overlay');
+        const gachaWindow = document.getElementById('gacha-window');
+
+        if (!destinations || destinations.length === 0) {
+            gachaText.innerText = "No Data";
+            spinBtn.disabled = true;
+            return;
+        }
+
+        let isSpinning = false;
+
+        spinBtn.addEventListener('click', function() {
+            if (isSpinning) return;
+            startGacha();
+        });
+
+        function startGacha() {
+            isSpinning = true;
+            spinBtn.innerText = "Fate is choosing...";
+            spinBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+            
+            // Initial flash
+            anime({
+                targets: flashOverlay,
+                opacity: [0, 1, 0],
+                duration: 500,
+                easing: 'easeInOutQuad'
+            });
+
+            // Spin Animation Logic
+            let progress = { value: 0 };
+            let lastIndex = -1;
+            
+            // Create a timeline for the "shuffling" effect
+            anime({
+                targets: progress,
+                value: 100, // Dummy value to track progress
+                duration: 4000, // Total duration
+                easing: 'cubicBezier(.5, .05, .1, .3)', // Custom ease: starts fast, slows down
+                update: function(anim) {
+                    // Change content based on progress to simulate "slot machine" items passing by
+                    // We change the image roughly every X% of progress, but mapped to the easing
+                    const currentIndex = Math.floor(anim.progress * 1.5) % destinations.length; // Multiply to cycle through more items
+                    
+                    if (currentIndex !== lastIndex) {
+                        const randomItem = destinations[Math.floor(Math.random() * destinations.length)];
+                        
+                        // Update DOM
+                        if (randomItem.foto_utama) {
+                            gachaImage.src = "/media/" + randomItem.foto_utama;
+                        }
+                        gachaText.innerText = randomItem.nama_destinasi;
+                        
+                        // Micro shake effect on the container
+                        anime({
+                            targets: gachaWindow,
+                            translateY: [0, -2, 2, 0],
+                            duration: 50,
+                            easing: 'linear'
+                        });
+
+                        lastIndex = currentIndex;
+                    }
+                },
+                complete: function() {
+                    const winner = destinations[Math.floor(Math.random() * destinations.length)];
+                    finishSpin(winner);
+                }
+            });
+        }
+
+        function finishSpin(winner) {
+            // Final Reveal Animation
+            
+            // 1. Flash to white
+            anime({
+                targets: flashOverlay,
+                opacity: [0, 1],
+                duration: 100,
+                easing: 'linear',
+                complete: function() {
+                    // 2. Set Winner Data
+                    if (winner.foto_utama) {
+                        gachaImage.src = "/media/" + winner.foto_utama;
+                    }
+                    gachaText.innerText = winner.nama_destinasi;
+                    gachaText.classList.add('text-cyan-400');
+                    spinBtn.innerText = "Enjoy!";
+
+                    // 3. Fade out flash
+                    anime({
+                        targets: flashOverlay,
+                        opacity: 0,
+                        duration: 1000,
+                        easing: 'easeOutQuad'
+                    });
+
+                    // 4. Zoom effect on winner image
+                    anime({
+                        targets: gachaImage,
+                        scale: [1, 1.2],
+                        duration: 3000,
+                        easing: 'easeOutQuad'
+                    });
+
+                    // 5. Redirect
+                    setTimeout(() => {
+                        window.location.href = "/destinasi/" + winner.slug + "/";
+                    }, 1500);
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

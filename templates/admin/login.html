@@ -1,0 +1,61 @@
+{% extends "admin/base_auth.html" %}
+
+{% block title %}Login | West Lombok Admin{% endblock %}
+
+{% block content %}
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="font-oswald text-center text-2xl md:text-3xl font-bold text-black uppercase tracking-wide leading-tight">
+            Welcome Back, Admin
+        </h1>
+    </div>
+
+    <!-- Login Form -->
+    <form action="/admin/login/?next=/admin/" method="post" id="login-form" class="w-full lg:w-80">
+        {% csrf_token %}
+        
+        {% if form.errors %}
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-3 mb-6 text-sm font-bold uppercase tracking-wide">
+            Invalid Credentials
+        </div>
+        {% endif %}
+
+        <!-- Username Field -->
+        <div class="mb-5">
+            <label class="block font-oswald text-xs font-bold uppercase tracking-widest mb-1.5 text-black">
+                Username
+            </label>
+            <input 
+                type="text" 
+                name="username" 
+                id="id_username"
+                class="w-full bg-placeholder text-gray-800 font-roboto text-sm py-2.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-gray-600"
+                required
+            >
+        </div>
+
+        <!-- Password Field -->
+        <div class="mb-8">
+            <label class="block font-oswald text-xs font-bold uppercase tracking-widest mb-1.5 text-black">
+                Password
+            </label>
+            <input 
+                type="password" 
+                name="password" 
+                id="id_password"
+                class="w-full bg-placeholder text-gray-800 font-roboto text-sm py-2.5 px-3 rounded focus:outline-none focus:ring-2 focus:ring-gray-600"
+                required
+            >
+        </div>
+
+        <div class="flex justify-center items-center">
+            <!-- Submit Button -->
+            <button 
+                type="submit" 
+                class="bg-gray-700 text-white font-oswald text-xs font-bold uppercase py-2.5 px-8 tracking-widest hover:bg-black transition duration-300 rounded"
+            >
+                Log In
+            </button>
+        </div>
+    </form>
+{% endblock %}

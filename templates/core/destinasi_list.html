@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- Page Header -->
+    <header class="relative pt-32 pb-16 md:pt-40 md:pb-24 flex items-center justify-center bg-fixed bg-cover bg-center" style="background-image: url('{% static 'img/hero.jpg' %}');">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 container mx-auto px-6 text-center text-white">
+            <h1 class="font-oswald text-4xl md:text-6xl font-bold uppercase tracking-wide mb-4">
+                Explore Destinations
+            </h1>
+            <p class="font-roboto font-light text-gray-200 max-w-lg mx-auto text-lg">
+                Find your perfect getaway from our curated list of hidden gems and popular spots.
+            </p>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="py-16 md:py-20 bg-[#fafafa]">
+        <div class="container mx-auto px-6">
+            
+            <!-- Search & Filter -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <form action="" method="GET" class="relative group flex flex-col md:flex-row gap-4">
+                    <!-- Search Input -->
+                    <div class="relative flex-grow">
+                        <input type="search" name="q" 
+                            class="w-full bg-white border border-gray-200 rounded-full py-4 pl-8 pr-14 text-sm font-light tracking-wide focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition shadow-sm" 
+                            placeholder="Search beaches, mountains, or villages..." 
+                            value="{{ request.GET.q|default:'' }}">
+                         <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 bg-black text-white rounded-full hover:bg-gray-800 transition md:hidden">
+                            <span class="material-icons text-sm block">search</span>
+                        </button>
+                    </div>
+
+                    <!-- Category Dropdown -->
+                    <div class="relative md:w-1/3">
+                        <select name="kategori" onchange="this.form.submit()" class="w-full appearance-none bg-white border border-gray-200 rounded-full py-4 pl-8 pr-10 text-sm font-light tracking-wide focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition shadow-sm cursor-pointer">
+                            <option value="">All Categories</option>
+                            {% for kat in kategori_list %}
+                            <option value="{{ kat.slug }}" {% if request.GET.kategori == kat.slug %}selected{% endif %}>
+                                {{ kat.nama_kategori }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <div class="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
+                             <span class="material-icons">expand_more</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Search Button -->
+                    <button type="submit" class="hidden md:block p-4 bg-black text-white rounded-full hover:bg-gray-800 transition shadow-md w-14 h-14 flex items-center justify-center flex-shrink-0">
+                        <span class="material-icons text-xl">search</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Destinations Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                {% for destinasi in destinasi_list %}
+                <div class="group bg-white rounded-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full">
+                    <!-- Image -->
+                    <div class="relative h-64 overflow-hidden">
+                        {% if destinasi.foto_utama %}
+                        <img src="{{ destinasi.foto_utama.url }}" alt="{{ destinasi.nama_destinasi }}" class="w-full h-full object-cover transition transform duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='/static/img/hero.jpg';">
+                        {% else %}
+                        <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 font-oswald tracking-widest uppercase text-sm">
+                            No Image
+                        </div>
+                        {% endif %}
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="mb-auto">
+                            <div class="flex items-center gap-2 text-cyan-700 text-xs font-bold uppercase tracking-widest mb-3">
+                                <span class="material-icons text-sm">place</span>
+                                <span>{{ destinasi.kecamatan|default:"West Lombok" }}</span>
+                            </div>
+                            <h3 class="font-oswald text-2xl font-bold uppercase mb-4 leading-tight group-hover:text-cyan-700 transition duration-300">
+                                <a href="{% url 'core:destinasi_detail' destinasi.slug %}">{{ destinasi.nama_destinasi }}</a>
+                            </h3>
+                            <p class="text-gray-600 font-light text-sm line-clamp-3 leading-relaxed mb-6">
+                                {{ destinasi.deskripsi }}
+                            </p>
+                        </div>
+                        
+                        <div class="pt-6 border-t border-gray-100 mt-auto flex items-center justify-between">
+                            <a href="{% url 'core:destinasi_detail' destinasi.slug %}" class="font-oswald text-sm font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-cyan-700 hover:border-cyan-700 transition duration-300">
+                                Discover
+                            </a>
+                            <span class="text-gray-400 text-xs font-light flex items-center gap-1">
+                                <span class="material-icons text-xs">visibility</span> {{ destinasi.jumlah_views|default:"0" }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-span-1 md:col-span-3 text-center py-20">
+                    <span class="material-icons text-6xl text-gray-300 mb-4">travel_explore</span>
+                    <h3 class="font-oswald text-xl text-gray-500 font-medium">No destinations found matching your search.</h3>
+                    <p class="text-gray-400 mt-2 font-light">Try adjusting your keywords.</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Pagination -->
+            {% if is_paginated %}
+            <div class="flex justify-center items-center gap-2">
+                {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full hover:bg-black hover:text-white hover:border-black transition duration-300">
+                    <span class="material-icons text-sm">chevron_left</span>
+                </a>
+                {% endif %}
+
+                <span class="font-oswald text-sm font-bold px-4">
+                    Page {{ page_obj.number }}
+                </span>
+
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full hover:bg-black hover:text-white hover:border-black transition duration-300">
+                    <span class="material-icons text-sm">chevron_right</span>
+                </a>
+                {% endif %}
+            </div>
+            {% endif %}
+
+        </div>
+    </section>
+{% endblock %}

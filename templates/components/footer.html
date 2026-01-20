@@ -1,0 +1,50 @@
+{% load static %}
+<div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            <div class="space-y-4 max-w-md">
+                <h5 class="font-oswald text-3xl font-bold uppercase tracking-wide">West Lombok</h5>
+                <div class="text-sm font-roboto font-light space-y-1 text-gray-100">
+                    <p>email@westlombok.com</p>
+                    <p>087-6327-7328</p>
+                    <p>@westlombok</p>
+                </div>
+        <div class="flex gap-4 mt-6">
+            <!-- Instagram -->
+            <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center group hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 transition duration-300">
+                <img src="{% static 'img/instagram.png' %}" alt="Instagram" class="w-5 h-5 object-contain opacity-60 group-hover:opacity-100 transition duration-300 invert">
+            </a>
+
+            <!-- TikTok -->
+            <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center group hover:bg-black hover:scale-110 transition duration-300">
+                <img src="{% static 'img/tiktok.png' %}" alt="TikTok" class="w-5 h-5 object-contain opacity-60 group-hover:opacity-100 transition duration-300 invert">
+            </a>
+
+            <!-- Twitter (Using as replacement for YouTube since YouTube icon is missing in static) or Facebook -->
+            <!-- Facebook -->
+            <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center group hover:bg-blue-600 transition duration-300">
+                <img src="{% static 'img/facebook.png' %}" alt="Facebook" class="w-5 h-5 object-contain opacity-60 group-hover:opacity-100 transition duration-300 invert">
+            </a>
+
+            <!-- Twitter -->
+            <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center group hover:bg-sky-400 transition duration-300">
+                <img src="{% static 'img/twitter.png' %}" alt="Twitter" class="w-5 h-5 object-contain opacity-60 group-hover:opacity-100 transition duration-300 invert">
+            </a>
+        </div>
+            </div>
+
+            <div class="md:text-right">
+                <h6 class="font-oswald text-sm font-bold uppercase tracking-widest mb-6">Menu</h6>
+                <ul class="space-y-3 font-roboto text-sm font-light text-gray-100 uppercase tracking-wide">
+                    <li><a href="{% url 'base:home' %}" class="hover:text-white transition">Home</a></li>
+                    <li><a href="{% url 'core:destinasi_list' %}" class="hover:text-white transition">Destinations</a></li>
+                    <li><a href="{% url 'core:kategori_list' %}" class="hover:text-white transition">Categories</a></li>
+                    <li><a href="{% url 'core:surprise_me' %}" class="hover:text-white transition">Surprise Me</a></li>
+                    <li><a href="{% url 'base:about' %}" class="hover:text-white transition">About</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-400/30 mt-12 pt-8 text-center">
+            <p class="font-oswald text-xs tracking-widest text-gray-200">2026 @COPYRIGHT, ALL RIGHTS RESERVED - WEST LOMBOK</p>
+        </div>
+    </div>

@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <header class="relative w-full h-[60vh] bg-gray-400 flex items-center justify-center text-center overflow-hidden">
+        {% if destinasi.foto_utama %}
+        <div class="absolute inset-0 z-0">
+             <img src="{{ destinasi.foto_utama.url }}" alt="{{ destinasi.nama_destinasi }}" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-black/30 z-0"></div> <!-- Slight overlay for text readability -->
+        {% endif %}
+        
+        <div class="relative z-10 px-4">
+            <h1 class="font-oswald text-5xl md:text-7xl font-bold uppercase text-white tracking-widest mb-2 shadow-sm">
+                {{ destinasi.nama_destinasi }}
+            </h1>
+            <p class="font-roboto text-gray-100 text-lg md:text-xl font-light uppercase tracking-widest shadow-sm">
+                {{ destinasi.kecamatan }} District
+            </p>
+        </div>
+    </header>
+
+    <!-- Sub Header / Breadcrumb-ish -->
+    <div class="bg-[#dcdcdc] py-4 border-b border-gray-300">
+        <div class="container mx-auto px-6">
+            <span class="font-oswald text-sm font-bold uppercase tracking-widest text-black">
+                {{ destinasi.kategori.nama_kategori }}
+            </span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                
+                <!-- Left: Map / Image Placeholder -->
+                <div class="md:col-span-6 lg:col-span-5">
+                    <div class="w-full aspect-[4/5] bg-gray-200 rounded-sm overflow-hidden shadow-inner relative z-0">
+                        <!-- Google Maps Embed Iframe -->
+                        <!-- NOTE: Ensure 'lokasi_maps' in database is a valid Google Maps Embed URL (src="...") -->
+                        <iframe 
+                            src="{{ destinasi.lokasi_maps }}" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="transition duration-500">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Right: Description -->
+                <div class="md:col-span-6 lg:col-span-7 flex flex-col justify-center">
+                    <h2 class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-8 text-black tracking-wide">
+                        About The Destination
+                    </h2>
+                    
+                    <div class="font-roboto font-light text-gray-700 leading-relaxed text-justify space-y-6 mb-12">
+                        {{ destinasi.deskripsi|linebreaks }}
+                    </div>
+
+                    <!-- Details Details (Static/Placeholder per design) -->
+                    <div class="border-t border-gray-200 pt-8 mt-auto">
+                        <div class="grid grid-cols-[100px_1fr] gap-y-2 font-roboto text-sm text-black">
+                            {{ destinasi.info_tambahan }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / Additional Photos -->
+    <section class="py-12 bg-white pb-24">
+        <div class="container mx-auto px-6">
+            <h3 class="font-oswald text-xl font-bold uppercase mb-6 tracking-widest text-black">Gallery</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 h-48 md:h-64">
+                
+                <!-- Slot 1 -->
+                <div class="w-full h-full bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
+                    {% if destinasi.foto_lainnya_1 %}
+                    <img src="{{ destinasi.foto_lainnya_1.url }}" class="w-full h-full object-cover hover:scale-105 transition duration-500 cursor-pointer">
+                    {% else %}
+                    <span class="material-icons text-gray-300 text-4xl">photo_camera</span>
+                    {% endif %}
+                </div>
+
+                <!-- Slot 2 -->
+                <div class="w-full h-full bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
+                    {% if destinasi.foto_lainnya_2 %}
+                    <img src="{{ destinasi.foto_lainnya_2.url }}" class="w-full h-full object-cover hover:scale-105 transition duration-500 cursor-pointer">
+                    {% else %}
+                    <span class="material-icons text-gray-300 text-4xl">photo_camera</span>
+                    {% endif %}
+                </div>
+
+                <!-- Slot 3 -->
+                <div class="w-full h-full bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
+                    {% if destinasi.foto_lainnya_3 %}
+                    <img src="{{ destinasi.foto_lainnya_3.url }}" class="w-full h-full object-cover hover:scale-105 transition duration-500 cursor-pointer">
+                    {% else %}
+                    <span class="material-icons text-gray-300 text-4xl">photo_camera</span>
+                    {% endif %}
+                </div>
+
+                <!-- Slot 4 -->
+                <div class="w-full h-full bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
+                    {% if destinasi.foto_lainnya_4 %}
+                    <img src="{{ destinasi.foto_lainnya_4.url }}" class="w-full h-full object-cover hover:scale-105 transition duration-500 cursor-pointer">
+                    {% else %}
+                    <span class="material-icons text-gray-300 text-4xl">photo_camera</span>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

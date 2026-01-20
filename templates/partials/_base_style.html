@@ -1,0 +1,11 @@
+{% load static %}
+{% comment %} Shared base style partial for all templates {% endcomment %}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Local Tailwind CSS -->
+<link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  h1, h2, h3, h4, h5, h6, .font-oswald { font-family: 'Oswald', sans-serif; }
+</style>

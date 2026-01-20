@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'includes/head.html' %}
+
+<body class="font-roboto text-black overflow-x-hidden antialiased min-h-screen flex flex-col">
+
+    <nav class="absolute w-full z-50 top-0 py-6">
+        {% include 'components/navbar.html' %}
+    </nav>
+
+    <div class="flex-grow">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="relative z-10 bg-footer-gray text-white py-16">
+        {% include 'components/footer.html' %}
+    </footer>
+
+</body>
+</html>

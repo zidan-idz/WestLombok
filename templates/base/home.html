@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- Fixed Background Image (Z-Index Lowest) -->
+    <div class="fixed inset-0 z-0 h-screen w-full">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('{% static 'img/hero.jpg' %}');"></div>
+        <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+
+    <!-- Hero Content (Scrolls over Fixed Background) -->
+    <div class="relative z-10 h-screen flex items-center justify-center text-center text-white">
+        <div class="container px-4">
+            <p class="font-oswald text-sm tracking-[0.2em] mb-4 uppercase">The Untouched Paradise</p>
+            <h1 class="font-oswald text-6xl md:text-8xl font-bold uppercase tracking-wide mb-6 leading-none">
+                West Lombok
+            </h1>
+            <p class="font-roboto font-light text-sm md:text-base max-w-lg mx-auto mb-10 leading-relaxed">
+                Discover pristine beaches, lush hills, cultural villages, and authentic experiences that calm the soul.
+            </p>
+            <a href="{% url 'core:destinasi_list' %}" class="bg-white text-black font-oswald text-sm font-bold uppercase py-3 px-8 tracking-widest hover:bg-black hover:text-white transition duration-300">
+                Exploration Now
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Wrapper (White Background to Cover Image) -->
+    <div class="relative z-10 bg-white">
+
+    <section class="py-20 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5">
+                    <span class="font-oswald text-sm font-bold uppercase tracking-widest block mb-3">Our Story</span>
+                    <h2 class="font-oswald text-4xl md:text-5xl font-bold uppercase leading-tight mb-8">
+                        More Than Just A<br>Destinations.
+                    </h2>
+                    <div class="space-y-6 text-gray-700 font-light leading-relaxed mb-10 text-justify md:text-left text-sm md:text-base">
+                        <p>Lombok isn't trying to be the new Bali. It's confident in its own silence, its own rugged beauty, and its own pace. Here, time slows down not because there's nothing to do, but because everything invites you to pause.</p>
+                        <p>From the misty peaks of Mount Rinjani to the crystal clear waters of the Gili Islands, West Lombok offers a sanctuary for those seeking connection—with nature, with culture, and with themselves.</p>
+                    </div>
+                    <a href="{% url 'base:about' %}" class="inline-block border border-black px-8 py-3 rounded-full font-oswald text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition duration-300">
+                        Read Full Story
+                    </a>
+                </div>
+                <div class="md:col-span-7">
+                    <img src="{% static 'img/story.jpg' %}" class="w-full h-[500px] object-cover rounded-md shadow-sm" alt="Story Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full border-y border-black py-12 bg-[#fafafa] mb-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-3 text-center divide-x divide-transparent">
+                <div>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold mb-1">100+</h3>
+                    <p class="font-oswald text-sm font-medium tracking-widest uppercase">Places</p>
+                </div>
+                <div>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold mb-1">20+</h3>
+                    <p class="font-oswald text-sm font-medium tracking-widest uppercase">Districts</p>
+                </div>
+                <div>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold mb-1">100K+</h3>
+                    <p class="font-oswald text-sm font-medium tracking-widest uppercase">Visitors</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Places Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <h2 class="font-oswald text-4xl font-bold uppercase mb-2">Popular Places</h2>
+                    <p class="text-gray-600 font-light">Discover the top favorite locations that are always buzzing with travelers.</p>
+                </div>
+                <a href="{% url 'core:destinasi_list' %}" class="hidden md:block text-sm font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-cyan-700 hover:border-cyan-700 transition">View All</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for destinasi in popular_destinasi %}
+                <a href="{% url 'core:destinasi_detail' destinasi.slug %}" class="block h-[450px] bg-gray-300 rounded-md hover:shadow-xl transition duration-300 cursor-pointer relative overflow-hidden group">
+                    {% if destinasi.foto_utama %}
+                    <img src="{{ destinasi.foto_utama.url }}" alt="{{ destinasi.nama_destinasi }}" class="w-full h-full object-cover transition transform group-hover:scale-110 duration-500" onerror="this.onerror=null;this.src='/static/img/hero.jpg';">
+                    {% else %}
+                    <div class="w-full h-full flex items-center justify-center text-gray-500 bg-gray-200">
+                        <span class="material-icons text-6xl text-gray-400">image</span>
+                    </div>
+                    {% endif %}
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-white">
+                        <h4 class="font-oswald text-xl font-bold uppercase mb-1">{{ destinasi.nama_destinasi }}</h4>
+                        <div class="flex justify-between items-end">
+                            <small class="font-roboto font-light text-gray-300">{{ destinasi.kecamatan }}</small>
+                            <span class="text-xs font-light flex items-center gap-1"><span class="material-icons text-xs">visibility</span> {{ destinasi.jumlah_views }}</span>
+                        </div>
+                    </div>
+                </a>
+                {% empty %}
+                 <div class="col-span-3 text-center text-gray-500 font-light py-12">No detailed destinations available yet.</div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-[#fafafa]">
+        <div class="container mx-auto px-6">
+            <h2 class="font-oswald text-4xl font-bold uppercase mb-3">Discover Your Pace</h2>
+            <p class="text-gray-600 mb-10 font-light">Find experiences that match your travel personality, adventurous, relaxed, or cultural.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+                {% for kategori in kategori_list %}
+                <a href="{% url 'core:kategori_detail' kategori.slug %}" class="bg-white rounded-lg p-6 text-center shadow hover:shadow-lg transition group border border-gray-100">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-black transition duration-300">
+                        <span class="material-icons text-3xl text-gray-600 group-hover:text-white transition duration-300">
+                            {{ kategori.icon|default:"category" }}
+                        </span>
+                    </div>
+                    <h4 class="font-oswald text-lg font-bold uppercase">{{ kategori.nama_kategori }}</h4>
+                    <!-- Optional: Show count if desired -->
+                    <!-- <p class="text-xs text-gray-400 mt-1">{{ kategori.destinasi.count }} Places</p> -->
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full  py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                
+                <!-- Container 1: Header & Description -->
+                <div>
+                    <h2 class="font-oswald text-4xl font-bold uppercase mb-4">Travel Tips</h2>
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        Practical wisdom for a smooth and respectful journey in West Lombok.<br>
+                        We want you to have the best experience while respecting local traditions and nature.
+                    </p>
+                </div>
+                
+                <!-- Container 2: Dynamic Tips Placeholder -->
+                <div class="bg-gray-50 border border-gray-200 rounded-md p-8 shadow-sm">
+                    <h5 class="font-oswald text-xl font-bold mb-6 uppercase border-b border-gray-300 pb-2">Latest Tips</h5>
+                    <!-- This area will later be populated by Admin data -->
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-700 font-light text-sm">
+                            <span class="material-icons text-sm text-cyan-600 mt-0.5">check_circle</span>
+                            <span>Respect local customs and dress modestly in villages.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-light text-sm">
+                            <span class="material-icons text-sm text-cyan-600 mt-0.5">check_circle</span>
+                            <span>Best time to visit is May to September.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-light text-sm">
+                            <span class="material-icons text-sm text-cyan-600 mt-0.5">check_circle</span>
+                            <span>Rent a scooter for the best exploration experience.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="font-oswald text-4xl font-bold uppercase mb-3 text-center">Need Assistance?</h2>
+            <p class="text-gray-600 mb-12 font-light text-center max-w-2xl mx-auto">Our local team is ready to help you plan the perfect journey. Reach out to us directly.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- WhatsApp / Chat -->
+                <a href="#" class="block p-8 bg-gray-50 border border-gray-100 rounded-md hover:shadow-lg transition text-center group">
+                    <div class="w-16 h-16 bg-[#FFFFFF] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-black transition duration-300">
+                        <span class="material-icons text-3xl text-black group-hover:text-white transition">support_agent</span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-bold uppercase mb-2">Chat Support</h3>
+                    <p class="text-gray-500 font-light text-sm mb-4">Fast response via WhatsApp</p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyan-700 group-hover:text-black">Start Chat &rarr;</span>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:hello@westlombok.com" class="block p-8 bg-gray-50 border border-gray-100 rounded-md hover:shadow-lg transition text-center group">
+                    <div class="w-16 h-16 bg-[#FFFFFF] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-black transition duration-300">
+                        <span class="material-icons text-3xl text-black group-hover:text-white transition">email</span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-bold uppercase mb-2">Email Us</h3>
+                    <p class="text-gray-500 font-light text-sm mb-4">For partnerships & inquiries</p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyan-700 group-hover:text-black">Send Email &rarr;</span>
+                </a>
+
+                <!-- Local Guide -->
+                <a href="#" class="block p-8 bg-gray-50 border border-gray-100 rounded-md hover:shadow-lg transition text-center group">
+                    <div class="w-16 h-16 bg-[#FFFFFF] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-black transition duration-300">
+                        <span class="material-icons text-3xl text-black group-hover:text-white transition">map</span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-bold uppercase mb-2">Find a Guide</h3>
+                    <p class="text-gray-500 font-light text-sm mb-4">Book a certified local expert</p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-cyan-700 group-hover:text-black">Find Guide &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    </div>
+{% endblock %}

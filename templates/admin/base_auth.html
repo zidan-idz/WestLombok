@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin | West Lombok{% endblock %}</title>
+    
+    <!-- Fonts (Same as head.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Tailwind CSS (Same as head.html) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'oswald': ['Oswald', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        'placeholder': '#a8a8a8',
+                        'footer-gray': '#a8a8a8',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-roboto text-black antialiased">
+
+    <!-- Full-width Background (Behind Everything) -->
+    <div class="fixed inset-0 z-0" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/static/img/hero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        
+        <!-- Branding Text (Centered on the visible background area) -->
+        <div class="hidden lg:flex h-full w-full items-center justify-center pl-[500px]">
+            <div class="text-center text-white select-none">
+                <p class="font-oswald text-sm tracking-[0.2em] mb-4 uppercase">
+                    The Untouched Paradise
+                </p>
+                <h2 class="font-oswald text-6xl md:text-8xl font-bold uppercase tracking-wide leading-none">
+                    West<br>Lombok
+                </h2>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <a 
+            href="/" 
+            class="absolute top-8 right-8 border border-white/50 text-white font-oswald text-xs font-bold uppercase py-2 px-6 tracking-widest hover:bg-white hover:text-black transition duration-300 z-50 rounded"
+        >
+            Back
+        </a>
+    </div>
+
+    <!-- White Container (Overlapping the Background) -->
+    <div class="relative z-10 h-screen w-full lg:w-[500px] flex flex-col items-center justify-center px-12 lg:px-16 bg-white shadow-2xl">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- Page Header -->
+    <header class="relative pt-32 pb-16 md:pt-40 md:pb-24 flex items-center justify-center bg-fixed bg-cover bg-center" style="background-image: url('{% static 'img/hero.jpg' %}');">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 container mx-auto px-6 text-center text-white">
+            <h1 class="font-oswald text-4xl md:text-6xl font-bold uppercase tracking-wide mb-4">
+                Our Story
+            </h1>
+            <p class="font-roboto font-light text-gray-200 max-w-lg mx-auto text-lg">
+                The heart and soul of West Lombok.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Story Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                
+                <!-- Image Side -->
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-gray-100 rounded-full z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1571401835393-8c5f35328320?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                         class="relative z-10 w-full h-[500px] object-cover rounded-md shadow-2xl filter brightness-90" 
+                         alt="About West Lombok">
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-gray-100 rounded-full z-0"></div>
+                </div>
+
+                <!-- Text Side -->
+                <div>
+                     <span class="text-cyan-700 font-bold uppercase tracking-widest text-xs mb-2 block">Who We Are</span>
+                    <h2 class="font-oswald text-4xl md:text-5xl font-bold uppercase leading-tight mb-8 text-black">
+                        We Are<br>West Lombok
+                    </h2>
+                    <div class="space-y-6 text-gray-600 font-light leading-relaxed text-justify">
+                        <p>
+                            SIPALO (Sistem Informasi Pariwisata Lombok Barat) is more than just a digital guide. It is a tribute to the untouched paradise that lies within our island. We believe that travel should be transformative, not just a checklist of places visited.
+                        </p>
+                        <p>
+                            From the pristine white sands of the secret Gilis to the authentic cultural rhythms of our traditional villages, we curate experiences that connect you with the true spirit of Lombok. We are here to guide you off the beaten path and into the heart of the island.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <a href="{% url 'core:destinasi_list' %}" class="inline-block bg-black text-white font-oswald text-sm font-bold uppercase py-4 px-10 tracking-widest rounded-sm hover:bg-cyan-700 transition duration-300">
+                            Start Exploring
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 bg-[#fafafa] border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                 <h2 class="font-oswald text-3xl font-bold uppercase mb-4">Our Values</h2>
+                 <div class="w-16 h-1 bg-black mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Value 1 -->
+                <div class="bg-white p-10 rounded-md shadow-sm hover:shadow-lg transition duration-300 text-center border border-gray-50">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <span class="material-icons text-3xl text-black">verified</span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-bold uppercase mb-3">Authentic</h3>
+                    <p class="text-gray-500 font-light text-sm">We prioritize genuine local experiences over commercial tourist traps.</p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="bg-white p-10 rounded-md shadow-sm hover:shadow-lg transition duration-300 text-center border border-gray-50">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                         <span class="material-icons text-3xl text-black">eco</span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-bold uppercase mb-3">Sustainable</h3>
+                    <p class="text-gray-500 font-light text-sm">Promoting eco-friendly tourism that respects nature and communities.</p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="bg-white p-10 rounded-md shadow-sm hover:shadow-lg transition duration-300 text-center border border-gray-50">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                         <span class="material-icons text-3xl text-black">favorite</span>
+                    </div>
+                    <h3 class="font-oswald text-xl font-bold uppercase mb-3">Curated</h3>
+                    <p class="text-gray-500 font-light text-sm">Every destination is hand-picked to ensure quality and safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

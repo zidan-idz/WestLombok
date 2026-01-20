@@ -1,0 +1,35 @@
+{% extends "admin/base_auth.html" %}
+
+{% block title %}Logged Out | West Lombok Admin{% endblock %}
+
+{% block content %}
+    <!-- Header -->
+    <div class="mb-6">
+        <h1 class="font-oswald text-center text-2xl md:text-3xl font-bold text-black uppercase tracking-wide leading-tight">
+            You Have Been<br>Logged Out
+        </h1>
+    </div>
+
+    <!-- Message -->
+    <div class="mb-8">
+        <p class="font-roboto font-light text-gray-600 text-sm leading-relaxed text-center">
+            Thank you for using West Lombok Admin Panel. Your session has been securely ended.
+        </p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-col gap-3 w-full lg:w-64">
+        <a 
+            href="/admin/login/" 
+            class="bg-gray-700 text-white font-oswald text-xs font-bold uppercase py-2.5 px-8 tracking-widest hover:bg-black transition duration-300 text-center rounded"
+        >
+            Log In Again
+        </a>
+        <a 
+            href="/" 
+            class="border border-black text-black font-oswald text-xs font-bold uppercase py-2.5 px-8 tracking-widest hover:bg-black hover:text-white transition duration-300 text-center rounded"
+        >
+            Back to Website
+        </a>
+    </div>
+{% endblock %}

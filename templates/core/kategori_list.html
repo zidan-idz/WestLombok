@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-16 md:pt-40 md:pb-24 flex items-center justify-center bg-fixed bg-cover bg-center" style="background-image: url('{% static 'img/hero.jpg' %}');">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 container mx-auto px-6 text-center text-white">
+            <h1 class="font-oswald text-4xl md:text-6xl font-bold uppercase tracking-wide mb-4">
+                Travel Categories
+            </h1>
+            <p class="font-roboto font-light text-gray-200 max-w-lg mx-auto text-lg">
+                Discover your travel personality from our curated list of diverse experiences.
+            </p>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="py-20 md:py-24 bg-[#fafafa]">
+        <div class="container mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% for kategori in kategori_list %}
+                <a href="{% url 'core:kategori_detail' kategori.slug %}" class="bg-white rounded-lg p-6 text-center shadow hover:shadow-lg transition group border border-gray-100 flex flex-col items-center">
+                    <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-black transition duration-300">
+                        <span class="material-icons text-3xl text-gray-600 group-hover:text-white transition duration-300">
+                            {{ kategori.icon|default:"category" }}
+                        </span>
+                    </div>
+                    
+                    <h3 class="font-oswald text-lg font-bold uppercase tracking-wide text-black mb-2 group-hover:text-cyan-800 transition duration-300">
+                        {{ kategori.nama_kategori }}
+                    </h3>
+                    
+                    <p class="font-roboto font-light text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">
+                        {{ kategori.deskripsi }}
+                    </p>
+
+                    <div class="mt-auto inline-block border-b border-gray-300 group-hover:border-black transition duration-300 pb-0.5">
+                        <span class="font-oswald text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-black transition duration-300">Explore</span>
+                    </div>
+                </a>
+                {% empty %}
+                <div class="col-span-full text-center py-20">
+                    <span class="material-icons text-6xl text-gray-200 mb-4">sentiment_dissatisfied</span>
+                    <p class="text-gray-400 font-light font-oswald text-xl uppercase">No categories found.</p>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
