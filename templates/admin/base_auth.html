@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,24 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <!-- Tailwind CSS (Same as head.html) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'oswald': ['Oswald', 'sans-serif'],
-                        'roboto': ['Roboto', 'sans-serif'],
-                    },
-                    colors: {
-                        'placeholder': '#a8a8a8',
-                        'footer-gray': '#a8a8a8',
-                    },
-                }
-            }
-        }
-    </script>
+    <!-- Local Tailwind CSS -->
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
+    <!-- Unfold/Django Admin might need the global tailwind object dummy if scripts run here, 
+         but likely not for this simple auth page. Adding it just in case if we decide to use Alpine/Unfold scripts later. 
+         For now, just CSS is enough. -->
 </head>
 <body class="font-roboto text-black antialiased">
 
