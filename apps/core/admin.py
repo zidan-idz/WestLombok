@@ -86,7 +86,7 @@ class DestinasiAdmin(ModelAdmin):
         # Helper link Google Maps
         if db_field.name == 'lokasi_maps':
             kwargs['help_text'] = format_html(
-                'Open <a href="https://www.google.com/maps" target="_blank" class="text-blue-600 hover:text-blue-800 underline">Google Maps</a> to find the location, then copy the URL here.'
+                'Go to Google Maps -> Share -> <strong>Embed a map</strong> -> Copy HTML. Paste the full <code>&lt;iframe...&gt;</code> code here. We will extract the link automatically.'
             )
         return super().formfield_for_dbfield(db_field, **kwargs)
     

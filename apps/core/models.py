@@ -98,16 +98,45 @@ class Destinasi(models.Model):
     tanggal_dibuat = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
 
     def save(self, *args, **kwargs):
-        # Override save untuk generate slug destinasi
+        self.full_clean()
+        
+        # 1. Generate Slug Otomatis
         if not self.slug:
             base_slug = slugify(self.nama_destinasi)
             slug = base_slug
             counter = 1
-            # Loop cek duplikasi slug
             while Destinasi.objects.filter(slug=slug).exists():
                 slug = f"{base_slug}-{counter}"
                 counter += 1
             self.slug = slug
+            
+        # 2. Auto-Convert Google Maps Link to Embed URL for Iframe
+        # Support formats:
+        # - https://goo.gl/maps/... (Short) -> Warning: Short links hard to resolve without request, but we can try basic iframe logic or instruct user
+        # - https://www.google.com/maps/place/... 
+        # - https://maps.app.goo.gl/...
+        # Target Embed Format: https://www.google.com/maps/embed?pb=... (This is hard to get from regular link without API)
+        # BETTER APPROACH: Use the 'q' (query) param for embed API if we don't have the explicit embed code.
+        # However, the simple embed mode: https://www.google.com/maps/embed/v1/place?key=... requires API Key.
+        # The implicit iframe src usually looks like: https://www.google.com/maps/embed?pb=!1m18!...
+        
+        # LOGIC CHANGE: Since we can't easily convert a "Share Link" to an "Embed PB Code" without scraping or API, 
+        # we will rely on a safer fallback:
+        # If the user provides a full 'src="..."' string strings, extract the URL.
+        # If it's a raw link, we trust the user or provide a field specifically for the "Embed Map HTML" in admin.
+        
+        # REVISED PLAN for robustness as requested:
+        # Since parsing 'pb' codes from short links is unreliable, we will assume the input MIGHT be an iframe tag copied from maps.
+        # We will strip valid src from it, OR if it's a direct link, we leave it (and hope it is an embed link).
+        # Actually, let's look for 'src="' pattern if the user pasted the full iframe code.
+        
+        if self.lokasi_maps and '<iframe' in self.lokasi_maps:
+            import re
+            # Extract src="..." content
+            match = re.search(r'src="([^"]+)"', self.lokasi_maps)
+            if match:
+                self.lokasi_maps = match.group(1)
+                
         super().save(*args, **kwargs)
 
     def __str__(self):

@@ -23,7 +23,7 @@
                 <!-- Image Side -->
                 <div class="relative">
                     <div class="absolute -top-4 -left-4 w-24 h-24 bg-gray-100 rounded-full z-0"></div>
-                    <img src="https://images.unsplash.com/photo-1571401835393-8c5f35328320?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                    <img src="{% static 'img/hero.jpg' %}" 
                          class="relative z-10 w-full h-[500px] object-cover rounded-md shadow-2xl filter brightness-90" 
                          alt="About West Lombok">
                     <div class="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-gray-100 rounded-full z-0"></div>
@@ -31,22 +31,25 @@
 
                 <!-- Text Side -->
                 <div>
-                     <span class="text-cyan-700 font-bold uppercase tracking-widest text-xs mb-2 block">Who We Are</span>
+                     <span class="text-cyan-700 font-bold uppercase tracking-widest text-xs mb-2 block">The Hidden Gem</span>
                     <h2 class="font-oswald text-4xl md:text-5xl font-bold uppercase leading-tight mb-8 text-black">
-                        We Are<br>West Lombok
+                        West Lombok:<br>Nature & Culture
                     </h2>
                     <div class="space-y-6 text-gray-600 font-light leading-relaxed text-justify">
                         <p>
-                            SIPALO (Sistem Informasi Pariwisata Lombok Barat) is more than just a digital guide. It is a tribute to the untouched paradise that lies within our island. We believe that travel should be transformative, not just a checklist of places visited.
+                            West Lombok (Lombok Barat) is the perfect gateway to exploring the authentic beauty of the island. Spanning over 922 km², this region offers a dramatic landscape that shifts from the lush, rain-fed hills of the north to the pristine, white sandy bays of the south.
                         </p>
                         <p>
-                            From the pristine white sands of the secret Gilis to the authentic cultural rhythms of our traditional villages, we curate experiences that connect you with the true spirit of Lombok. We are here to guide you off the beaten path and into the heart of the island.
+                            It is home to the famous **Senggigi Beach** and serves as the transit point to the legendary **Gili Islands**. But beyond the popular spots, West Lombok hides the "Secret Gilis" of Sekotong (Gili Nanggu, Gili Sudak, Gili Kedis)—peaceful paradises known for their crystal-clear waters and vibrant coral reefs, far from the tourist crowds.
+                        </p>
+                        <p>
+                            Culturally, West Lombok is a melting pot where the indigenous **Sasak** traditions blend harmoniously with Balinese influences, seen clearly in historic landmarks like **Pura Lingsar**—a temple revered by both Muslims and Hindus. From the spicy kick of *Ayam Taliwang* to the intricate craftsmanship of Banyumulek pottery, every corner of West Lombok tells a story.
                         </p>
                     </div>
                     
                     <div class="mt-10">
                         <a href="{% url 'core:destinasi_list' %}" class="inline-block bg-black text-white font-oswald text-sm font-bold uppercase py-4 px-10 tracking-widest rounded-sm hover:bg-cyan-700 transition duration-300">
-                            Start Exploring
+                            Explore Destinations
                         </a>
                     </div>
                 </div>
@@ -59,7 +62,7 @@
     <section class="py-20 bg-[#fafafa] border-t border-gray-100">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                 <h2 class="font-oswald text-3xl font-bold uppercase mb-4">Our Values</h2>
+                <h2 class="font-oswald text-3xl font-bold uppercase mb-4">Why Visit West Lombok?</h2>
                  <div class="w-16 h-1 bg-black mx-auto"></div>
             </div>
 
@@ -67,28 +70,28 @@
                 <!-- Value 1 -->
                 <div class="bg-white p-10 rounded-md shadow-sm hover:shadow-lg transition duration-300 text-center border border-gray-50">
                     <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <span class="material-icons text-3xl text-black">verified</span>
+                        <span class="material-icons text-3xl text-black">landscape</span>
                     </div>
-                    <h3 class="font-oswald text-xl font-bold uppercase mb-3">Authentic</h3>
-                    <p class="text-gray-500 font-light text-sm">We prioritize genuine local experiences over commercial tourist traps.</p>
+                    <h3 class="font-oswald text-xl font-bold uppercase mb-3">Diverse Landscapes</h3>
+                    <p class="text-gray-500 font-light text-sm">From the misty forests near Mount Rinjani to the arid savannahs of Sekotong.</p>
                 </div>
 
                 <!-- Value 2 -->
                 <div class="bg-white p-10 rounded-md shadow-sm hover:shadow-lg transition duration-300 text-center border border-gray-50">
                     <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                         <span class="material-icons text-3xl text-black">eco</span>
+                         <span class="material-icons text-3xl text-black">groups</span>
                     </div>
-                    <h3 class="font-oswald text-xl font-bold uppercase mb-3">Sustainable</h3>
-                    <p class="text-gray-500 font-light text-sm">Promoting eco-friendly tourism that respects nature and communities.</p>
+                    <h3 class="font-oswald text-xl font-bold uppercase mb-3">Rich Culture</h3>
+                    <p class="text-gray-500 font-light text-sm">Experience the harmonious blend of Sasak and Balinese traditions and festivals.</p>
                 </div>
 
                 <!-- Value 3 -->
                 <div class="bg-white p-10 rounded-md shadow-sm hover:shadow-lg transition duration-300 text-center border border-gray-50">
                     <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                         <span class="material-icons text-3xl text-black">favorite</span>
+                         <span class="material-icons text-3xl text-black">water_drop</span>
                     </div>
-                    <h3 class="font-oswald text-xl font-bold uppercase mb-3">Curated</h3>
-                    <p class="text-gray-500 font-light text-sm">Every destination is hand-picked to ensure quality and safety.</p>
+                    <h3 class="font-oswald text-xl font-bold uppercase mb-3">Pristine Waters</h3>
+                    <p class="text-gray-500 font-light text-sm">Home to world-class snorkeling spots in the Secret Gilis and calm bays in Senggigi.</p>
                 </div>
             </div>
         </div>
