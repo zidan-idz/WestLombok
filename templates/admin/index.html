@@ -16,13 +16,13 @@
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
         
-        <!-- Card: Destinasi -->
-        <a href="{% url 'admin:core_destinasi_changelist' %}" class="block group">
+        <!-- Card: Destinations -->
+        <a href="{% url 'admin:core_destination_changelist' %}" class="block group">
             <div class="rounded-xl shadow-lg p-6 text-white transform transition hover:-translate-y-1 hover:shadow-xl relative overflow-hidden"
                  style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
                 <div class="relative z-10">
                     <p class="text-blue-100 text-sm font-medium uppercase tracking-wider mb-1" style="color: #dbeafe;">Destinations</p>
-                    <h2 class="text-4xl font-bold font-oswald text-white">{% get_destinasi_count %}</h2>
+                    <h2 class="text-4xl font-bold font-oswald text-white">{% get_destination_count %}</h2>
                 </div>
                 <div class="absolute right-4 bottom-4 opacity-20">
                     <span class="material-symbols-outlined text-6xl text-white">place</span>
@@ -31,13 +31,13 @@
             </div>
         </a>
 
-        <!-- Card: Kategori -->
-        <a href="{% url 'admin:core_kategori_changelist' %}" class="block group">
+        <!-- Card: Categories -->
+        <a href="{% url 'admin:core_category_changelist' %}" class="block group">
             <div class="rounded-xl shadow-lg p-6 text-white transform transition hover:-translate-y-1 hover:shadow-xl relative overflow-hidden"
                  style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);">
                 <div class="relative z-10">
                     <p class="text-purple-100 text-sm font-medium uppercase tracking-wider mb-1" style="color: #f3e8ff;">Categories</p>
-                    <h2 class="text-4xl font-bold font-oswald text-white">{% get_kategori_count %}</h2>
+                    <h2 class="text-4xl font-bold font-oswald text-white">{% get_category_count %}</h2>
                 </div>
                 <div class="absolute right-4 bottom-4 opacity-20">
                     <span class="material-symbols-outlined text-6xl text-white">category</span>
@@ -82,16 +82,16 @@
             </h3>
             <div class="space-y-3">
                 {% get_recent_destinations as recent_destinations %}
-                {% for destinasi in recent_destinations %}
-                <a href="{% url 'admin:core_destinasi_change' destinasi.pk %}" class="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-gray-600 transition group">
+                {% for destination in recent_destinations %}
+                <a href="{% url 'admin:core_destination_change' destination.pk %}" class="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-gray-600 transition group">
                     <div class="flex items-center gap-3">
                         <span class="material-symbols-outlined text-blue-500 group-hover:text-blue-600">place</span>
                         <div>
-                            <p class="font-medium text-gray-800 dark:text-gray-200 text-sm">{{ destinasi.nama_destinasi|truncatechars:25 }}</p>
-                            <p class="text-xs text-gray-500">{{ destinasi.kategori.nama_kategori }}</p>
+                            <p class="font-medium text-gray-800 dark:text-gray-200 text-sm">{{ destination.name|truncatechars:25 }}</p>
+                            <p class="text-xs text-gray-500">{{ destination.category.name }}</p>
                         </div>
                     </div>
-                    <span class="text-xs text-gray-400">{{ destinasi.tanggal_dibuat|timesince }} ago</span>
+                    <span class="text-xs text-gray-400">{{ destination.created_at|timesince }} ago</span>
                 </a>
                 {% empty %}
                 <p class="text-gray-500 text-sm text-center py-4">No destinations yet.</p>
@@ -156,11 +156,11 @@
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
             <h3 class="font-bold text-lg mb-4 text-gray-800 dark:text-gray-200">Quick Actions</h3>
             <div class="space-y-3">
-                <a href="{% url 'admin:core_destinasi_add' %}" class="flex items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition text-gray-700 dark:text-gray-300">
+                <a href="{% url 'admin:core_destination_add' %}" class="flex items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition text-gray-700 dark:text-gray-300">
                     <span class="material-symbols-outlined mr-3 text-blue-500">add_location_alt</span>
                     <span class="font-medium">Add New Destination</span>
                 </a>
-                <a href="{% url 'admin:core_kategori_add' %}" class="flex items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition text-gray-700 dark:text-gray-300">
+                <a href="{% url 'admin:core_category_add' %}" class="flex items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition text-gray-700 dark:text-gray-300">
                     <span class="material-symbols-outlined mr-3 text-purple-500">playlist_add</span>
                     <span class="font-medium">Add New Category</span>
                 </a>

@@ -1,12 +1,13 @@
     <div class="container mx-auto px-6 flex justify-between items-center">
-        <a href="{% url 'base:home' %}" class="font-oswald font-bold text-2xl text-white tracking-widest uppercase">
+        <a href="{% url 'base:home' %}" class="font-oswald font-bold text-2xl text-white tracking-widest uppercase z-50">
             West Lombok
         </a>
         
-        <div class="hidden md:flex items-center space-x-8 text-white text-sm font-medium tracking-widest uppercase font-oswald">
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8 text-white text-sm md:text-base lg:text-lg font-medium tracking-widest uppercase font-oswald">
             <a href="{% url 'base:home' %}" class="hover:text-gray-300 transition">Home</a>
-            <a href="{% url 'core:destinasi_list' %}" class="hover:text-gray-300 transition">Destinations</a>
-            <a href="{% url 'core:kategori_list' %}" class="hover:text-gray-300 transition">Categories</a>
+            <a href="{% url 'core:destination_list' %}" class="hover:text-gray-300 transition">Destinations</a>
+            <a href="{% url 'core:category_list' %}" class="hover:text-gray-300 transition">Categories</a>
             <a href="{% url 'core:surprise_me' %}" class="hover:text-gray-300 transition">Surprise Me</a>
             <a href="{% url 'base:about' %}" class="hover:text-gray-300 transition">About</a>
             {% if user.is_authenticated and user.is_staff %}
@@ -16,7 +17,10 @@
             {% endif %}
         </div>
 
-        <button class="md:hidden text-white focus:outline-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none z-50 transition-opacity duration-300" type="button">
             <span class="material-icons text-3xl">menu</span>
         </button>
     </div>
+
+

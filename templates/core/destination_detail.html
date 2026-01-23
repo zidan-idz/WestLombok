@@ -4,20 +4,26 @@
 {% block content %}
     <!-- Hero Section -->
     <header class="relative w-full h-[60vh] bg-gray-400 flex items-center justify-center text-center overflow-hidden">
-        {% if destinasi.foto_utama %}
+        {% if destination.main_image %}
         <div class="absolute inset-0 z-0">
-             <img src="{{ destinasi.foto_utama.url }}" alt="{{ destinasi.nama_destinasi }}" class="w-full h-full object-cover">
+             <img src="{{ destination.main_image.url }}" alt="{{ destination.name }}" class="w-full h-full object-cover">
         </div>
         <div class="absolute inset-0 bg-black/30 z-0"></div> <!-- Slight overlay for text readability -->
         {% endif %}
         
         <div class="relative z-10 px-4">
             <h1 class="font-oswald text-5xl md:text-7xl font-bold uppercase text-white tracking-widest mb-2 shadow-sm">
-                {{ destinasi.nama_destinasi }}
+                {{ destination.name }}
             </h1>
-            <p class="font-roboto text-gray-100 text-lg md:text-xl font-light uppercase tracking-widest shadow-sm">
-                {{ destinasi.kecamatan }} District
-            </p>
+            {% if destination.district %}
+            <a href="{% url 'core:district_detail' destination.district.slug %}" class="font-roboto text-gray-100 text-lg md:text-xl font-light uppercase tracking-widest shadow-sm hover:text-yellow-400 transition cursor-pointer">
+                {{ destination.district.name }} District
+            </a>
+            {% else %}
+            <span class="font-roboto text-gray-100 text-lg md:text-xl font-light uppercase tracking-widest shadow-sm">
+                Unknown District
+            </span>
+            {% endif %}
         </div>
     </header>
 
@@ -25,7 +31,7 @@
     <div class="bg-[#dcdcdc] py-4 border-b border-gray-300">
         <div class="container mx-auto px-6">
             <span class="font-oswald text-sm font-bold uppercase tracking-widest text-black">
-                {{ destinasi.kategori.nama_kategori }}
+                {{ destination.category.name }}
             </span>
         </div>
     </div>
@@ -39,9 +45,8 @@
                 <div class="md:col-span-6 lg:col-span-5">
                     <div class="w-full aspect-[4/5] bg-gray-200 rounded-sm overflow-hidden shadow-inner relative z-0">
                         <!-- Google Maps Embed Iframe -->
-                        <!-- NOTE: Ensure 'lokasi_maps' in database is a valid Google Maps Embed URL (src="...") -->
                         <iframe 
-                            src="{{ destinasi.lokasi_maps }}" 
+                            src="{{ destination.maps_embed_url }}" 
                             width="100%" 
                             height="100%" 
                             style="border:0;" 
@@ -60,13 +65,13 @@
                     </h2>
                     
                     <div class="font-roboto font-light text-gray-700 leading-relaxed text-justify space-y-6 mb-12">
-                        {{ destinasi.deskripsi|linebreaks }}
+                        {{ destination.description|linebreaks }}
                     </div>
 
                     <!-- Details Details (Static/Placeholder per design) -->
                     <div class="border-t border-gray-200 pt-8 mt-auto">
                         <div class="grid grid-cols-[100px_1fr] gap-y-2 font-roboto text-sm text-black">
-                            {{ destinasi.info_tambahan }}
+                            {{ destination.additional_info }}
                         </div>
                     </div>
                 </div>
@@ -82,40 +87,20 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 h-48 md:h-64">
                 
                 <!-- Slot 1 -->
-                <div class="w-full h-full bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
-                    {% if destinasi.foto_lainnya_1 %}
-                    <img src="{{ destinasi.foto_lainnya_1.url }}" class="w-full h-full object-cover hover:scale-105 transition duration-500 cursor-pointer">
-                    {% else %}
-                    <span class="material-icons text-gray-300 text-4xl">photo_camera</span>
+                {% for gallery_item in destination.images.all %}
+                <div class="w-full h-full bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center group relative">
+                    <img src="{{ gallery_item.image.url }}" alt="{{ gallery_item.caption|default:destination.name }}" class="w-full h-full object-cover transform duration-500 group-hover:scale-110 cursor-pointer">
+                    {% if gallery_item.caption %}
+                    <div class="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs p-2 translate-y-full group-hover:translate-y-0 transition duration-300">
+                        {{ gallery_item.caption }}
+                    </div>
                     {% endif %}
                 </div>
-
-                <!-- Slot 2 -->
-                <div class="w-full h-full bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
-                    {% if destinasi.foto_lainnya_2 %}
-                    <img src="{{ destinasi.foto_lainnya_2.url }}" class="w-full h-full object-cover hover:scale-105 transition duration-500 cursor-pointer">
-                    {% else %}
-                    <span class="material-icons text-gray-300 text-4xl">photo_camera</span>
-                    {% endif %}
+                {% empty %}
+                <div class="col-span-full h-full flex items-center justify-center bg-gray-100 rounded-sm text-gray-400">
+                    <span class="font-roboto italic">No gallery images available</span>
                 </div>
-
-                <!-- Slot 3 -->
-                <div class="w-full h-full bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
-                    {% if destinasi.foto_lainnya_3 %}
-                    <img src="{{ destinasi.foto_lainnya_3.url }}" class="w-full h-full object-cover hover:scale-105 transition duration-500 cursor-pointer">
-                    {% else %}
-                    <span class="material-icons text-gray-300 text-4xl">photo_camera</span>
-                    {% endif %}
-                </div>
-
-                <!-- Slot 4 -->
-                <div class="w-full h-full bg-gray-200 rounded-sm overflow-hidden flex items-center justify-center">
-                    {% if destinasi.foto_lainnya_4 %}
-                    <img src="{{ destinasi.foto_lainnya_4.url }}" class="w-full h-full object-cover hover:scale-105 transition duration-500 cursor-pointer">
-                    {% else %}
-                    <span class="material-icons text-gray-300 text-4xl">photo_camera</span>
-                    {% endif %}
-                </div>
+                {% endfor %}
 
             </div>
         </div>

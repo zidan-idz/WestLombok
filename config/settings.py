@@ -39,7 +39,7 @@ ALLOWED_HOSTS = [host.strip() for host in _allowed_hosts.split(',') if host.stri
 
 # Tambahkan localhost untuk development jika DEBUG=True
 if DEBUG:
-    ALLOWED_HOSTS.extend(['localhost', '127.0.0.1', '[::1]'])
+    ALLOWED_HOSTS.extend(['localhost', '127.0.0.1', '[::1]', '*'])
 
 
 # Application definition
@@ -69,6 +69,7 @@ INTERNAL_IPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # <--- Added for static files
     'django_browser_reload.middleware.BrowserReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -131,9 +132,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'id'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Makassar'
 
 USE_I18N = True
 
@@ -160,6 +161,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Whitenoise Configuration
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # Unfold Admin Settings
 UNFOLD = {
     "SITE_TITLE": "West Lombok Admin",
@@ -192,12 +197,17 @@ UNFOLD = {
                     {
                         "title": "Destinations",
                         "icon": "place",
-                        "link": "/admin/core/destinasi/",
+                        "link": "/admin/core/destination/",
                     },
                     {
                         "title": "Categories",
                         "icon": "category",
-                        "link": "/admin/core/kategori/",
+                        "link": "/admin/core/category/",
+                    },
+                    {
+                        "title": "Districts",
+                        "icon": "map", 
+                        "link": "/admin/core/district/",
                     },
                 ],
             },

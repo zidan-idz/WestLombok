@@ -1,16 +1,16 @@
 from django import template
-from apps.core.models import Destinasi, Kategori
+from apps.core.models import Destination, Category
 from django.contrib.auth.models import User
 
 register = template.Library()
 
 @register.simple_tag
-def get_destinasi_count():
-    return Destinasi.objects.count()
+def get_destination_count():
+    return Destination.objects.count()
 
 @register.simple_tag
-def get_kategori_count():
-    return Kategori.objects.count()
+def get_category_count():
+    return Category.objects.count()
 
 @register.simple_tag
 def get_user_count():
@@ -21,16 +21,16 @@ from django.utils.safestring import mark_safe
 
 @register.simple_tag
 def get_top_destinations_json():
-    # Ambil top 5 destinasi berdasarkan views
-    top_destinasi = Destinasi.objects.order_by('-jumlah_views')[:5]
+    # Get top 5 destinations by views
+    top_destinations = Destination.objects.order_by('-view_count')[:5]
     
     data = {
-        'labels': [d.nama_destinasi for d in top_destinasi],
-        'data': [d.jumlah_views for d in top_destinasi],
+        'labels': [d.name for d in top_destinations],
+        'data': [d.view_count for d in top_destinations],
     }
     return mark_safe(json.dumps(data))
 
 @register.simple_tag
 def get_recent_destinations():
-    # Ambil 5 destinasi terbaru berdasarkan tanggal dibuat
-    return Destinasi.objects.order_by('-tanggal_dibuat')[:5]
+    # Get 5 most recent destinations by creation date
+    return Destination.objects.order_by('-created_at')[:5]

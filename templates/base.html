@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 {% include 'includes/head.html' %}
 
 <body class="font-roboto text-black overflow-x-hidden antialiased min-h-screen flex flex-col">
@@ -16,5 +17,49 @@
         {% include 'components/footer.html' %}
     </footer>
 
+    <!-- Anime.js (Global) -->
+    <script src="{% static 'js/anime.min.js' %}"></script>
+    
+    <!-- Mobile Menu Component (Moved out of navbar for better stacking context) -->
+    {% include 'components/mobile_menu.html' %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Premium Entrance Animation
+            // Staggers elements: Navbar -> Hero Text/Content -> Footer
+            
+            // 1. Navbar Fade Down
+            anime({
+                targets: 'nav',
+                translateY: [-20, 0],
+                opacity: [0, 1],
+                duration: 1200,
+                easing: 'easeOutExpo',
+                delay: 100
+            });
+
+            // 2. Main Content Fade Up (Staggered Children)
+            // We target common block level elements for a general effect
+            // or we can target the whole block.
+            // For a smoother generic effect, we animate the main container.
+            anime({
+                targets: '.flex-grow',
+                translateY: [20, 0],
+                opacity: [0, 1],
+                duration: 1000,
+                easing: 'easeOutExpo',
+                delay: 200 // Wait for navbar slightly
+            });
+            
+            // 3. Footer Fade In
+            anime({
+                targets: 'footer',
+                opacity: [0, 1],
+                duration: 1500,
+                easing: 'linear',
+                delay: 800
+            });
+        });
+    </script>
 </body>
 </html>

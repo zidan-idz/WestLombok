@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-16 md:pt-40 md:pb-24 flex items-center justify-center bg-fixed bg-cover bg-center" style="background-image: url('{% static 'img/hero.jpg' %}');">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative z-10 container mx-auto px-6 text-center text-white">
+            <h1 class="font-oswald text-4xl md:text-6xl font-bold uppercase tracking-wide mb-4">
+                {{ category.name }}
+            </h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="bg-white">
+        <!-- Intro / Description -->
+        <section class="py-20 px-6 border-b border-gray-100">
+            <div class="container mx-auto max-w-4xl text-center">
+                <span class="material-icons text-5xl text-gray-800 mb-6 block mx-auto">{{ category.icon|default:"category" }}</span>
+                <p class="font-roboto text-gray-600 text-lg md:text-xl leading-relaxed font-light">
+                    {% if category.description %}
+                        {{ category.description|linebreaksbr }}
+                    {% else %}
+                        Explore the best of {{ category.name }} in West Lombok, curated just for you.
+                    {% endif %}
+                </p>
+            </div>
+        </section>
+
+        <!-- Use container for grid alignment -->
+        <section class="py-20 bg-[#fafafa]">
+            <div class="container mx-auto px-6">
+                <div class="flex items-end justify-between mb-12">
+                    <div>
+                        <h2 class="font-oswald text-3xl md:text-4xl font-bold uppercase mb-2">Destinations</h2>
+                        <p class="text-gray-500 font-light">Places matching your interest in {{ category.name }}</p>
+                    </div>
+                    <div class="hidden md:block text-sm font-bold uppercase tracking-widest text-gray-400">
+                        {{ destination_list.count }} Result(s)
+                    </div>
+                </div>
+
+                <!-- Destinations Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {% for destination in destination_list %}
+                    <a href="{% url 'core:destination_detail' destination.slug %}" class="group block relative overflow-hidden rounded-lg shadow-sm hover:shadow-2xl transition-all duration-500 bg-white aspect-[4/5] cursor-pointer">
+                        
+                        <!-- Image Container -->
+                        <div class="h-full w-full relative overflow-hidden">
+                            <img src="{{ destination.main_image.url }}" alt="{{ destination.name }}" class="w-full h-full object-cover transition transform duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='/static/img/hero.jpg';">
+                            <!-- Gradient Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition duration-300"></div>
+                        </div>
+
+                        <!-- Content Overlay -->
+                        <div class="absolute bottom-0 left-0 w-full p-8 text-white transform translate-y-2 group-hover:translate-y-0 transition duration-500">
+                            <div class="flex items-center gap-2 mb-3 opacity-0 group-hover:opacity-100 transition duration-500 delay-100">
+                                <span class="bg-yellow-500 text-black text-[10px] font-bold uppercase px-2 py-1 tracking-widest rounded-sm">Featured</span>
+                            </div>
+                            
+                            <h3 class="font-oswald text-2xl md:text-3xl font-bold uppercase mb-2 leading-none">{{ destination.name }}</h3>
+                            
+                            <div class="flex items-center text-gray-300 text-sm font-roboto font-light">
+                                <span class="material-icons text-sm mr-1.5">place</span>
+                                {{ destination.district }}
+                            </div>
+                        </div>
+                    </a>
+                    {% empty %}
+                    <div class="col-span-full text-center py-20 bg-white rounded-lg border border-dashed border-gray-300">
+                        <span class="material-icons text-6xl text-gray-200 mb-4 block">explore_off</span>
+                        <h3 class="font-oswald text-xl uppercase text-gray-400 mb-2">No Destinations Found</h3>
+                        <p class="text-gray-400 font-light text-sm">We are still curating the best spots for this category.</p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Back to Categories -->
+                <div class="text-center mt-20">
+                    <a href="{% url 'core:category_list' %}" class="inline-block border border-black px-8 py-3 rounded-full font-oswald text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition duration-300">
+                        &larr; Back to Categories
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 bg-black z-[99999] hidden transition-opacity duration-300">
+    
+    <!-- Header Bar (Logo + Close) -->
+    <div class="absolute top-0 left-0 right-0 py-6 px-6 flex justify-between items-center z-50">
+        <span class="font-oswald font-bold text-2xl text-white tracking-widest uppercase">West Lombok</span>
+        <button id="mobile-close-btn" class="text-white focus:outline-none hover:text-gray-300 transition-colors">
+            <span class="material-icons text-3xl">close</span>
+        </button>
+    </div>
+
+    <!-- Centered Navigation -->
+    <nav class="h-full flex flex-col items-center justify-center px-8 relative z-40">
+        <ul class="space-y-6 text-center">
+            <li><a href="{% url 'base:home' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">Home</a></li>
+            <li><a href="{% url 'core:destination_list' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">Destinations</a></li>
+            <li><a href="{% url 'core:category_list' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">Categories</a></li>
+            <li><a href="{% url 'core:surprise_me' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">Surprise Me</a></li>
+            <li><a href="{% url 'base:about' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">About</a></li>
+        </ul>
+        
+        <div class="mt-12">
+            {% if user.is_authenticated and user.is_staff %}
+            <a href="/admin/" class="inline-block border-2 border-white text-white px-10 py-3 text-sm font-oswald font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-200 mobile-link">Dashboard</a>
+            {% else %}
+            <a href="/admin/" class="inline-block border-2 border-white text-white px-10 py-3 text-sm font-oswald font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-200 mobile-link">Log In</a>
+            {% endif %}
+        </div>
+    </nav>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('mobile-menu-btn'); // In navbar.html
+        const closeBtn = document.getElementById('mobile-close-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        if (!menuBtn || !closeBtn || !menu) {
+            // It's possible accessible from other pages?
+            console.warn("Mobile menu elements missing (MenuBtn: " + (menuBtn ? "OK" : "Missing") + ")");
+            return;
+        }
+
+        function openMenu() {
+            menu.classList.remove('hidden');
+            // Slight delay to allow display:block to apply before opacity transition if needed
+            // But simplified: just remove hidden.
+            menuBtn.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            menu.classList.add('hidden');
+            menuBtn.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = '';
+        }
+
+        menuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openMenu();
+        });
+
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeMenu();
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    });
+</script>

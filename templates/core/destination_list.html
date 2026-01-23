@@ -35,11 +35,11 @@
 
                     <!-- Category Dropdown -->
                     <div class="relative md:w-1/3">
-                        <select name="kategori" onchange="this.form.submit()" class="w-full appearance-none bg-white border border-gray-200 rounded-full py-4 pl-8 pr-10 text-sm font-light tracking-wide focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition shadow-sm cursor-pointer">
+                        <select name="category" onchange="this.form.submit()" class="w-full appearance-none bg-white border border-gray-200 rounded-full py-4 pl-8 pr-10 text-sm font-light tracking-wide focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition shadow-sm cursor-pointer">
                             <option value="">All Categories</option>
-                            {% for kat in kategori_list %}
-                            <option value="{{ kat.slug }}" {% if request.GET.kategori == kat.slug %}selected{% endif %}>
-                                {{ kat.nama_kategori }}
+                            {% for cat in category_list %}
+                            <option value="{{ cat.slug }}" {% if request.GET.category == cat.slug %}selected{% endif %}>
+                                {{ cat.name }}
                             </option>
                             {% endfor %}
                         </select>
@@ -57,12 +57,12 @@
 
             <!-- Destinations Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                {% for destinasi in destinasi_list %}
+                {% for destination in destination_list %}
                 <div class="group bg-white rounded-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full">
                     <!-- Image -->
                     <div class="relative h-64 overflow-hidden">
-                        {% if destinasi.foto_utama %}
-                        <img src="{{ destinasi.foto_utama.url }}" alt="{{ destinasi.nama_destinasi }}" class="w-full h-full object-cover transition transform duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='/static/img/hero.jpg';">
+                        {% if destination.main_image %}
+                        <img src="{{ destination.main_image.url }}" alt="{{ destination.name }}" class="w-full h-full object-cover transition transform duration-700 group-hover:scale-110" onerror="this.onerror=null;this.src='/static/img/hero.jpg';">
                         {% else %}
                         <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 font-oswald tracking-widest uppercase text-sm">
                             No Image
@@ -76,22 +76,22 @@
                         <div class="mb-auto">
                             <div class="flex items-center gap-2 text-cyan-700 text-xs font-bold uppercase tracking-widest mb-3">
                                 <span class="material-icons text-sm">place</span>
-                                <span>{{ destinasi.kecamatan|default:"West Lombok" }}</span>
+                                <span>{{ destination.district|default:"West Lombok" }}</span>
                             </div>
                             <h3 class="font-oswald text-2xl font-bold uppercase mb-4 leading-tight group-hover:text-cyan-700 transition duration-300">
-                                <a href="{% url 'core:destinasi_detail' destinasi.slug %}">{{ destinasi.nama_destinasi }}</a>
+                                <a href="{% url 'core:destination_detail' destination.slug %}">{{ destination.name }}</a>
                             </h3>
                             <p class="text-gray-600 font-light text-sm line-clamp-3 leading-relaxed mb-6">
-                                {{ destinasi.deskripsi }}
+                                {{ destination.description }}
                             </p>
                         </div>
                         
                         <div class="pt-6 border-t border-gray-100 mt-auto flex items-center justify-between">
-                            <a href="{% url 'core:destinasi_detail' destinasi.slug %}" class="font-oswald text-sm font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-cyan-700 hover:border-cyan-700 transition duration-300">
+                            <a href="{% url 'core:destination_detail' destination.slug %}" class="font-oswald text-sm font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:text-cyan-700 hover:border-cyan-700 transition duration-300">
                                 Discover
                             </a>
                             <span class="text-gray-400 text-xs font-light flex items-center gap-1">
-                                <span class="material-icons text-xs">visibility</span> {{ destinasi.jumlah_views|default:"0" }}
+                                <span class="material-icons text-xs">visibility</span> {{ destination.view_count|default:"0" }}
                             </span>
                         </div>
                     </div>

@@ -1,22 +1,31 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from unfold.admin import ModelAdmin
-from .models import Kategori, Destinasi
+from unfold.admin import ModelAdmin, TabularInline
+from .models import Category, Destination, District, DestinationGallery
 
-@admin.register(Kategori)
-class KategoriAdmin(ModelAdmin):
+@admin.register(District)
+class DistrictAdmin(ModelAdmin):
+    list_display = ('name', 'slug')
+    search_fields = ('name',)
+
+class DestinationGalleryInline(TabularInline):
+    model = DestinationGallery
+    extra = 1
+    fields = ('image', 'caption')
+
+@admin.register(Category)
+class CategoryAdmin(ModelAdmin):
     """
-    Konfigurasi Admin untuk model Kategori menggunakan Unfold.
+    Admin configuration for Category model using Unfold.
     """
-    list_display = ('nama_kategori', 'slug', 'icon_preview')
-    # prepopulated_fields = {'slug': ('nama_kategori',)} # Disable manual slug
-    exclude = ['slug'] # Hide slug
+    list_display = ('name', 'slug', 'icon_preview')
+    exclude = ['slug']  # Hide slug (auto-generated)
     list_per_page = 20
-    search_fields = ('nama_kategori',)
-    list_filter_submit = True  # Tampilkan tombol submit filter
+    search_fields = ('name',)
+    list_filter_submit = True
 
     def formfield_for_dbfield(self, db_field, **kwargs):
-        # Helper link Google Icons
+        # Helper link for Google Icons
         if db_field.name == 'icon':
             kwargs['help_text'] = format_html(
                 'Pick an icon name from <a href="https://fonts.google.com/icons" target="_blank" class="text-blue-600 hover:text-blue-800 underline">Google Material Icons</a> (e.g. <code>hiking</code>, <code>restaurant</code>, <code>waves</code>) and paste it here.'
@@ -37,76 +46,71 @@ class KategoriAdmin(ModelAdmin):
         return "-"
     icon_preview.short_description = "Icon"
 
-    def destinasi_count_badge(self, obj):
-        # Menampilkan badge jumlah detinasi
-        count = obj.destinasi.count()
+    def destination_count_badge(self, obj):
+        # Display badge with destination count
+        count = obj.destinations.count()
         color = "green" if count > 0 else "gray"
         return format_html(
             '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-{}-100 text-{}-800">{} Destinations</span>',
             color, color, count
         )
-    destinasi_count_badge.short_description = "Total Destinations"
+    destination_count_badge.short_description = "Total Destinations"
 
-@admin.register(Destinasi)
-class DestinasiAdmin(ModelAdmin):
+
+@admin.register(Destination)
+class DestinationAdmin(ModelAdmin):
     """
-    Konfigurasi Admin untuk model Destinasi dengan fitur preview gambar & badge.
+    Admin configuration for Destination model with image preview & badge features.
     """
-    list_display = ('image_preview', 'nama_destinasi', 'kategori_badge', 'kecamatan', 'jumlah_views', 'tanggal_dibuat')
-    # prepopulated_fields = {'slug': ('nama_destinasi',)} # Disable manual slug
+    list_display = ('image_preview', 'name', 'category_badge', 'district', 'view_count', 'created_at')
     list_per_page = 15
-    search_fields = ('nama_destinasi', 'kecamatan', 'pengelola__username')
+    search_fields = ('name', 'district__name', 'manager__username')
+    list_filter = ('district', 'category')
     list_filter_submit = True
-    exclude = ['pengelola', 'slug'] # Hide slug & pengelola
-    readonly_fields = ['jumlah_views', 'tanggal_dibuat']
+    exclude = ['manager', 'slug']
+    readonly_fields = ['view_count', 'created_at']
     
-    # Atur urutan field di form edit
+    # Inline Gallery
+    inlines = [DestinationGalleryInline]
+
+    # Set field order in edit form
     fields = [
-        'nama_destinasi',
-        'deskripsi',
-        'kecamatan',
-        'kategori',  # Pindahkan ke sini (di bawah kecamatan)
-        'lokasi_maps',
-        'foto_utama',
-        'foto_lainnya_1',
-        'foto_lainnya_2',
-        'foto_lainnya_3',
-        'foto_lainnya_4',
-        'jumlah_views', # Tampilkan tapi readonly
-        'tanggal_dibuat'
+        'name',
+        'description',
+        'district', # Now FK
+        'category',
+        'maps_embed_url',
+        'main_image',
+        'view_count',
+        'created_at'
     ]
 
     def save_model(self, request, obj, form, change):
-        # Auto-assign pengelola jika belum ada
-        if not obj.pengelola:
-            obj.pengelola = request.user
+        if not obj.manager:
+            obj.manager = request.user
         super().save_model(request, obj, form, change)
 
     def formfield_for_dbfield(self, db_field, **kwargs):
-        # Helper link Google Maps
-        if db_field.name == 'lokasi_maps':
+        if db_field.name == 'maps_embed_url':
             kwargs['help_text'] = format_html(
                 'Go to Google Maps -> Share -> <strong>Embed a map</strong> -> Copy HTML. Paste the full <code>&lt;iframe...&gt;</code> code here. We will extract the link automatically.'
             )
         return super().formfield_for_dbfield(db_field, **kwargs)
     
-    # Fungsi Preview Gambar
     def image_preview(self, obj):
-        if obj.foto_utama:
+        if obj.main_image:
             return format_html(
                 '<img src="{}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;" />',
-                obj.foto_utama.url
+                obj.main_image.url
             )
         return "-"
     image_preview.short_description = "Photo"
 
-    # Badge Warna untuk Kategori
-    def kategori_badge(self, obj):
-        if obj.kategori:
+    def category_badge(self, obj):
+        if obj.category:
             return format_html(
                 '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">{}</span>',
-                obj.kategori.nama_kategori
+                obj.category.name
             )
         return "-"
-    kategori_badge.short_description = "Category"
-
+    category_badge.short_description = "Category"
