@@ -87,7 +87,7 @@ class Destination(models.Model):
         verbose_name="District"
     )
 
-    maps_embed_url = models.CharField(max_length=300, verbose_name="Google Maps URL")
+    maps_embed_url = models.CharField(max_length=300, blank=True, default='', verbose_name="Google Maps URL")
     additional_info = models.TextField(blank=True, null=True, verbose_name="Additional Info")
     
     # Photo assets

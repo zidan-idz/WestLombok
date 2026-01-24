@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from apps.core.models import Destination, Category
+from apps.core.models import Destination, Category, District
+from django.db.models import Sum
 from typing import Any
 
 
@@ -19,6 +20,10 @@ class HomeView(TemplateView):
         context['popular_destinations'] = Destination.objects.order_by('-view_count')[:3]
         # Query all categories for navigation/widget
         context['category_list'] = Category.objects.all()
+        # Stats for homepage
+        context['destination_count'] = Destination.objects.count()
+        context['district_count'] = District.objects.count()
+        context['total_views'] = Destination.objects.aggregate(Sum('view_count'))['view_count__sum'] or 0
         return context
 
 

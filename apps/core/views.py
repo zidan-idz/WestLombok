@@ -109,7 +109,8 @@ class CategoryDetailView(ListView):
             raise Http404("Category not found")
         
         # Get 3 random destinations from this category
-        return Destination.objects.filter(category=self.category).order_by('?')[:3]
+        # Show all destinations in this category, ordered by newest
+        return Destination.objects.filter(category=self.category).order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -123,8 +124,8 @@ def surprise_me(request):
     """
     'Surprise Me' feature, displays random destinations for inspiration.
     """
-    # Get specific fields for efficiency
-    destination_list = list(Destination.objects.all().values('name', 'district', 'main_image', 'slug'))
-    # Shuffle the list
+    # Reverted to original logic: Fetch all and shuffle
+    # This ensures clients have full dataset for animation
+    destination_list = list(Destination.objects.all().values('name', 'district__name', 'main_image', 'slug'))
     random.shuffle(destination_list)
     return render(request, 'core/surprise.html', {'destination_list': destination_list})

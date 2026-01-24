@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}{{ district.name }} District - West Lombok{% endblock %}
+{% block meta_description %}{{ district.description|truncatewords:25|default:"Explore the beauty of West Lombok districts." }}{% endblock %}
+
 {% block content %}
     <!-- Hero Section -->
     <header class="relative pt-32 pb-16 md:pt-40 md:pb-24 flex items-center justify-center bg-fixed bg-cover bg-center" style="background-image: url('{% if district.thumbnail %}{{ district.thumbnail.url }}{% else %}{% static 'img/hero.jpg' %}{% endif %}');">
@@ -17,15 +20,17 @@
     <div class="bg-white">
         <!-- Intro / Description -->
         <section class="py-20 px-6 border-b border-gray-100">
-            <div class="container mx-auto max-w-4xl text-center">
-                <span class="material-icons text-5xl text-gray-800 mb-6 block mx-auto">map</span>
-                <p class="font-roboto text-gray-600 text-lg md:text-xl leading-relaxed font-light">
+            <div class="container mx-auto max-w-6xl">
+                <div class="flex justify-center mb-8">
+                    <span class="material-icons text-5xl text-gray-800">map</span>
+                </div>
+                <div class="font-roboto text-gray-600 text-lg leading-relaxed font-light text-justify">
                     {% if district.description %}
-                        {{ district.description|linebreaksbr }}
+                        {{ district.description|linebreaks }}
                     {% else %}
-                        Discover the hidden gems of {{ district.name }}, West Lombok.
+                        <p class="text-center">Discover the hidden gems of {{ district.name }}, West Lombok.</p>
                     {% endif %}
-                </p>
+                </div>
             </div>
         </section>
 

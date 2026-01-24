@@ -54,15 +54,15 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-3 text-center divide-x divide-transparent">
                 <div>
-                    <h3 class="font-oswald text-4xl md:text-5xl font-bold mb-1">100+</h3>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold mb-1">{{ destination_count }}</h3>
                     <p class="font-oswald text-sm md:text-lg font-medium tracking-widest uppercase">Places</p>
                 </div>
                 <div>
-                    <h3 class="font-oswald text-4xl md:text-5xl font-bold mb-1">20+</h3>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold mb-1">{{ district_count }}</h3>
                     <p class="font-oswald text-sm md:text-lg font-medium tracking-widest uppercase">Districts</p>
                 </div>
                 <div>
-                    <h3 class="font-oswald text-4xl md:text-5xl font-bold mb-1">100K+</h3>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold mb-1">{{ total_views }}</h3>
                     <p class="font-oswald text-sm md:text-lg font-medium tracking-widest uppercase">Visitors</p>
                 </div>
             </div>
@@ -110,7 +110,7 @@
             <h2 class="font-oswald text-4xl font-bold uppercase mb-3">Discover Your Pace</h2>
             <p class="text-gray-600 mb-10 font-light">Find experiences that match your travel personality, adventurous, relaxed, or cultural.</p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
                 {% for category in category_list %}
                 <a href="{% url 'core:category_detail' category.slug %}" class="bg-white rounded-lg p-6 text-center shadow hover:shadow-lg transition group border border-gray-100">
                     <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-black transition duration-300">
