@@ -1,7 +1,5 @@
-"""
-Konfigurasi URL utama untuk proyek.
-Mengatur routing ke admin, apps base, core, dan media files.
-"""
+# Konfigurasi URL utama untuk proyek.
+# Mengatur routing ke admin, apps base, core, dan media files.
 from django.contrib import admin
 from django.urls import path, include
 # Tambahan import untuk media

@@ -69,7 +69,7 @@ INTERNAL_IPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # <--- Added for static files
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # <--- Ditambahkan untuk file statis
     'django_browser_reload.middleware.BrowserReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -162,17 +162,17 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Whitenoise Configuration
+# Konfigurasi Whitenoise
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# Unfold Admin Settings
+# Pengaturan Admin Unfold
 UNFOLD = {
     "SITE_TITLE": "West Lombok Admin",
     "SITE_HEADER": "West Lombok",
     "SITE_URL": "/",
     "SIDEBAR": {
         "show_search": True,
-        "show_all_applications": False,  # <--- Hides the default "Core", "Auth" sections
+        "show_all_applications": False,  # <--- Sembunyikan bagian default "Core", "Auth"
         "navigation": [
             {
                 "title": "Main",
@@ -181,7 +181,7 @@ UNFOLD = {
                     {
                         "title": "Dashboard",
                         "icon": "dashboard",
-                        "link": "/admin/", # dashboard link
+                        "link": "/admin/", # Link dashboard
                     },
                     {
                         "title": "View Site",
@@ -220,7 +220,7 @@ UNFOLD = {
                         "icon": "people",
                         "link": "/admin/auth/user/",
                     },
-                    # We intentionally omit "Groups" here to hide it
+                    # "Groups" sengaja tidak ditampilkan
                 ],
             },
         ],

@@ -20,13 +20,13 @@
     <!-- Anime.js (Global) -->
     <script src="{% static 'js/anime.min.js' %}"></script>
     
-    <!-- Mobile Menu Component (Moved out of navbar for better stacking context) -->
+    <!-- Komponen Menu Mobile (Dipindah dari navbar agar stacking context lebih baik) -->
     {% include 'components/mobile_menu.html' %}
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Premium Entrance Animation
-            // Staggers elements: Navbar -> Hero Text/Content -> Footer
+            // Animasi Masuk Premium
+            // Stagger elemen: Navbar -> Hero Text/Content -> Footer
             
             // 1. Navbar Fade Down
             anime({
@@ -38,17 +38,16 @@
                 delay: 100
             });
 
-            // 2. Main Content Fade Up (Staggered Children)
-            // We target common block level elements for a general effect
-            // or we can target the whole block.
-            // For a smoother generic effect, we animate the main container.
+            // 2. Konten Utama Fade Up (Staggered Children)
+            // Target elemen blok umum untuk efek general
+            // Agar lebih smooth, kita animasikan main container.
             anime({
                 targets: '.flex-grow',
                 translateY: [20, 0],
                 opacity: [0, 1],
                 duration: 1000,
                 easing: 'easeOutExpo',
-                delay: 200 // Wait for navbar slightly
+                delay: 200 // Tunggu navbar sebentar
             });
             
             // 3. Footer Fade In

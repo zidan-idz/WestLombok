@@ -15,20 +15,18 @@ class DestinationGalleryInline(TabularInline):
 
 @admin.register(Category)
 class CategoryAdmin(ModelAdmin):
-    """
-    Admin configuration for Category model using Unfold.
-    """
+    # Konfigurasi Admin untuk model Kategori dengan Unfold.
     list_display = ('name', 'slug', 'icon_preview')
-    exclude = ['slug']  # Hide slug (auto-generated)
+    exclude = ['slug']  # Sembunyikan slug (otomatis)
     list_per_page = 20
     search_fields = ('name',)
     list_filter_submit = True
 
     def formfield_for_dbfield(self, db_field, **kwargs):
-        # Helper link for Google Icons
+        # Link bantuan untuk Google Icons
         if db_field.name == 'icon':
             kwargs['help_text'] = format_html(
-                'Pick an icon name from <a href="https://fonts.google.com/icons" target="_blank" class="text-blue-600 hover:text-blue-800 underline">Google Material Icons</a> (e.g. <code>hiking</code>, <code>restaurant</code>, <code>waves</code>) and paste it here.'
+                'Pilih nama ikon dari <a href="https://fonts.google.com/icons" target="_blank" class="text-blue-600 hover:text-blue-800 underline">Google Material Icons</a> (cth: <code>hiking</code>, <code>restaurant</code>, <code>waves</code>) dan tempel di sini.'
             )
         return super().formfield_for_dbfield(db_field, **kwargs)
 
@@ -47,7 +45,7 @@ class CategoryAdmin(ModelAdmin):
     icon_preview.short_description = "Icon"
 
     def destination_count_badge(self, obj):
-        # Display badge with destination count
+        # Tampilkan badge jumlah destinasi
         count = obj.destinations.count()
         color = "green" if count > 0 else "gray"
         return format_html(
@@ -59,9 +57,7 @@ class CategoryAdmin(ModelAdmin):
 
 @admin.register(Destination)
 class DestinationAdmin(ModelAdmin):
-    """
-    Admin configuration for Destination model with image preview & badge features.
-    """
+    # Konfigurasi Admin Destinasi dengan preview gambar & badge.
     list_display = ('image_preview', 'name', 'category_badge', 'district', 'view_count', 'created_at')
     list_per_page = 15
     search_fields = ('name', 'district__name', 'manager__username')
@@ -77,7 +73,7 @@ class DestinationAdmin(ModelAdmin):
     fields = [
         'name',
         'description',
-        'district', # Now FK
+        'district', # FK ke Model District
         'category',
         'maps_embed_url',
         'main_image',
@@ -93,7 +89,7 @@ class DestinationAdmin(ModelAdmin):
     def formfield_for_dbfield(self, db_field, **kwargs):
         if db_field.name == 'maps_embed_url':
             kwargs['help_text'] = format_html(
-                'Go to Google Maps -> Share -> <strong>Embed a map</strong> -> Copy HTML. Paste the full <code>&lt;iframe...&gt;</code> code here. We will extract the link automatically.'
+                'Buka Google Maps -> Bagikan -> <strong>Sematkan peta</strong> -> Salin HTML. Tempel kode <code>&lt;iframe...&gt;</code> lengkap di sini. Kami akan ekstrak link-nya otomatis.'
             )
         return super().formfield_for_dbfield(db_field, **kwargs)
     

@@ -4,21 +4,21 @@ from . import views
 app_name = 'core'
 
 urlpatterns = [
-    # Destination List & Search
+    # Daftar Destinasi & Pencarian
     path('destinations/', views.DestinationListView.as_view(), name='destination_list'),
     
-    # Destination Detail
+    # Detail Destinasi
     path('destinations/<slug:slug>/', views.DestinationDetailView.as_view(), name='destination_detail'),
 
-    # District Detail
+    # Detail Kecamatan
     path('districts/<slug:slug>/', views.DistrictDetailView.as_view(), name='district_detail'),
     
-    # Category List
+    # Daftar Kategori
     path('categories/', views.CategoryListView.as_view(), name='category_list'),
     
-    # Category Detail
+    # Detail Kategori
     path('categories/<slug:slug>/', views.CategoryDetailView.as_view(), name='category_detail'),
 
-    # Additional Features
+    # Fitur Tambahan
     path('surprise/', views.surprise_me, name='surprise_me'),
 ]

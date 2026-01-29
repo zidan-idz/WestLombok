@@ -10,10 +10,8 @@ import random
 # --- List Views ---
 
 class DestinationListView(ListView):
-    """
-    View to display list of all tourism destinations.
-    Supports pagination and simple search.
-    """
+    # Menampilkan daftar seluruh destinasi wisata.
+    # Mendukung paginasi dan pencarian sederhana.
     model = Destination
     template_name = "core/destination_list.html"
     context_object_name = "destination_list"
@@ -21,10 +19,10 @@ class DestinationListView(ListView):
     ordering = ['-created_at']
 
     def get_queryset(self):
-        # Override query for search & category filter features
+        # Override query untuk fitur cari & filter kategori
         queryset = super().get_queryset()
         
-        # Text Search Filter
+        # Filter Pencarian Teks
         query = self.request.GET.get('q')
         if query:
             queryset = queryset.filter(
@@ -33,7 +31,7 @@ class DestinationListView(ListView):
                 Q(district__name__icontains=query)
             )
             
-        # Category Dropdown Filter
+        # Filter Dropdown Kategori
         category_slug = self.request.GET.get('category')
         if category_slug:
             queryset = queryset.filter(category__slug=category_slug)
@@ -41,16 +39,14 @@ class DestinationListView(ListView):
         return queryset
 
     def get_context_data(self, **kwargs):
-        # Add category list for filter dropdown
+        # Data kategori untuk dropdown filter
         context = super().get_context_data(**kwargs)
         context['category_list'] = Category.objects.all()
         return context
 
 
 class CategoryListView(ListView):
-    """
-    View to display list of destination categories.
-    """
+    # Menampilkan daftar kategori wisata.
     model = Category
     template_name = 'core/category_list.html'
     context_object_name = 'category_list'
@@ -59,18 +55,16 @@ class CategoryListView(ListView):
 # --- Detail Views ---
 
 class DestinationDetailView(DetailView):
-    """
-    View to display full details of a destination.
-    """
+    # Menampilkan detail lengkap destinasi.
     model = Destination
     template_name = "core/destination_detail.html"
     context_object_name = "destination"
     slug_url_kwarg = "slug"
 
     def get_object(self):
-        # Override get_object to increment view counter atomically
+        # Override get_object untuk tambah counter views secara atomik
         obj = super().get_object()
-        # Atomic update for better performance
+        # Update atomik untuk performa lebih baik
         Destination.objects.filter(pk=obj.pk).update(
             view_count=F('view_count') + 1
         )
@@ -78,9 +72,7 @@ class DestinationDetailView(DetailView):
         return obj
 
 class DistrictDetailView(DetailView):
-    """
-    View to display details of a District and its destinations.
-    """
+    # Menampilkan detail Kecamatan dan destinasinya.
     model = District
     template_name = "core/district_detail.html"
     context_object_name = "district"
@@ -88,28 +80,24 @@ class DistrictDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Get all destinations in this district
+        # Ambil semua destinasi dalam kecamatan ini
         context['destination_list'] = self.object.destinations.all()
         return context
 
 class CategoryDetailView(ListView):
-    """
-    View to display destinations in a specific category.
-    Shows 3 random destinations from the selected category.
-    """
+    # Menampilkan destinasi dalam kategori spesifik.
     model = Destination
     template_name = 'core/category_detail.html'
     context_object_name = 'destination_list'
 
     def get_queryset(self):
-        # Error handling for category not found
+        # Error handling jika kategori tidak ditemukan
         try:
             self.category = Category.objects.get(slug=self.kwargs['slug'])
         except Category.DoesNotExist:
             raise Http404("Category not found")
         
-        # Get 3 random destinations from this category
-        # Show all destinations in this category, ordered by newest
+        # Ambil destinasi dari kategori ini, urut dari yang terbaru
         return Destination.objects.filter(category=self.category).order_by('-created_at')
 
     def get_context_data(self, **kwargs):
@@ -121,11 +109,9 @@ class CategoryDetailView(ListView):
 # --- Feature Views ---
 
 def surprise_me(request):
-    """
-    'Surprise Me' feature, displays random destinations for inspiration.
-    """
-    # Reverted to original logic: Fetch all and shuffle
-    # This ensures clients have full dataset for animation
+    # Fitur 'Surprise Me', menampilkan destinasi acak untuk inspirasi.
+    # Logika: Ambil semua data lalu acak
+    # Memastikan klien mendapatkan dataset penuh untuk animasi
     destination_list = list(Destination.objects.all().values('name', 'district__name', 'main_image', 'slug'))
     random.shuffle(destination_list)
     return render(request, 'core/surprise.html', {'destination_list': destination_list})

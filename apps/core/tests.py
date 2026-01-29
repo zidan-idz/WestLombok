@@ -1,28 +1,25 @@
-"""
-Unit tests for the core application
-
-Tests cover:
-- Category model: validation, slug generation, icon formatting
-- Destination model: validation, slug generation, relationships
-- Views: List views, Detail views, response codes
-- URL routing: ensuring all URL patterns work
-"""
+# Unit tests untuk aplikasi core
+# Tests mencakup:
+# - Model Category: validasi, slug, format ikon
+# - Model Destination: validasi, slug, relasi
+# - Views: List views, Detail views, kode respons
+# - URL routing: memastikan semua pola URL berfungsi
 
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.files.uploadedfile import SimpleUploadedFile
-from .models import Category, Destination
+from .models import Category, Destination, District
 import tempfile
 from PIL import Image
 import io
 
 
 class CategoryModelTest(TestCase):
-    """Test cases for Category model."""
+    # Test cases untuk model Category.
     
     def setUp(self):
-        """Setup data for each test."""
+        # Setup data untuk setiap test.
         self.category = Category.objects.create(
             name="Beach",
             description="Beautiful beach destinations",
@@ -30,21 +27,21 @@ class CategoryModelTest(TestCase):
         )
     
     def test_category_creation(self):
-        """Test category creation is successful."""
+        # Test pembuatan kategori berhasil.
         self.assertEqual(self.category.name, "Beach")
         self.assertEqual(self.category.description, "Beautiful beach destinations")
         self.assertIsNotNone(self.category.pk)
     
     def test_category_str_representation(self):
-        """Test string representation of model."""
+        # Test representasi string model.
         self.assertEqual(str(self.category), "Beach")
     
     def test_slug_auto_generated(self):
-        """Test slug is automatically generated from category name."""
+        # Test slug dibuat otomatis dari nama kategori.
         self.assertEqual(self.category.slug, "beach")
     
     def test_slug_unique_on_duplicate_name(self):
-        """Test slug is unique when there are duplicate names."""
+        # Test slug unik saat ada nama duplikat.
         category2 = Category.objects.create(
             name="Beach",
             description="Another beach category"
@@ -54,7 +51,7 @@ class CategoryModelTest(TestCase):
         self.assertTrue(category2.slug.startswith("beach-"))
     
     def test_icon_format_lowercase(self):
-        """Test icon is formatted to lowercase with underscore."""
+        # Test icon diformat jadi huruf kecil dengan underscore.
         category = Category.objects.create(
             name="Test Icon",
             icon="Beach Access"
@@ -62,7 +59,7 @@ class CategoryModelTest(TestCase):
         self.assertEqual(category.icon, "beach_access")
     
     def test_icon_format_hyphen_to_underscore(self):
-        """Test hyphen in icon is changed to underscore."""
+        # Test tanda hubung di icon diubah jadi underscore.
         category = Category.objects.create(
             name="Test Hyphen",
             icon="beach-access"
@@ -71,16 +68,17 @@ class CategoryModelTest(TestCase):
 
 
 class DestinationModelTest(TestCase):
-    """Test cases for Destination model."""
+    # Test cases untuk model Destination.
     
     @classmethod
     def setUpTestData(cls):
-        """Setup data used in all test methods."""
+        # Setup data yang digunakan di semua method test.
         # Create category for relationship
         cls.category = Category.objects.create(
             name="Beach",
             icon="waves"
         )
+        cls.district = District.objects.create(name="Batu Layar")
         # Create user for manager
         cls.user = User.objects.create_user(
             username='admin',
@@ -88,7 +86,7 @@ class DestinationModelTest(TestCase):
         )
     
     def create_test_image(self):
-        """Helper to create test image."""
+        # Helper untuk membuat image test.
         # Create simple image for testing
         image = Image.new('RGB', (100, 100), color='blue')
         image_io = io.BytesIO()
@@ -101,65 +99,65 @@ class DestinationModelTest(TestCase):
         )
     
     def test_destination_creation(self):
-        """Test destination creation is successful."""
+        # Test pembuatan destinasi berhasil.
         destination = Destination.objects.create(
             name="Senggigi Beach",
             description="The most beautiful beach in West Lombok",
-            district="Batu Layar",
+            district=self.district,
             maps_embed_url="https://maps.google.com/test",
             category=self.category,
             main_image=self.create_test_image()
         )
         self.assertEqual(destination.name, "Senggigi Beach")
-        self.assertEqual(destination.district, "Batu Layar")
+        self.assertEqual(destination.district, self.district)
         self.assertIsNotNone(destination.pk)
     
     def test_destination_str_representation(self):
-        """Test string representation of model."""
+        # Test representasi string model.
         destination = Destination.objects.create(
             name="Gili Nanggu",
             description="A beautiful small island",
-            district="Sekotong",
+            district=self.district,
             maps_embed_url="https://maps.google.com/test",
             main_image=self.create_test_image()
         )
         self.assertEqual(str(destination), "Gili Nanggu")
     
     def test_slug_auto_generated(self):
-        """Test slug is automatically generated from destination name."""
+        # Test slug dibuat otomatis dari nama destinasi.
         destination = Destination.objects.create(
             name="Narmada Park",
             description="Historical park",
-            district="Narmada",
+            district=self.district,
             maps_embed_url="https://maps.google.com/test",
             main_image=self.create_test_image()
         )
         self.assertEqual(destination.slug, "narmada-park")
     
     def test_slug_unique_on_duplicate(self):
-        """Test slug is unique when there are duplicate names."""
+        # Test slug unik saat ada nama duplikat.
         destination1 = Destination.objects.create(
             name="Beautiful Beach",
             description="Description 1",
-            district="Sekotong",
+            district=self.district,
             maps_embed_url="https://maps.google.com/test1",
             main_image=self.create_test_image()
         )
         destination2 = Destination.objects.create(
             name="Beautiful Beach",
             description="Description 2",
-            district="Lembar",
+            district=self.district,
             maps_embed_url="https://maps.google.com/test2",
             main_image=self.create_test_image()
         )
         self.assertNotEqual(destination1.slug, destination2.slug)
     
     def test_category_relationship(self):
-        """Test relationship to category works."""
+        # Test relasi ke kategori berfungsi.
         destination = Destination.objects.create(
             name="Test Relationship",
             description="Test description",
-            district="Gerung",
+            district=self.district,
             maps_embed_url="https://maps.google.com/test",
             category=self.category,
             main_image=self.create_test_image()
@@ -168,11 +166,11 @@ class DestinationModelTest(TestCase):
         self.assertIn(destination, self.category.destinations.all())
     
     def test_manager_relationship(self):
-        """Test relationship to user (manager) works."""
+        # Test relasi ke user (manager) berfungsi.
         destination = Destination.objects.create(
             name="Test Manager",
             description="Test description",
-            district="Kediri",
+            district=self.district,
             maps_embed_url="https://maps.google.com/test",
             manager=self.user,
             main_image=self.create_test_image()
@@ -180,43 +178,30 @@ class DestinationModelTest(TestCase):
         self.assertEqual(destination.manager.username, "admin")
     
     def test_view_count_default_zero(self):
-        """Test view_count default is 0."""
+        # Test default view_count adalah 0.
         destination = Destination.objects.create(
             name="Test Views",
             description="Test description",
-            district="Lingsar",
+            district=self.district,
             maps_embed_url="https://maps.google.com/test",
             main_image=self.create_test_image()
         )
         self.assertEqual(destination.view_count, 0)
     
-    def test_district_choices(self):
-        """Test district must be from valid choices."""
-        valid_districts = [
-            'Sekotong', 'Lembar', 'Gerung', 'Labuapi', 'Kediri',
-            'Kuripan', 'Narmada', 'Lingsar', 'Gunung Sari', 'Batu Layar'
-        ]
-        for district in valid_districts:
-            destination = Destination.objects.create(
-                name=f"Test {district}",
-                description="Test",
-                district=district,
-                maps_embed_url="https://maps.google.com/test",
-                main_image=self.create_test_image()
-            )
-            self.assertEqual(destination.district, district)
+    # test_district_choices removed as District is now a dynamic model, not a fixed choice field.
 
 
 class DestinationViewTest(TestCase):
-    """Test cases for Destination views."""
+    # Test cases untuk views Destination.
     
     @classmethod
     def setUpTestData(cls):
-        """Setup data for all tests."""
+        # Setup data untuk semua test.
         cls.category = Category.objects.create(
             name="Mountain",
             icon="landscape"
         )
+        cls.district = District.objects.create(name="Kuripan")
         # Create test image
         image = Image.new('RGB', (100, 100), color='green')
         image_io = io.BytesIO()
@@ -231,48 +216,48 @@ class DestinationViewTest(TestCase):
         cls.destination = Destination.objects.create(
             name="Sasak Mountain",
             description="Mountain with beautiful view",
-            district="Kuripan",
+            district=cls.district,
             maps_embed_url="https://maps.google.com/test",
             category=cls.category,
             main_image=cls.test_image
         )
     
     def setUp(self):
-        """Setup client for each test."""
+        # Setup client untuk setiap test.
         self.client = Client()
     
     def test_destination_list_view_status_code(self):
-        """Test destination list view returns 200."""
+        # Test view list destinasi mengembalikan 200.
         response = self.client.get(reverse('core:destination_list'))
         self.assertEqual(response.status_code, 200)
     
     def test_destination_list_view_template(self):
-        """Test destination list uses correct template."""
+        # Test list destinasi menggunakan template yang benar.
         response = self.client.get(reverse('core:destination_list'))
         self.assertTemplateUsed(response, 'core/destination_list.html')
     
     def test_destination_list_view_context(self):
-        """Test destination list has correct context."""
+        # Test list destinasi memiliki context yang benar.
         response = self.client.get(reverse('core:destination_list'))
         self.assertIn('destination_list', response.context)
         self.assertIn('category_list', response.context)
     
     def test_destination_detail_view_status_code(self):
-        """Test destination detail view returns 200."""
+        # Test view detail destinasi mengembalikan 200.
         response = self.client.get(
             reverse('core:destination_detail', kwargs={'slug': self.destination.slug})
         )
         self.assertEqual(response.status_code, 200)
     
     def test_destination_detail_view_template(self):
-        """Test destination detail uses correct template."""
+        # Test detail destinasi menggunakan template yang benar.
         response = self.client.get(
             reverse('core:destination_detail', kwargs={'slug': self.destination.slug})
         )
         self.assertTemplateUsed(response, 'core/destination_detail.html')
     
     def test_destination_detail_increments_views(self):
-        """Test view counter increases when page is visited."""
+        # Test counter view bertambah saat halaman dikunjungi.
         initial_views = self.destination.view_count
         self.client.get(
             reverse('core:destination_detail', kwargs={'slug': self.destination.slug})
@@ -281,14 +266,14 @@ class DestinationViewTest(TestCase):
         self.assertEqual(self.destination.view_count, initial_views + 1)
     
     def test_destination_detail_404_for_invalid_slug(self):
-        """Test 404 for non-existent slug."""
+        # Test 404 untuk slug yang tidak ada.
         response = self.client.get(
             reverse('core:destination_detail', kwargs={'slug': 'does-not-exist'})
         )
         self.assertEqual(response.status_code, 404)
     
     def test_destination_search_filter(self):
-        """Test destination search feature."""
+        # Test fitur pencarian destinasi.
         response = self.client.get(
             reverse('core:destination_list'),
             {'q': 'Sasak'}
@@ -297,7 +282,7 @@ class DestinationViewTest(TestCase):
         self.assertContains(response, 'Sasak Mountain')
     
     def test_destination_category_filter(self):
-        """Test filter by category."""
+        # Test filter berdasarkan kategori.
         response = self.client.get(
             reverse('core:destination_list'),
             {'category': self.category.slug}
@@ -306,11 +291,11 @@ class DestinationViewTest(TestCase):
 
 
 class CategoryViewTest(TestCase):
-    """Test cases for Category views."""
+    # Test cases untuk views Category.
     
     @classmethod
     def setUpTestData(cls):
-        """Setup data for all tests."""
+        # Setup data untuk semua test.
         cls.category = Category.objects.create(
             name="Culture",
             description="Cultural and historical tourism",
@@ -318,28 +303,28 @@ class CategoryViewTest(TestCase):
         )
     
     def setUp(self):
-        """Setup client for each test."""
+        # Setup client untuk setiap test.
         self.client = Client()
     
     def test_category_list_view_status_code(self):
-        """Test category list view returns 200."""
+        # Test view list kategori mengembalikan 200.
         response = self.client.get(reverse('core:category_list'))
         self.assertEqual(response.status_code, 200)
     
     def test_category_list_view_template(self):
-        """Test category list uses correct template."""
+        # Test list kategori menggunakan template yang benar.
         response = self.client.get(reverse('core:category_list'))
         self.assertTemplateUsed(response, 'core/category_list.html')
     
     def test_category_detail_view_status_code(self):
-        """Test category detail view returns 200."""
+        # Test view detail kategori mengembalikan 200.
         response = self.client.get(
             reverse('core:category_detail', kwargs={'slug': self.category.slug})
         )
         self.assertEqual(response.status_code, 200)
     
     def test_category_detail_view_template(self):
-        """Test category detail uses correct template."""
+        # Test detail kategori menggunakan template yang benar.
         response = self.client.get(
             reverse('core:category_detail', kwargs={'slug': self.category.slug})
         )
@@ -347,80 +332,80 @@ class CategoryViewTest(TestCase):
 
 
 class BaseViewTest(TestCase):
-    """Test cases for views in apps.base."""
+    # Test cases untuk views di apps.base.
     
     def setUp(self):
         """Setup client for each test."""
         self.client = Client()
     
     def test_home_view_status_code(self):
-        """Test home view returns 200."""
+        # Test view home mengembalikan 200.
         response = self.client.get(reverse('base:home'))
         self.assertEqual(response.status_code, 200)
     
     def test_home_view_template(self):
-        """Test home uses correct template."""
+        # Test home menggunakan template yang benar.
         response = self.client.get(reverse('base:home'))
         self.assertTemplateUsed(response, 'base/home.html')
     
     def test_about_view_status_code(self):
-        """Test about view returns 200."""
+        # Test view about mengembalikan 200.
         response = self.client.get(reverse('base:about'))
         self.assertEqual(response.status_code, 200)
     
     def test_about_view_template(self):
-        """Test about uses correct template."""
+        # Test about menggunakan template yang benar.
         response = self.client.get(reverse('base:about'))
         self.assertTemplateUsed(response, 'base/about.html')
 
 
 class SurpriseMeViewTest(TestCase):
-    """Test cases for Surprise Me feature."""
+    # Test cases untuk fitur Surprise Me.
     
     def setUp(self):
         """Setup client for each test."""
         self.client = Client()
     
     def test_surprise_view_status_code(self):
-        """Test surprise view returns 200."""
+        # Test view surprise mengembalikan 200.
         response = self.client.get(reverse('core:surprise_me'))
         self.assertEqual(response.status_code, 200)
     
     def test_surprise_view_template(self):
-        """Test surprise uses correct template."""
+        # Test surprise menggunakan template yang benar.
         response = self.client.get(reverse('core:surprise_me'))
         self.assertTemplateUsed(response, 'core/surprise.html')
     
     def test_surprise_view_context(self):
-        """Test surprise view has destination_list in context."""
+        # Test view surprise memiliki destination_list di context.
         response = self.client.get(reverse('core:surprise_me'))
         self.assertIn('destination_list', response.context)
 
 
 class URLRoutingTest(TestCase):
-    """Test URL routing works correctly."""
+    # Test URL routing berfungsi dengan benar.
     
     def test_home_url_resolves(self):
-        """Test home URL is accessible."""
+        # Test URL home dapat diakses.
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
     
     def test_about_url_resolves(self):
-        """Test about URL is accessible."""
+        # Test URL about dapat diakses.
         response = self.client.get('/about/')
         self.assertEqual(response.status_code, 200)
     
     def test_destination_list_url_resolves(self):
-        """Test destination list URL is accessible."""
+        # Test URL list destinasi dapat diakses.
         response = self.client.get('/destinations/')
         self.assertEqual(response.status_code, 200)
     
     def test_category_list_url_resolves(self):
-        """Test category list URL is accessible."""
+        # Test URL list kategori dapat diakses.
         response = self.client.get('/categories/')
         self.assertEqual(response.status_code, 200)
     
     def test_surprise_url_resolves(self):
-        """Test surprise URL is accessible."""
+        # Test URL surprise dapat diakses.
         response = self.client.get('/surprise/')
         self.assertEqual(response.status_code, 200)
