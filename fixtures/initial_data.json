@@ -1,0 +1,703 @@
+[
+{
+  "model": "core.district",
+  "pk": 1,
+  "fields": {
+    "name": "Kuripan",
+    "slug": "kuripan",
+    "description": "Kuripan District is a quiet agrarian region, dominated by hills and fertile agricultural land. Far from the hustle and bustle of mass tourism, Kuripan offers the charm of 'Slow Living' typical of rural Lombok. Its main icon is Mount Sasak, a protected forest hill that serves as a green lung as well as a sports tourism destination (hiking & cycling) for locals. From the hilltops in Kuripan, we can see the West Lombok landscape entirely from a height.\n\nThe Kuripan community are mostly resilient farmers, maintaining farming traditions that have been passed down through generations. Here, you can still see buffaloes plowing fields and a strong mutual cooperation system. Kuripan also serves as an important connecting route to Lombok International Airport, with a wide By-Pass road splitting its rice fields. Kuripan is a destination for those seeking tranquility, fresh air, and eye-soothing green views.",
+    "thumbnail": ""
+  }
+},
+{
+  "model": "core.district",
+  "pk": 2,
+  "fields": {
+    "name": "Lembar",
+    "slug": "lembar",
+    "description": "Lembar District is the main maritime gateway connecting Lombok Island with the outside world. The existence of Lembar Port makes this district a logistics and sea transportation lifeline that never sleeps for 24 hours. Giant ferries passing by, the sound of ship horns, and loading and unloading activities are iconic daily sights. Lembar is a meeting place of cultures brought by newcomers and traders from various islands.\n\nHowever, Lembar is not just about concrete ports. Behind its industrial bustle, Lembar hides exotic coastal beauty. The vast mangrove forest in South Lembar becomes a green fortress that cools the air, while fishing beaches like Cemare offer a relaxed and authentic side of coastal life. The Sacred Tomb religious site on the hill adds a spiritual dimension to this district. Lembar is the face of the resilience of coastal communities living side by side with the harshness of the sea and industry.",
+    "thumbnail": ""
+  }
+},
+{
+  "model": "core.district",
+  "pk": 3,
+  "fields": {
+    "name": "Gerung",
+    "slug": "gerung",
+    "description": "As the Capital of West Lombok Regency, Gerung District is the nerve center of government and administration. However, do not imagine Gerung as just a stiff bureaucratic city. Behind magnificent government buildings, Gerung holds pockets of culture and mesmerizing local wisdom. Kebon Ayu Tourism Village is proof of how Gerung is able to innovate in developing agrotourism and traditional culinary tourism amidst modernization.\n\nGerung is a melting pot. Its strategic location in the center makes it a busy main crossing route. Yet, Gerung also has a quiet side with vast stretches of rice fields and historic suspension bridges. The people of Gerung are very heterogeneous and dynamic, reflecting the face of West Lombok which is developing towards progress without forgetting its traditional roots. It is a warm small town, busy improving itself, and always open to newcomers.",
+    "thumbnail": ""
+  }
+},
+{
+  "model": "core.district",
+  "pk": 4,
+  "fields": {
+    "name": "Kediri",
+    "slug": "kediri",
+    "description": "Kediri District is the center of the clay craft industry (pottery) as well as the center of Islamic education (city of santri) in West Lombok. The identity of this district is strongly colored by Banyumulek Village, which has gone global as the center of Sasak pottery. Here, clay is not just stepped on, but processed into art that supports thousands of families. Smoke from pottery firing billowing in the afternoon creates a distinctive silhouette in the Kediri sky, signaling the creative economy that never extinguishes.\n\nOn the other hand, Kediri is also filled with dozens of large Islamic boarding schools producing thousands of students. The religious atmosphere is very palpable here; the chanting of holy verses from the Quran is often heard echoing from mosques. Landscape-wise, Kediri is dominated by vast lowland rice fields, acting as one of the region's food buffers. Kediri is a place where art, religion, and agriculture meet in the harmony of humble Sasak society lives.",
+    "thumbnail": ""
+  }
+},
+{
+  "model": "core.district",
+  "pk": 5,
+  "fields": {
+    "name": "Gunung Sari",
+    "slug": "gunung-sari",
+    "description": "Gunung Sari District is a cultural fortress and the northern gateway of West Lombok. This region has a unique topography, ranging from densely populated lowlands to densely forested mountains in the Pusuk area. Gunung Sari is known as a center of craft creativity; this is where the best bamboo and wood carving artisans in Lombok (such as in Sesela Village) give birth to export-quality works of art. The sound of wood carving and bamboo weaving is the background music of its people's daily life.\n\nGunung Sari's nature also offers its own charm. Pusuk Forest with its wild monkey herds is a popular natural tourist attraction, while hidden waterfalls like Kekait (Tibu Ijo) offer adventures for nature lovers. This region is also the largest producer of palm sugar, with thousands of palm trees growing lushly on its hill slopes. Gunung Sari is a dynamic district, blending busy suburban life with thick rural local wisdom.",
+    "thumbnail": ""
+  }
+},
+{
+  "model": "core.district",
+  "pk": 6,
+  "fields": {
+    "name": "Sekotong",
+    "slug": "sekotong",
+    "description": "Sekotong is a 'Sleeping Giant' that is now starting to wake up, offering the true definition of a tropical paradise. Located in the southwest peninsula, this district is the largest as well as the most exotic region in West Lombok. If Batulayar is the crowd, then Sekotong is the primal silence. Its landscape is dominated by savanna hills that turn arid and brownish during the dry season—reminiscent of Africa—yet contrast beautifully with the clear turquoise sea. Sekotong is home to the cluster of 'Southern Gilis' (Nanggu, Sudak, Kediri, Gede, Asahan, etc.) whose underwater beauty remains pristine and untouched.\n\nThis district is a dream destination for adventurers seeking privacy and raw nature. Here, time moves slowly. Smooth asphalt roads cutting through hills and quiet beaches provide an epic 'road trip' sensation. Sekotong also has two sea faces: the northern side which is calm like a lake for family snorkeling, and the southern side facing the Indian Ocean with world-class ferocious waves (like at Bangko-Bangko) for pro surfers. Sekotong is not for pampered tourists looking for malls, but for free spirits wishing to merge with the sea and sky.",
+    "thumbnail": ""
+  }
+},
+{
+  "model": "core.district",
+  "pk": 7,
+  "fields": {
+    "name": "Lingsar",
+    "slug": "lingsar",
+    "description": "Lingsar District is the most authentic laboratory of tolerance and religious harmony in the Archipelago. Here, the values of pluralism are not just theory, but a daily living practice that has been going on for hundreds of years. Its main icon, Lingsar Temple, is a symbol of unity between Balinese Hindus and Sasak Wetu Telu Muslims who worship in the same complex. The 'Perang Topat' (Rice Cake War) tradition held every year is a manifestation of gratitude and shared joy that crosses faith boundaries. Lingsar teaches the world that difference is a blessing, not a curse.\n\nBeyond its cultural richness, Lingsar is geographically located at the foot of a fertile mountain. This region is filled with beautiful terraced rice fields and lush cocoa and coffee plantations. In its upstream area, magnificent waterfalls like Timponan are hidden, challenging to explore. Lingsar is a harmonious blend of deep spirituality, long history, and prosperous agrarian nature.",
+    "thumbnail": ""
+  }
+},
+{
+  "model": "core.district",
+  "pk": 8,
+  "fields": {
+    "name": "Narmada",
+    "slug": "narmada",
+    "description": "Known by the nickname 'City of Water', Narmada District is an oasis of freshness and a center of royal history in West Lombok. The name 'Narmada' itself is taken from the name of a holy river in India, reflecting the identity of this region blessed with abundant pure springs that never run dry. Historically, Narmada was the resting place of the Karangasem Kings, evidenced by the magnificent Narmada Park. To this day, that aura of nobility and sacredness is still strongly felt in every corner. Its fertile soil, thanks to the flow of volcanic water from Rinjani, makes Narmada the best agrotourism granary.\n\nEntering Narmada, your eyes will be spoiled by stretches of green rice fields, tropical fruit orchards (mangosteen, durian, rambutan), and lush community forests like in Sesaot. The air here is cool and humid, different from the hot coast. Narmada offers soul-soothing tourism; from bathing in natural spring pools, trekking in the forest, to sate bulayak culinary tours. This is the district that sustains West Lombok, both literally through its water and economically through its produce.",
+    "thumbnail": ""
+  }
+},
+{
+  "model": "core.district",
+  "pk": 9,
+  "fields": {
+    "name": "Batulayar",
+    "slug": "batulayar",
+    "description": "Batulayar District is the main showcase and the international tourism face of West Lombok Regency. If West Lombok were a house, Batulayar would be its most luxurious and well-arranged living room. Geographically, this district stretches along the western coastline facing directly towards the Lombok Strait and Mount Agung in Bali, granting it the privilege of the most dramatic sunset views on the island. Here, the pulse of the tourism economy beats strongest; home to the legendary Senggigi area, rows of five-star hotels, boutique resorts, to nightlife centers that never sleep.\n\nHowever, Batulayar is not just about tourist luxury. Behind the glitter of hotel lights, this district holds rich spiritual wealth and tradition. The existence of Batulayar Tomb and Batu Bolong Temple side by side on one coastline is proof of living religious harmony. Batulayar's natural contours are also unique; a blend of steep green hills and black-and-white sandy beaches. The winding road along the Batulayar coast is often cited as one of the most beautiful driving routes in Indonesia. For anyone coming to Lombok, Batulayar is a gateway of romance and adventure that must be passed.",
+    "thumbnail": ""
+  }
+},
+{
+  "model": "core.category",
+  "pk": 6,
+  "fields": {
+    "name": "Marine Tourism",
+    "description": "Marine Tourism is the crown jewel of West Lombok's tourism landscape. This category defines not just places with saltwater, but complex and dynamic coastal ecosystems. in West Lombok, marine tourism is divided into two contrasting yet complementary spectrums of experience. First is 'Coastal Tourism' found in places like Senggigi and Mekaki, where visitors enjoy romantic sunsets, crashing waves, and stretches of sand. Second is 'Island Tourism' centered in the Sekotong region with its cluster of 'Gilis' (Nanggu, Sudak, Gede, Asahan).\n\nThe true allure of this category is often hidden beneath the sea surface. Pristine coral reefs, seagrass beds, and rare marine life make this region a paradise for divers and snorkelers. Marine Tourism here is not just about recreation, but also about marine conservation and the lives of fishing communities that depend on it. It offers a soothing blue escape for souls weary from the hustle and bustle of land.",
+    "icon": "sailing",
+    "slug": "marine-tourism"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 7,
+  "fields": {
+    "name": "Nature & Ecotourism",
+    "description": "Unlike marine tourism which offers the blue of the sea, Nature & Ecotourism is about 'returning to green'. This category umbrellas destinations that highlight the authenticity of land landscapes, forest conservation, and fresh water refreshment. Its main entities include protected forests, hidden waterfalls, natural spring baths, to challenging hill tracks. In West Lombok, this category is represented by green lungs such as Sesaot Tourism Forest, Pusuk Forest with its wild monkey habitat, and exotic waterfalls like Segenter and Timponan.\n\nThe main philosophy of this category is sustainability and responsible interaction between humans and nature. Visitors come not just to see, but to feel the pulse of the forest, breathe pure oxygen, and understand the importance of maintaining ecosystems. This is the antithesis of mass tourism; a place where the silence of the forest and the sound of gurgling water become natural therapy. Destinations in this category are usually Community Based, ensuring that nature preservation goes hand in hand with local welfare.",
+    "icon": "forest",
+    "slug": "nature-ecotourism"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 8,
+  "fields": {
+    "name": "Heritage Tourism",
+    "description": "History and Heritage Tourism is a window in time to peek into the journey of civilization in West Lombok. This category allows visitors to trace the footsteps of the past recorded in stone and buildings. West Lombok has a unique history as a meeting point for two great cultural forces: the Karangasem Kingdom of Bali and the Sasak Islamic Sultanate. This acculturation gave birth to extraordinary heritage sites such as Narmada Park (a replica of Mount Rinjani) and Lingsar Temple which stands as a symbol of eternal tolerance.\n\nBeyond royal legacies, this category also covers vernacular architectural heritage such as Ancient Mosques made of bamboo and thatch. Visiting destinations in this category is not just visual tourism, but intellectual tourism. Visitors are invited to reflect on noble values, tolerance, and ancestral wisdom that remain relevant today. This is the category for those who want to understand the 'soul' and authentic identity of this island.",
+    "icon": "temple_hindu",
+    "slug": "heritage-tourism"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 9,
+  "fields": {
+    "name": "Pilgrimage Tourism",
+    "description": "Lombok is known as the 'Island of a Thousand Mosques', and the Pilgrimage Tourism category is a manifestation of that spiritual identity. Although intersecting with culture, this category stands alone due to specific visitation motivations: the search for inner peace, pilgrimage, and drawing closer to the Creator. Destinations in this category include the tombs of Waliyullah (Saints) who spread Islam (such as Batulayar Tomb) and sacred places of worship.\n\nThe power of this category is clearly seen during major religious moments, such as the Lebaran Topat tradition, where thousands of pilgrims flood these sites in a colossal spiritual wave. Pilgrimage tourism in West Lombok teaches devotion and submission. For general tourists, visiting these sites offers a quiet and contemplative experience, as well as an opportunity to witness the face of Nusantara Islam that is friendly, cultural, and full of tolerance.",
+    "icon": "mosque",
+    "slug": "pilgrimage-tourism"
+  }
+},
+{
+  "model": "core.category",
+  "pk": 10,
+  "fields": {
+    "name": "Rural & Craft Tourism",
+    "description": "This category is a celebration of local wisdom and the skilled hands of the Sasak people. Rural and Craft Tourism shifts the tourism stage from natural objects to human subjects. It encompasses tourism experiences directly integrated with the daily lives of villagers, both in agrarian life and the creative process of handicrafts. Banyumulek Village with its pottery art, Sesela Village with its cukli carvings, and Kebon Ayu Village with its agrotourism are the main icons of this category.\n\nHere, tourists are no longer passive spectators, but active participants. They are invited to handle clay, pick fruit in orchards, or taste traditional culinary delights in village markets. The attraction lies in the warmth of social interaction and unmanufactured cultural authenticity. This category proves that tourism luxury is not always about five-star facilities, but about genuine human connections and appreciation for traditions passed down through generations.",
+    "icon": "handyman",
+    "slug": "rural-craft-tourism"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 1,
+  "fields": {
+    "name": "Senggigi Beach",
+    "slug": "senggigi-beach",
+    "description": "Senggigi Beach is not just a place name; it is a 'brand', a living legend, and the heartbeat of Lombok tourism that has pulsed for decades. Before Kuta Mandalika became the talk of the town, Senggigi was the irreplaceable queen. Geographically, this beach is blessed with a privilege rare to other beaches: a long coastline with beautifully winding cape contours, creating small bays that are safe and comfortable. Its sand tells a unique geological story; on one side it is pure white like ivory, on the other it graduates into glittering black due to past volcanic traces, creating an exotic monochrome aesthetic.\r\n\r\nHowever, the true soul of Senggigi is revealed only when the sun begins to lean west. Senggigi is the best natural theater stage to witness the daily ritual of sunset. Its position facing straight to the Lombok Strait leaves the western horizon wide open without obstruction. When the weather is clear, you will be treated to a magical sight: a giant sun ball slowly descending, coloring the sky with streaks of purple, orange, and blood red, right next to the silhouette of Mount Agung Bali towering gallantly in the distance. This moment is so hypnotic that it can silence thousands of people along the beach for a moment, holding their breath admiring God's painting.\r\n\r\nSenggigi is a complete package (one-stop destination). It accommodates all types of travelers. For the hedonist, five-star resorts with infinity pools are ready to pamper. For the adventurer, Senggigi's waves are challenging enough to learn surfing or canoeing. For the culinary lover, the aroma of grilled corn and seafood from roadside stalls to fine dining restaurants is ready to rock the tongue. And when night falls, Senggigi does not sleep; it changes its robe into a glittering yet elegant nightlife center.\r\n\r\nBehind its modernity, Senggigi maintains local wisdom. In the morning, you can still see traditional fishermen pulling their outrigger boats ashore, bringing fresh catch. Coconut trees leaning towards the sea are still allowed to grow wild, providing a perfect natural frame. Visiting Lombok without setting foot in Senggigi is like eating vegetables without salt; it is the appetizer, main course, and dessert that perfects your travel journey on the Island of a Thousand Mosques.",
+    "district": 9,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.213645881198!2d116.03296141984787!3d-8.478595622914437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcde9d6e28dfec9%3A0xcc02a56300f22ec9!2sPantai%20Senggigi!5e0!3m2!1sid!2sid!4v1769224196777!5m2!1sid!2sid",
+    "additional_info": "Infrastructure in this area is very mature and prime. ATM Centers, Money Changers, 24-Hour Medical Clinics, to tourism police posts are fully available. Public transportation access is very easy; Bluebird taxis and public transport are available 24 hours. Sidewalks along the Senggigi highway are also wide and friendly for pedestrians wishing to enjoy the night atmosphere.",
+    "main_image": "destinations/primary/Pantai Sengigi.png",
+    "manager": 1,
+    "category": 6,
+    "view_count": 244,
+    "created_at": "2026-01-23T11:50:49.900Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 2,
+  "fields": {
+    "name": "Batu Bolong Temple",
+    "slug": "batu-bolong-temple",
+    "description": "Batu Bolong Temple is a visual manifestation of the harmonious relationship between humans, God, and the fierce yet beautiful universe. Located jutting out to sea on a sturdy black coral cape, this temple offers dramatic and mystical views. The name 'Batu Bolong' is taken from a natural geological phenomenon on its supporting coral rock which has a large hole in the center due to wave erosion over thousands of years. This hole is not just a hole; it is a natural window framing the blue sea and white wave foam, creating a surreal visual composition.\r\n\r\nAs a place of worship for Hindus, the spiritual atmosphere here is very thick and heart-trembling. The sound of crashing waves hitting the coral walls seems to be the accompanying music for sacred mantras chanted by the priests. The smell of fragrant incense mixed with the sharp aroma of sea salt creates a unique olfactory sensation. This temple actually consists of two parts: one temple located under a shady tree near the entrance, and the main temple perched above the perforated coral, facing directly to Mount Agung in Bali as a spiritual qibla.\r\n\r\nSunset is the time when Batu Bolong Temple shows its best charm. The silhouette of the jet-black temple with its tiered meru roof will look contrasting against the background of the burning twilight sky. The position of the sun, which often falls right in the middle of the coral hole or beside the temple, makes this place the 'Mecca' for landscape photographers. However, behind its photogenic beauty, this place demands respect. Visitors cannot enter carelessly; there are ethics, rules, and sacred boundaries that must be maintained.\r\n\r\nBatu Bolong Temple teaches us about the steadfastness of faith. Like the coral rock that continues to be hit by waves but remains standing strong, so lies the spirituality of the Lombok people which remains firm amidst the currents of tourism modernization. Visiting this place is not just about taking photos, but about reflecting, listening to the voice of nature, and feeling the presence of the Creator in every splash of sea water.",
+    "district": 9,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.8982007885243!2d116.05445127401758!3d-8.509264591532753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc1e411aa0885%3A0x7453c9c35180b03!2sPura%20Batu%20Bolong!5e0!3m2!1sid!2sid!4v1769224231234!5m2!1sid!2sid",
+    "additional_info": "Visitors are required to wear a yellow sash around the waist (provided at the counter) as a sign of respect. Women who are menstruating are strictly prohibited from entering the sacred temple area. Be careful when walking in the coral area because it is slippery and waves can suddenly become large. The best time for photography is during the 'Golden Hour' before sunset.",
+    "main_image": "destinations/primary/Pura Batu Bolong.png",
+    "manager": 1,
+    "category": 9,
+    "view_count": 127,
+    "created_at": "2026-01-23T11:50:49.922Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 3,
+  "fields": {
+    "name": "Batulayar Tomb",
+    "slug": "batulayar-tomb",
+    "description": "Amidst the hustle and bustle of the modern Senggigi tourism area, Batulayar Tomb stands as a silent and sacred spiritual fortress. This site is the final resting place of a legendary figure, Sayid Ali Al-Baghdad, who is believed to be one of the first Waliyullah (Saints) to spread Islam in the land of Lombok. Its location is very strategic yet hidden; located right on the side of the main highway, but protected by the lushness of old trees that seem to be a natural barricade, separating the mortal world of the highway from the spiritual world of the tomb.\r\n\r\nFor the Sasak people of Lombok, Batulayar Tomb is not just an old grave. It is a symbol of religious and cultural identity. This place becomes a center of spiritual gravity, especially during the 'Lebaran Topat' celebration (a week after Eid al-Fitr). On that day, thousands of people—old, young, rich, poor—spill out to crowd the tomb area and the surrounding beach. They come to make a pilgrimage, pray for blessings, wash their faces with water considered holy, and then eat together (begibung) on the sand beach. This tradition is living proof of the acculturation of Islamic culture and local traditions running harmoniously.\r\n\r\nThe tomb's architecture is simple, dominated by white and green colors, yet radiates strong authority. Around the tomb, many traders sell rose water, potpourri, and incense for pilgrimage purposes. These fragrances mix with the humid beach air, creating a distinctive atmosphere. Even if you are not a pilgrim, visiting this place gives deep insight into the sociology of the very religious Lombok society.\r\n\r\nBatulayar Tomb also offers another unique side: the interaction between religious tourism and beach tourism. After praying, pilgrims usually head straight to the beach behind the tomb to relax. This is a unique phenomenon where ritual piety meets recreational joy in one space and time. This place teaches life balance: that humans need to remember death (pilgrimage), but also need to celebrate life (picnic).",
+    "district": 9,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15783.302980659555!2d116.04210691143749!3d-8.51629356474372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc1f3c932f0a5%3A0xe8e456ba6cdbbaa5!2sMakam%20Batu%20Layar!5e0!3m2!1sid!2sid!4v1769224270841!5m2!1sid!2sid",
+    "additional_info": "This area is open 24 hours for pilgrims, but is most crowded on Thursday afternoons (Friday eve) and major Islamic holidays. Visitors are expected to dress modestly and cover their aurat. There are many souvenir vendors typical of Lombok (t-shirts, pearls, snacks) in the parking area with relatively cheaper prices compared to large art shops.",
+    "main_image": "destinations/primary/Makam Batulayar.jpg",
+    "manager": 1,
+    "category": 9,
+    "view_count": 68,
+    "created_at": "2026-01-23T11:50:49.939Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 4,
+  "fields": {
+    "name": "Kerandangan Beach",
+    "slug": "kerandangan-beach",
+    "description": "If Senggigi is the formal living room to welcome foreign guests, then Kerandangan Beach is the relaxed and warm family room for locals. Located just a stone's throw north of Senggigi, Kerandangan offers a slightly different and 'greener' landscape. The main characteristic of this beach is not merely its white sand, but the vast expanse of grassy land under the shade of thousands of coconut trees lined up neatly like nature's soldiers. This coconut leaf canopy creates a shady natural roof, allowing visitors to sit on mats by the beach without fear of being roasted by the scorching sun.\r\n\r\nKerandangan is the definition of a perfect tropical picnic. Here, tourism culture slows down. You won't find beach clubs with deafening music. Instead, you'll hear family laughter, acoustic guitars strummed carelessly, and the aroma of satay smoke stimulating the appetite. Yes, Kerandangan is the center of the folk culinary 'Sate Bulayak'. Dozens of vendor mothers kindly offer beef or tripe satay with spicy signature peanut sauce, served with rice cakes wrapped in palm leaves (bulayak). Eating spicy satay on a mat, accompanied by young coconut straight from the shell, while looking at the blue sea... that is pure enjoyment hard to match.\r\n\r\nThis area is divided into three parts: Kerandangan 1, 2, and 3. Kerandangan 1 and 2 are busier and popular for families, while Kerandangan 3 is quieter and private, often the choice for young couples or those who want to be alone. Waves in Kerandangan vary; at some points calm enough to swim, but at others strong enough, so visitors must remain vigilant. Besides the beach, inside this area there is also a light trekking path to the Kerandangan Nature Tourism Park forest which is a habitat for endemic birds.\r\n\r\nKerandangan teaches us that happiness is simple and cheap. No need for expensive entrance tickets or fancy restaurant food. Just with a mat, loved ones, and a portion of sate bulayak, happiness is complete.",
+    "district": 9,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31569.183824401403!2d116.0141113933734!3d-8.484989209582004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcde9dbc2d1e635%3A0x55e79ead731ef57!2sPantai%20kerandangan%203!5e0!3m2!1sid!2sid!4v1769224298637!5m2!1sid!2sid",
+    "additional_info": "Parking facilities here are very spacious, even capable of accommodating large tour buses, making it a favorite location for office or school gathering events. Public toilets and prayer rooms are available in sufficient numbers and clean in the stall area. Plastic waste is the main enemy, so make sure you dispose of trash in the places provided by the management.",
+    "main_image": "destinations/primary/Pantai Kerandangan.jpg",
+    "manager": 1,
+    "category": 6,
+    "view_count": 74,
+    "created_at": "2026-01-23T11:50:49.956Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 6,
+  "fields": {
+    "name": "Mekarsari Tourism Village",
+    "slug": "mekarsari-tourism-village",
+    "description": "Mekarsari is a village that celebrates nature's bounty and cultural resilience. Located in the hills of Narmada, it is cool and lush. This village is famous for its durian and mangosteen plantations. During fruit season, it becomes a destination for fruit feasting. Besides agro, Mekarsari preserves traditional Sasak music and dance. The village atmosphere is calm, with sounds of flowing rivers and rustling bamboo forests.",
+    "district": 8,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.914175323699!2d116.168912474019!3d-8.604238691441088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdb9cd5a471e81%3A0x5c6bef736bbcd849!2sTaman%20Mekarsari%20Narmada!5e0!3m2!1sid!2sid!4v1769224904249!5m2!1sid!2sid",
+    "additional_info": "Visit during fruit season (usually Dec-Mar) for the best experience. Try local palm sugar coffee.",
+    "main_image": "destinations/primary/Desa Wisata Mekarsari.jpg",
+    "manager": 1,
+    "category": 10,
+    "view_count": 20,
+    "created_at": "2026-01-23T11:50:49.993Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 7,
+  "fields": {
+    "name": "Narmada Park",
+    "slug": "narmada-park",
+    "description": "Welcome to Narmada Park, a time machine that will take you back to the golden era of the Karangasem Kingdom of Lombok in the 18th century. Built in 1727 AD by King Anak Agung Ngurah Karangasem, this two-hectare park is not just an ordinary flower garden. It is a masterpiece of landscape architecture laden with philosophical, spiritual, and political meaning. The background of its construction is very poetic yet pragmatic: The King, who was getting old and no longer able to climb Mount Rinjani to perform the 'Pakelem' (sacrifice) ritual, ordered the royal architect to 'move' Rinjani to the lowlands. Thus, Narmada Park was created as a miniature replica of Mount Rinjani and Lake Segara Anak.\r\n\r\nEvery element in this park is a symbol. Large pools at the bottom represent Lake Segara Anak, while Kalasa Temple perched on a stepped terrace at the top represents the peak of Rinjani. Walking up the stairs to the temple, you feel as if you are making a spiritual climb to the holy mountain peak. This park was designed as a resting place for the king and his family, so its layout is very beautiful, filled with mangosteen, durian, and jackfruit trees that may be hundreds of years old. The air here is cool, typical of the Narmada area which is indeed famous for its abundant water sources.\r\n\r\nThe main magnet that is never empty of visitors is 'Bale Petirtaan'. In this small building lies the meeting spring of three natural sources which is said to be the 'Fountain of Youth'. This myth is so strong that visitors are willing to queue just to wash their faces or drink the water, hoping for the blessing of health and eternal beauty. The water indeed tastes very fresh, pure, and rich in minerals, straight from the bowels of the earth. On the other side of the park, there is a public swimming pool whose water comes from natural springs without chlorine, a favorite spot for locals to swim in super cold water.\r\n\r\nNarmada Park is proof of ancestral intelligence in spatial planning. It combines sacred functions (temple), recreational functions (water park), and ecological functions (water conservation) in one harmonious complex. Visiting Narmada is not just about seeing old buildings, but absorbing the tranquility of past kings.",
+    "district": 8,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.007829846326!2d116.20197517401877!3d-8.595244391449793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdb86c86247e03%3A0x567bd12fafb3bd15!2sNarmada%20Park!5e0!3m2!1sid!2sid!4v1769224412131!5m2!1sid!2sid",
+    "additional_info": "To enter Bale Petirtaan (Fountain of Youth), female visitors who are menstruating are prohibited from entering. You will also be asked to wear a yellow sash and give a voluntary donation to the customary stakeholders who guard. In the outer parking area, don't miss the legendary 'Sate Bulayak' culinary lined up neatly; its taste is considered one of the most authentic in Lombok.",
+    "main_image": "destinations/primary/Taman Narmada.jpg",
+    "manager": 1,
+    "category": 8,
+    "view_count": 165,
+    "created_at": "2026-01-23T11:50:50.013Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 8,
+  "fields": {
+    "name": "Sesaot Tourism Forest",
+    "slug": "sesaot-tourism-forest",
+    "description": "Sesaot Tourism Forest is living proof that humans and nature can coexist in a mutually beneficial symbiosis. Located on the southern slopes of Mount Rinjani, this area is not just a protected forest fenced with barbed wire; it is a living space, the village's lungs, and a source of sustainable economy for the local community. The concept of 'Community Based Tourism' truly lives here. Villagers guard the forest, and the forest gives them life through springs that never run dry and tourist visits seeking soul healing.\r\n\r\nThe heart of this destination is an ancient river splitting the mahogany forest. This river is unique because its bed is filled with large artistic volcanic rocks, while the water—oh, the water!—is so clear it seems invisible. So clear, optical illusions often occur; the river that looks shallow turns out to be quite deep. The water is bone-piercingly cold, bringing freshness straight from mountain springs unpolluted by civilization. Bathing here is not just cleaning the body, but resetting the nervous system exhausted by urban stress.\r\n\r\nAlong the riverbanks, residents built 'Berugak' (traditional gazebos) from bamboo and thatch roofs. This is where the peak enjoyment of Sesaot happens: sitting cross-legged by the river, feet dangling touching the cold water, ears lulled by the sound of gurgling water, while the tongue is pampered by local culinary delights. Sesaot is one of the 'capitals' of Sate Bulayak in Lombok. The aroma of beef smoke grilled over coconut shell charcoal mixed with the humid forest air creates aromatherapy that awakens the most primal appetite. Eating spicy satay in the middle of a cold forest is a transcendental culinary experience.\r\n\r\nFurther inside, this forest offers light trekking paths among giant mahogany trees growing straight to the sky. Sunlight penetrating through the leaves creates a magical 'Komorebi' effect, very beautiful for photography. Sesaot teaches us about simplicity: that true luxury is not cold AC or chlorine swimming pools, but clean air, pure water, and food cooked with love.",
+    "district": 8,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126240.25347413869!2d116.12214715769095!3d-8.59523562635166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc9095a0afa7b%3A0x64efe122246b27b9!2sDesa%20Wisata%20Sesaot!5e0!3m2!1sid!2sid!4v1769224448566!5m2!1sid!2sid",
+    "additional_info": "Public facilities here are well managed by village youth. There is a large parking area, clean toilets, and a prayer room. For nature lovers who want to stay overnight, a safe Camping Ground area is available. Be careful during heavy rain, as the river water discharge can rise suddenly (flash floods), always obey warnings from local rangers.",
+    "main_image": "destinations/primary/Hutan Wisata Sesaot.jpg",
+    "manager": 1,
+    "category": 7,
+    "view_count": 95,
+    "created_at": "2026-01-23T11:50:50.032Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 9,
+  "fields": {
+    "name": "Aik Nyet Natural Spring",
+    "slug": "aik-nyet-natural-spring",
+    "description": "As the name implies in Sasak language ('Aik' = Water, 'Nyet' = Cold), Aik Nyet Baths offer a sensation of freshness that chills to the bone. Located in the middle of the Sesaot protected forest area, this bath is basically a clear river dammed naturally by rocks and tree roots. The water is crystalline clear, allowing us to see the base of the river consisting of sand and pebbles.\r\n\r\nAik Nyet is a popular escape for Mataram City residents on weekends. The atmosphere is very shady because it is shaded by the canopy of tall mahogany trees. Sunlight enters through the cracks of the leaves creating beautiful bias in the water. Besides swimming, this place is famous for its culinary delights. Sate Bulayak sellers line up neatly by the pool, offering unparalleled enjoyment: eating warm spicy satay after shivering cold swimming.\r\n\r\nThis place is managed simply by the local community. There is no luxury here, but that is precisely its attraction. Aik Nyet is about getting closer to nature in a fun and full way (literally).",
+    "district": 8,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15782.588000991913!2d116.2206940114598!3d-8.533609163885052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc98613350d7b%3A0xb34948c6e7dd2f72!2sWisata%20Alam%20Aiknyet!5e0!3m2!1sid!2sid!4v1769224483663!5m2!1sid!2sid",
+    "additional_info": "Very crowded on weekends. Toilet and changing room facilities are basic but functional. Cheap entrance ticket. Keep the river clean by not throwing garbage, especially plastic, into the water.",
+    "main_image": "destinations/primary/Pemandian Aik Nyet.webp",
+    "manager": 1,
+    "category": 7,
+    "view_count": 34,
+    "created_at": "2026-01-23T11:50:50.051Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 10,
+  "fields": {
+    "name": "Segenter Waterfall",
+    "slug": "segenter-waterfall",
+    "description": "Segenter Waterfall is a definition of hidden beauty that requires struggle to find. Located in the interior of Narmada, this waterfall is not a mass tourist spot easily accessible by bus. It is a secret destination for true explorers. The journey to Segenter involves trekking through dense community forests, crossing small rivers, and down slippery paths. But for nature lovers, this journey is part of the pleasure.\r\n\r\nArriving at the location, you will be greeted by a waterfall that is not too high (about 10-15 meters) but has a fairly wide and heavy water curtain. The pool below is wide and calm enough to swim in. The water is clear and cold, typical of mountain springs. What makes it special is the surrounding rocks which are uniquely structured, seemingly arranged by nature specifically for sitting and meditating. The atmosphere is very quiet, far from the noise of vehicle engines.\r\n\r\nSegenter is the perfect place for a 'digital detox'. There is no cellphone signal here, forcing you to completely disconnect from the virtual world and reconnect with the real world: the sound of water, the sound of birds, and the cool breeze. It is a suitable place for a small picnic with friends or simply contemplating alone.",
+    "district": 8,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.997515831604!2d116.29069627401752!3d-8.499620591542108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc9159b08bf49%3A0xc6bb80e8140bfc6d!2sAir%20Terjun%20Segenter%20Pengkoaq!5e0!3m2!1sid!2sid!4v1769224544097!5m2!1sid!2s",
+    "additional_info": "Access is quite difficult and signposts are minimal. It is highly recommended to ask local residents for directions or ask to be guided. Bring enough supplies. Keep existing cleanliness.",
+    "main_image": "destinations/primary/Air Terjun Segenter.jpg",
+    "manager": 1,
+    "category": 7,
+    "view_count": 22,
+    "created_at": "2026-01-23T11:50:50.070Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 11,
+  "fields": {
+    "name": "Bunut Ngengkang",
+    "slug": "bunut-ngengkang",
+    "description": "Bunut Ngengkang is a natural oddity and a popular photo spot. It is a giant Banyan tree (Bunut) whose roots have grown to form a natural gate or tunnel over the road. 'Ngengkang' means straddling. Vehicles pass right through the middle of this living tree trunk. It is located in a cool, forested area, often covered in mist. It feels magical and slightly eerie, like entering a portal to another world.",
+    "district": 8,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.6470216621956!2d116.24239457401788!3d-8.533607091509243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdb9a1974ecbc3%3A0x6ffde1e479f14570!2sWisata%20Bunut%20ngengkang!5e0!3m2!1sid!2sid!4v1769224573763!5m2!1sid!2sid",
+    "additional_info": "Located on the road to various waterfalls. A quick stop for a photo is mandatory.",
+    "main_image": "destinations/primary/Bunut Ngengkang.webp",
+    "manager": 1,
+    "category": 7,
+    "view_count": 24,
+    "created_at": "2026-01-23T11:50:50.087Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 12,
+  "fields": {
+    "name": "Suranadi Natural Pool",
+    "slug": "suranadi-natural-pool",
+    "description": "Just below the Pura Suranadi complex lies the legendary Suranadi Swimming Pool. This is not a modern waterboom with slides and chlorine; this is a classic swimming pool whose water comes 100% purely from natural springs. The water flows continuously (running water), meaning the water in the pool is always replaced naturally every second without needing pump machines. The result? Water that is exceptionally clear, fresh, and cold without the smell of chemicals.\r\n\r\nThis pool is a heritage from the colonial era which has become a favorite recreation place for Lombok families for generations. Swimming here gives a different sensation; body skin feels fresher and eyes don't sting because it's chemical-free. There are several pools with varying depths, suitable for children to professional swimmers. Because the water is so cold, usually after swimming, visitors will warm up by eating 'Sate Bulayak' sold by many traders around the pool area.\r\n\r\nSuranadi Swimming Pool is a symbol of simple joy. It teaches that to be happy and healthy, we don't need sophisticated technology. Nature has provided everything freshly.",
+    "district": 8,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7890.455315009354!2d116.22727083737928!3d-8.57409601588066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc80717b971dd%3A0x7ebe922cf94afe41!2sPemandian%20Suranadi!5e0!3m2!1sid!2sid!4v1769224612379!5m2!1sid!2sid",
+    "additional_info": "The water is very cold, make sure to warm up before jumping in to avoid cramps. Locker rental and rinse room services are available. Sate Bulayak stalls are available just outside the entrance gate.",
+    "main_image": "destinations/primary/Kolam Renang Suranadi.webp",
+    "manager": 1,
+    "category": 7,
+    "view_count": 40,
+    "created_at": "2026-01-23T11:50:50.104Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 13,
+  "fields": {
+    "name": "Suranadi Temple",
+    "slug": "suranadi-temple",
+    "description": "Suranadi Temple is one of the oldest and holiest temples in Lombok, founded by the high priest Dang Hyang Nirartha in the 16th century. The name 'Suranadi' literally means 'River of the Gods' (Sura = God, Nadi = River), referring to the belief that the five springs (Panca Tirta) in this area were created by the magic of the priest's stick. This temple complex is vast and cool, shaded by centuries-old giant trees that provide an aura of authority and eternity.\r\n\r\nMore than just a place of prayer, Suranadi is a conservation area. The surrounding forest is a sanctuary for Grey Monkeys which are considered sacred guardians of the temple. Visitors can see these monkeys roaming freely around the temple area. The atmosphere here is very serene. The sound of spring water gurgling constantly creates a natural calming music. For Hindus, cleansing oneself (melukat) in the holy springs of Suranadi is an obligatory ritual to purify the body and soul.\r\n\r\nSuranadi Temple is proof of how ancient sites can sustain nature. The sanctity of this temple has protected the springs and forest around it from destruction for hundreds of years. Visiting Suranadi feels like entering a time capsule where spirituality and nature unite in perfect harmony.",
+    "district": 8,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.26569703054!2d116.22996667401853!3d-8.57043119147373!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc7f6dd045757%3A0xbb9d8170072ab856!2sPura%20Suranadi!5e0!3m2!1sid!2sid!4v1769224636865!5m2!1sid!2sid",
+    "additional_info": "Dress modestly. For those who want to enter the main temple area or holy springs, wear a sash and sarong. Be careful with food because monkeys can be aggressive.",
+    "main_image": "destinations/primary/Pura Suranadi.jpg",
+    "manager": 1,
+    "category": 9,
+    "view_count": 42,
+    "created_at": "2026-01-23T11:50:50.126Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 14,
+  "fields": {
+    "name": "Lingsar Temple",
+    "slug": "lingsar-temple",
+    "description": "In a world often torn apart by conflicts of differing beliefs, Lingsar Temple stands tall as a silent yet eloquent monument voicing peace. Built in 1714 by King Anak Agung Ngurah Karangasem, this cultural site complex is the oldest laboratory of tolerance in the Archipelago. The miracle of Lingsar is not in its gold or marble grandeur, but in the 'soul' of harmony that animates it. Within one and the same surrounding wall, there are two holy places for two different faiths: Gaduh Temple in the north for Balinese Hindus, and Kemaliq in the south for Sasak Muslims (especially Wetu Telu tradition adherents).\r\n\r\nBoth communities are not just neighbors; they are brothers in ritual. The peak of this brotherhood manifests in the 'Perang Topat' (Rice Cake War) tradition held every year on the 7th full moon of the Sasak calendar (usually November/December). Do not imagine a war with blood and anger. This is a war full of laughter and gratitude. Thousands of Hindus and Muslims gather, pray together asking for soil fertility and rain, then throw small rice cakes at each other as a symbol of sharing blessings. Rice cakes flying in the air are not bullets, but prayers taking shape. The remains of these war rice cakes are then picked up again to be scattered in rice fields as spiritual fertilizer.\r\n\r\nIn the Kemaliq area, there is a sacred spring pool that holds natural mysteries. This pool is inhabited by a species of giant eel (Moa) which is very shy. These eels are considered sacred and possess inner hearing. It is said they will only come out to show themselves if called in the right way, usually using boiled hard-boiled egg bait. People believe, whoever manages to see this eel come out, their wish or desire will soon be granted. This belief crosses religious boundaries; both Hindu and Muslim visitors alike respect the existence of this 'water guardian'.\r\n\r\nLingsar architecture is a harmonious blend of Balinese and Sasak styles. Quiet lotus ponds reflect the shadows of old buildings with authority. Visiting Lingsar is a pilgrimage of humanity, reminding us that differences in ways of worshiping God should not be a reason to hate each other.",
+    "district": 7,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63123.34484052645!2d116.10896222167965!3d-8.575887900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc789bd140a9b%3A0x208f486afe2cda7a!2sPura%20Lingsar!5e0!3m2!1sid!2sid!4v1769224664391!5m2!1sid!2sid",
+    "additional_info": "Visitors are required to wear a yellow sash (rental available at entrance) as a sign of respect for the sacred area. It is strictly forbidden to bring food containing pork or beef into the Kemaliq area to respect the sensitivities of both religions. Use an official local guide service available on site to get accurate and in-depth historical stories, not just seeing stone buildings.",
+    "main_image": "destinations/primary/Pura Lingsar.webp",
+    "manager": 1,
+    "category": 8,
+    "view_count": 141,
+    "created_at": "2026-01-23T11:50:50.145Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 15,
+  "fields": {
+    "name": "Timponan Waterfall",
+    "slug": "timponan-waterfall",
+    "description": "Timponan Waterfall is the definition of a 'treasure' for true adventure hunters. It is not located by the roadside, has no escalators, and is not friendly to pampered tourists. Hidden deep within the embrace of the Praba protected forest on the slopes of Rinjani, Timponan demands sweat and effort to be greeted. The journey to this waterfall is a mini expedition. You will be invited to cut through residents' robusta coffee and cocoa plantations, walk along slippery clay paths, and penetrate dense tropical rainforest vegetation. The air gets colder as your feet climb, accompanied by the orchestra of loud forest insects.\r\n\r\nHowever, once the forest curtain opens and Timponan reveals its form, all fatigue in the legs will vanish instantly. This waterfall, approximately 40 meters high, falls perpendicularly splitting the sturdy black rock cliff, creating a rumble that vibrates the chest. The water discharge is constant and heavy, creating an eternal mist around it. Sunlight trying to penetrate this water mist often gives birth to small rainbows dancing beautifully. The pool below is not too deep, inviting anyone to enter and feel the natural hydraulic massage from the falling water that is bone-piercingly cold.\r\n\r\nThe specialty of Timponan is its silence. Because access is quite challenging, this place is rarely crowded with humans. You can often enjoy this waterfall alone, as if you were the first discoverer of this place. Here, you can scream as loud as possible to release life's burden, meditate on a large rock, or just stare blankly at the falling water—a most powerful 'mindfulness' therapy. Vegetation around the waterfall is still very wild; giant ferns and epiphytic plants cling to the cliff walls, giving a thick ancient era nuance.\r\n\r\nTimponan teaches the classic philosophy: 'no pain, no gain'. True beauty is often hidden by nature in places difficult to reach, only for those who dare to step further.",
+    "district": 7,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.9536565472426!2d116.21008377401749!3d-8.50388089153798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc7a6518fab3d%3A0xb44d055a47809bb7!2sAir%20Terjun%20Timponan!5e0!3m2!1sid!2sid!4v1769224696334!5m2!1sid!2sid",
+    "additional_info": "Four-wheeled vehicle access is only up to the last village boundary. From there, you have two choices: trekking on foot for about 1.5 - 2 hours (depending on fitness) or hiring a local resident's trail bike taxi (ojek) service with additional costs which is quite adrenaline pumping. Bring enough food and drink supplies because there are no stalls at the waterfall location. Make sure to bring your own trash bag (zero waste).",
+    "main_image": "destinations/primary/Air Terjun Timponan.webp",
+    "manager": 1,
+    "category": 7,
+    "view_count": 46,
+    "created_at": "2026-01-23T11:50:50.163Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 16,
+  "fields": {
+    "name": "Karang Bayan Ancient Mosque",
+    "slug": "karang-bayan-ancient-mosque",
+    "description": "The Ancient Wetu Telu Mosque in Karang Bayan is a time capsule that stores the history of the early spread of Islam in North Lombok. Built using traditional architecture with woven bamboo walls (bedek) and a thatch roof, this mosque is a masterpiece of vernacular heritage. The foundation is made of river stones arranged without cement, proving the earthquake-resistant engineering of the ancestors. Inside, there is an ancient drum (bedug) hanging, whose leather has been replaced many times but whose wooden body remains original for centuries.\r\n\r\nMore than a dead museum, this mosque is a living witness to the 'Wetu Telu' tradition—a syncretic practice of ancient Islam unique to the Sasak people that emphasizes three elements of life (birth, life, death) and the unification of Islamic sharia with local customs. Although no longer used for daily prayers (a new mosque is next to it), this mosque is kept holy and used for traditional rituals such as Maulid ental. Visiting here is not just seeing a building, but feeling the breath of history and the simplicity of faith of the ancient Sasak people.",
+    "district": 7,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31564.348495506238!2d116.16331939342604!3d-8.543613655959113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc70a908650d9%3A0x13090e97bd063015!2sMasjid%20Kuno!5e0!3m2!1sid!2sid!4v1769224759749!5m2!1sid!2sid",
+    "additional_info": "Visitors must dress modestly. Women must cover their heads. Donations for maintenance are voluntary.",
+    "main_image": "destinations/primary/Masjid Kuno Wetu Telu Karang Bayan.jpg",
+    "manager": 1,
+    "category": 8,
+    "view_count": 26,
+    "created_at": "2026-01-23T11:50:50.179Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 17,
+  "fields": {
+    "name": "Gili Nanggu",
+    "slug": "gili-nanggu",
+    "description": "Gili Nanggu is often called 'The Paradise Island' or paradise fallen into the Lombok sea. If you are looking for a party, go to Gili Trawangan. But if you are looking for absolute peace and instant underwater beauty, Gili Nanggu is the king. This island is managed with a 'Private Resort Island' concept that strictly maintains privacy and natural preservation. One of the golden rules here is the prohibition for hawkers to sell aggressively, making the beach atmosphere very quiet, clean, and disturbance-free. You really feel like you own a private island.\r\n\r\nThe nickname 'Giant Aquarium' is not just marketing language. In Gili Nanggu, snorkeling is an activity as easy as walking. You don't need to swim to the deep middle sea. Just step one meter from the shoreline, put your face in the water, and thousands of colorful fish will immediately surround you. Fish here—starting from sergeant majors, butterfly fish, to nemo—are very used to humans. They are tame, even spoiled. The sensation of being surrounded by hundreds of fish fighting for bread crumbs in your hand is a magical experience that makes even adults laugh excitedly like small children.\r\n\r\nGili Nanggu's beach sand is as white as flour and as smooth as baby powder. Surrounded by lush shrimp pine trees, this beach offers perfect natural shade for spreading a mat and taking a nap accompanied by the sea breeze. The sea water graduates from crystal clear at the edges to turquoise blue in the middle, so clear that the seabed is clearly visible from the surface. The waves are very calm, safe for both children and the elderly who cannot swim.\r\n\r\nThis island is also a turtle conservation center. In the resort area, there is a semi-natural turtle egg hatchery. If lucky, visitors can witness the release of hatchlings (baby turtles) into the open sea. Gili Nanggu is a soul detoxification destination; a place where cellphone signals may weaken, but the connection with nature and loved ones becomes very strong.",
+    "district": 6,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31549.788648550195!2d115.98773359358451!3d-8.717777095209613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcd97b24ee05beb%3A0xaacf06d6e793aadb!2sGili%20Nanggu!5e0!3m2!1sid!2sid!4v1769224786028!5m2!1sid!2sid",
+    "additional_info": "It is highly recommended to bring white bread or biscuits to feed the fish so that the snorkeling experience is more interactive. Snorkeling equipment (masks & fins) should be rented at the crossing port (Tawun) because stock on the island is limited. Since there is only one resort restaurant on the island, food/drink prices tend to be more expensive, so prepare more budget or bring your own provisions.",
+    "main_image": "destinations/primary/Gili Nanggu.jpg",
+    "manager": 1,
+    "category": 6,
+    "view_count": 185,
+    "created_at": "2026-01-23T11:50:50.196Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 18,
+  "fields": {
+    "name": "Gili Sudak",
+    "slug": "gili-sudak",
+    "description": "Gili Sudak is the puzzle piece that completes the marine adventure in Sekotong. If Gili Nanggu is the place to play with fish, then Gili Sudak is the universe's 'Dining Room'. This island is widely known as a seafood culinary destination with the most relaxed beach picnic atmosphere. Its coastline is sloping and long, shaded by rows of hibiscus and sea pine trees jutting out towards the water. It is under the shade of these trees that simple stalls owned by locals serve seafood dishes whose freshness is unquestionable.\r\n\r\nImagine this scenario: You just got tired of snorkeling in Nanggu, hungry stomach, then your boat lands on the white sand of Sudak. The aroma of red snapper and squid being grilled over coconut shell charcoal immediately ambushes the nose. You sit on bamboo bales, order a whole young coconut, and eat grilled fish with spicy plecing sambal while bare feet touch the soft sand. The view in front of your eyes is a sea calm like a lake and the green hills of Sekotong in the distance. That is the definition of life enjoyment that is simple yet luxurious.\r\n\r\nGili Sudak's biological uniqueness lies in the abundant Starfish population. In its clear shallow waters, you can easily find starfish colored bright orange, blue, to brown spotted scattered on the white sand bottom. They look like Christmas decorations scattered on the sea floor. This view is very exotic and rarely found elsewhere in such large numbers. The water here is very calm with almost no waves, making it a giant swimming pool safe for anyone.\r\n\r\nGili Sudak offers a thick 'family' atmosphere. This is not a stiff exclusive resort island; it is a friendly, open, and warm people's island. The sound of visitors' laughter, the aroma of cooking, and the beauty of nature combine into sweet memories that are hard to forget.",
+    "district": 6,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31549.202060919757!2d116.00356699359084!3d-8.72472149478142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcd97c5ddad663b%3A0x3c2210bf12cd26d1!2sGili%20Sudak!5e0!3m2!1sid!2sid!4v1769224810689!5m2!1sid!2sid",
+    "additional_info": "Remember conservation rules: You may look at and photograph starfish, but DO NOT lift them out of the water. Starfish can die in seconds if exposed to air because their respiratory system is disrupted. Be a smart tourist who maintains nature preservation. Food prices here are relatively affordable and portions are large, suitable for sharing meals with a group.",
+    "main_image": "destinations/primary/Gili Sudak.jpg",
+    "manager": 1,
+    "category": 6,
+    "view_count": 79,
+    "created_at": "2026-01-23T11:50:50.214Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 19,
+  "fields": {
+    "name": "Gili Kedis",
+    "slug": "gili-kedis",
+    "description": "Small, cute, and very photogenic. That is Gili Kedis. True to its name ('Kedis' in Sasak language can mean Small/Sparrow), this island is the tiniest among other popular Gilis. So small, it is nothing more than a mound of white sand protruding in the middle of the blue sea. You can walk around this entire island in less than 5 minutes! However, do not underestimate its size. Gili Kedis holds the title as the most romantic island in Sekotong.\r\n\r\nThe miracle of Gili Kedis is seen most clearly from an aerial perspective (drone view). This sand island naturally often forms a heart silhouette (love shape), making it an icon of love for honeymoon couples. Being here gives a pleasant 'stranded' sensation (castaway vibe). As if you and your partner are the only humans left on earth, surrounded by vast boundless ocean. Its sand is pure white, its water graduates beautifully, and several mangrove trees growing in the middle of the island provide a little artistic shade.\r\n\r\nAround the island, there are stretches of shallow coral interesting enough for light snorkeling. However, the best activity here is actually... doing nothing. Gili Kedis is a place to sit quietly, sunbathe, enjoy the silence, and admire the beauty of creation. Its 360-degree landscape allows you to see Gili Sudak, Gili Nanggu, and the mainland of Lombok at once. At low tide, the sand area becomes wider and small trapped sea water pools appear, becoming playgrounds for crabs and small fish.\r\n\r\nFacilities on this island are very minimalist, there is only a small stall and a simple toilet. This simplicity is what keeps it exotic. Gili Kedis is the sweet closing (dessert) of the island hopping series in Sekotong; a small speck of sand that leaves a big impression on the heart.",
+    "district": 6,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31548.685482290686!2d116.0049558935965!3d-8.730832544404642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcd97f5539b6f45%3A0x61beba84833f3ecb!2sGili%20Kedis!5e0!3m2!1sid!2sid!4v1769224160408!5m2!1sid!2sid",
+    "additional_info": "Because this island is very small and open, the sun can feel very stinging at noon. Bring a wide hat, sunglasses, and sunblock. The best visit time is in the afternoon before sunset, when the sunlight is softer and the atmosphere becomes very serene. Usually visited in one package with Gili Nanggu and Sudak.",
+    "main_image": "destinations/primary/Gili Kedis.jpg",
+    "manager": 1,
+    "category": 6,
+    "view_count": 73,
+    "created_at": "2026-01-23T11:50:50.232Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 20,
+  "fields": {
+    "name": "Gili Gede",
+    "slug": "gili-gede",
+    "description": "The 'Big Island' (Gede = Big) is the mothership of the Sekotong archipelago. It is not just a tourist island, but a living island with several fishing villages. Gili Gede offers a different vibe: a mix of luxury marina tourism (it's a popular stop for international yachts) and humble traditional village life. The landscape varies from mangrove forests to hilltops with 360-degree views. The water is calm and protected, perfect for kayaking and paddleboarding around the island.",
+    "district": 6,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31547.526446896412!2d115.90341969360908!3d-8.744528343560317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcd90be4796ccc5%3A0xdd9235a1f9ba3122!2sP.%20Gili%20Gede!5e0!3m2!1sid!2sid!4v1769224122813!5m2!1sid!2sid",
+    "additional_info": "Accessible by boat from Tembowong harbor. There are resorts and homestays available. A great base to explore other smaller surrounding islands.",
+    "main_image": "destinations/primary/Gili Gede.jpg",
+    "manager": 1,
+    "category": 6,
+    "view_count": 59,
+    "created_at": "2026-01-23T11:50:50.250Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 21,
+  "fields": {
+    "name": "Gili Asahan",
+    "slug": "gili-asahan",
+    "description": "Gili Asahan is the definition of 'unplugged'. If you want to disappear from the world and just listen to the sound of nature, this is the place. It is less developed than Gili Gede or Nanggu, offering a rustic, barefoot luxury experience. The underwater world here is exceptional, known as the 'Secret Garden'. The soft corals are vibrant and healthy, untouched by mass tourism. Yoga, meditation, and reading a book in a hammock are the main activities here.",
+    "district": 6,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15774.023022912485!2d115.87592043214525!3d-8.73839111098697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcd9044aff052c1%3A0x5ca782c9cd52105e!2sP.%20Gili%20Asahan!5e0!3m2!1sid!2sid!4v1769224093523!5m2!1sid!2sid",
+    "additional_info": "Electricity and internet can be intermittent, embracing the disconnect. Snorkeling gear is a must. Bring cash as ATMs are non-existent.",
+    "main_image": "destinations/primary/Gili Asahan.jpg",
+    "manager": 1,
+    "category": 6,
+    "view_count": 52,
+    "created_at": "2026-01-23T11:50:50.266Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 22,
+  "fields": {
+    "name": "Gili Layar",
+    "slug": "gili-layar",
+    "description": "Layar means 'Sail', and true to its name, this island is often a parking spot for sailboats and quiet breeze lovers. Located further west, Gili Layar is a snorkeling paradise with arguably the best preserved coral garden in Sekotong. The blue coral here is stunning. The beach is pristine with no crowds. It is a sanctuary for marine life, where you might spot turtles and reef sharks if lucky. A perfect day trip destination for underwater enthusiasts.",
+    "district": 6,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7887.258559832761!2d115.90043588738807!3d-8.726707265292033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcd90fc0fa75247%3A0xef583ecc0925e7d4!2sP.%20Gili%20Layar!5e0!3m2!1sid!2sid!4v1769224069450!5m2!1sid!2sid",
+    "additional_info": "Shadow is limited on the beach, bring sun protection. Current can be mild, good for drift snorkeling.",
+    "main_image": "destinations/primary/Gili Layar.jpg",
+    "manager": 1,
+    "category": 6,
+    "view_count": 48,
+    "created_at": "2026-01-23T11:50:50.282Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 23,
+  "fields": {
+    "name": "Mekaki Beach",
+    "slug": "mekaki-beach",
+    "description": "Hidden behind the rugged hills of Sekotong, Mekaki Beach is a sleeping giant. It is a vast crescent of white sand facing the open Indian Ocean. The waves here are majestic and powerful, rolling in from the deep blue. Unlike the calm northern beaches, Mekaki has a raw, untamed energy. The surrounding hills are barren and golden, contrasting dramatically with the turquoise water. It feels like finding a secret coast at the end of the world. The journey here involves a thrilling drive over winding hill roads with spectacular panoramic views.",
+    "district": 6,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31540.007718093348!2d115.90912389369096!3d-8.832862088117706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcd993fffffffff%3A0xcce672ddb6131d76!2sPantai%20Mekaki!5e0!3m2!1sid!2sid!4v1769224033089!5m2!1sid!2sid",
+    "additional_info": "Swimming is dangerous due to strong undercurrents and big waves. Perfect for photography and solitude. No major facilities, so bring everything you need.",
+    "main_image": "destinations/primary/Pantai Mekaki.webp",
+    "manager": 1,
+    "category": 6,
+    "view_count": 25,
+    "created_at": "2026-01-23T11:50:50.299Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 24,
+  "fields": {
+    "name": "Elak-Elak Beach",
+    "slug": "elak-elak-beach",
+    "description": "Elak-Elak Beach is a serene cape in Sekotong that offers a dual panorama: calm beach on one side and a view of small gilis on the other. The topography is unique, resembling a tongue ('Elak' in Sasak means Tongue) jutting into the sea. This creates a natural breakwater, making the water extremely calm and suitable for swimming. The sand is white and peppered with colorful shells. It is a quiet spot, often overlooked by tourists rushing to the Gilis, making it a perfect private getaway.",
+    "district": 6,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.589534362312!2d115.96366057402074!3d-8.730468391319404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcd974e59ad0b2f%3A0x267fd952b1a11e!2sPantai%20Elak%20Elak!5e0!3m2!1sid!2sid!4v1769224004385!5m2!1sid!2sid",
+    "additional_info": "Great spot for a picnic. Locals often sell grilled fish on weekends. Safe for children to swim.",
+    "main_image": "destinations/primary/Pantai Elak-Elak.webp",
+    "manager": 1,
+    "category": 6,
+    "view_count": 15,
+    "created_at": "2026-01-23T11:50:50.315Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 26,
+  "fields": {
+    "name": "Bangko-Bangko (Desert Point)",
+    "slug": "bangko-bangko-desert-point",
+    "description": "Bangko-Bangko, or better known internationally as 'Desert Point', is a holy qibla for professional surfers from all corners of planet earth. Located at the southwestern tip of Lombok Island, this place offers one of the longest and most perfect left-hand barrel waves in the world. For surfers, conquering the legendary Desert Point wave 'tube'—which can last up to a full 20 seconds—is like winning an Olympic gold medal. This is not a beach tourist spot for casual swimming; this is nature's gladiator arena.\r\n\r\nThe landscape of Desert Point fits its name perfectly: arid, dry, and full of sharp coral rocks. Its vegetation is dominated by thorny bushes and cacti, creating a desert nuance contrasting with most green tropical beaches. The road to get here is a challenge in itself; severely damaged, thick dust in the dry season, and heavy mud in the rainy season. Only tough vehicles like trail bikes or jeeps can pass this obstacle comfortably. But precisely therein lies the charm of Desert Point: it deliberately hides itself from ordinary tourists, only calling true adventurers who are not afraid of sweat and dust.\r\n\r\nAlthough primarily known as a surfing spot, the sunset view at Desert Point is among the most dramatic in Lombok. The sky burning orange-red reflects on the surface of the golden undulating sea, with the silhouette of Nusa Penida island Bali faintly in the distance. The atmosphere is very quiet and contemplative, only filled by the sound of waves tirelessly hitting the reef. For non-surfers, this place still offers a 'raw nature' experience—wild nature untouched, without tourism make-up.\r\n\r\nDesert Point is a monument to persistence. Its waves never stop rolling, like the spirit of surfers who never stop hunting for beauty behind danger. This is a destination for those seeking extreme and authentic experiences, not plastic chairs and colorful umbrellas.",
+    "district": 6,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15774.489915012633!2d115.82223773002629!3d-8.727350974154202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcd8f96825ad033%3A0x956a547e56bb8298!2sDesert%20Point!5e0!3m2!1sid!2sid!4v1769223925292!5m2!1sid!2sid",
+    "additional_info": "It is highly NOT RECOMMENDED for family tourism or casual swimming due to very strong waves and sharp coral bottoms. Accommodation facilities are very limited and very basic (small stalls and simple surfer homestays). Bring all necessities from the city because there are no shops there. Come with a local guide if unsure about road conditions.",
+    "main_image": "destinations/primary/Bangko-Bangko (Desert Point).jpg",
+    "manager": 1,
+    "category": 6,
+    "view_count": 22,
+    "created_at": "2026-01-23T11:50:50.349Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 27,
+  "fields": {
+    "name": "Pusuk Monkey Forest",
+    "slug": "pusuk-monkey-forest",
+    "description": "Pusuk Forest is a natural theater stage where humans and monkeys interact in an entertaining daily drama. Located at the peak of the hill connecting Mataram City with North Lombok Regency via land, this area is a mandatory stopover point for anyone crossing the trans-Lombok route. The highway splitting this protected forest is flanked by dense tropical vegetation walls and inhabited by hundreds, maybe thousands, of long-tailed macaque monkeys (Macaca fascicularis) who are very accustomed to the presence of motorized humans.\r\n\r\nThe view you will witness is very unique and rarely found elsewhere. These monkeys, instead of hiding in fear, actually sit casually lining the roadside, on guardrails, even in the middle of the asphalt waiting for passing drivers. They are very 'educated' to know that humans often bring food. The interaction of feeding monkeys becomes the main attraction here, although it must be done wisely (avoid plastic packaged food, better buy peanuts from local vendors). Their behavior often invites laughter: some fighting for food, some carrying babies, some scratching heads, creating funny moments ready to be captured by camera.\r\n\r\nHowever, Pusuk is not just about monkeys. From the viewing post along the road, eyes will be spoiled by epic views: deep and mystical green valleys, covered in thin mist in the morning, with layers of hills turning blue in the distance. The air here is very fresh and cold, a pleasant contrast after a day in the hot city or beach. In the afternoon, when the sun starts to go down, fog often rises from the valley, making the atmosphere mystical like in a fantasy movie.\r\n\r\nPusuk teaches us about coexistence. Humans share the road with wild animals, and both learn to accept each other's presence. Of course, visitors must remain vigilant because monkeys are wild animals that can behave unexpectedly.",
+    "district": 5,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.4437127624556!2d116.09529607401825!3d-8.553259991490306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc0fb749883f9%3A0x14ba08e919556312!2sPasar%20Seni%20Sesela%20(Sesela%20Art%20Market)!5e0!3m2!1sid!2sid!4v176922373278",
+    "additional_info": "WARNING: Monkeys here are very skilled at taking riders' items! Store sunglasses, hats, masks, food, and cellphones in a bag or tightly closed pocket before entering the forest area. Avoid wearing flashy jackets that might attract their attention. If you want to feed, buy peanuts from local traders on site, do not give manufactured human food (biscuits, candy, bread).",
+    "main_image": "destinations/primary/Hutan Pusuk (Monkey Forest).jpg",
+    "manager": 1,
+    "category": 7,
+    "view_count": 40,
+    "created_at": "2026-01-23T11:50:50.365Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 29,
+  "fields": {
+    "name": "Sesela Art Market",
+    "slug": "sesela-art-market",
+    "description": "Sesela Art Market is a cultural showcase storing the artistic soul of West Lombok society. Located in Sesela Village, Gunungsari District, this place has become legendary as a center for wood carving and cukli (pearl shell inlay) crafts whose quality is recognized worldwide. This art market building is not an ordinary cold souvenir shop; it is a living gallery, a cooperative sheltering hundreds of local artisans who depend on the sharpness of chisels and artistic imagination. Entering this area, the distinctive aroma of teak, mahogany, and rosewood sawdust will immediately welcome your sense of smell, an authentic aroma of hard work and creativity.\r\n\r\nThe main uniqueness of Sesela is its Cukli craft. This is a high-level art technique where small pieces of pearl shell are embedded (inlay) into carved wood, creating geometric or floral motifs that sparkle when hit by light. The blend of elegant dark wood color with the white rainbow luster of shells creates classic luxury. In this art market, you can find various masterpieces, ranging from small jewelry boxes, expressive masks, primitive statues, to large furniture like magnificent cabinets and guest chairs.\r\n\r\nThe experience in Sesela does not stop at seeing finished goods. You are invited to step into the workshop area behind the gallery. There, you can watch the maestros work firsthand. See how wrinkled old hands steadily carve dragon eye details, or how a young man patiently sands the wood surface until it is as smooth as silk. Interaction with these artisans adds invaluable value; you buy the story behind the object, not just the object. Sesela is a bastion of Sasak cultural craft defense amidst the onslaught of mass manufactured goods.",
+    "district": 5,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.4437127624556!2d116.09529607401825!3d-8.553259991490306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc0fb749883f9%3A0x14ba08e919556312!2sPasar%20Seni%20Sesela%20(Sesela%20Art%20Market)!5e0!3m2!1sid!2sid!4v176922373278",
+    "additional_info": "Prices at Sesela Art Market are very negotiable, but bargain wisely to respect the complexity of the manufacturing process. This place also serves cargo shipping to all over Indonesia and even abroad, so if you fall in love with a large statue or cabinet, the management can arrange its delivery to your doorstep.",
+    "main_image": "destinations/primary/Pasar Seni Sesela.jpg",
+    "manager": 1,
+    "category": 10,
+    "view_count": 30,
+    "created_at": "2026-01-23T11:50:50.399Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 30,
+  "fields": {
+    "name": "Cafless Waterpark",
+    "slug": "cafless-waterpark",
+    "description": "Amidst the dominance of wild and natural Lombok tourism, Cafless Waterpark is present as a modern oasis offering instant and organized fun. Strategically located on the main Gunungsari route, this place is a favorite escape for urban families who want to release fatigue without traveling far to the forest or beach. Once passing through its entrance gate, you seem to move dimensions from the hot and dusty streets to a blue and refreshing water world. Screams of children's joy, water splashing into the air, and colorful game rides create a festival atmosphere that never ends.\r\n\r\nCafless is designed to pamper everyone's 'inner child'. For children, this is heaven on earth. They can slide repeatedly on adrenaline-pumping spiral slides, wait with pounding hearts under a giant spill bucket ready to pour hundreds of liters of water, or just laze in the current pool. For parents, shady gazebos are available by the pool to watch over the baby while enjoying lunch. The cleanliness of water and park areas is strictly maintained, making the recreation experience here comfortable and hygienic.\r\n\r\nAlthough not pure nature tourism, the existence of Cafless has a vital role as a public space for the people of West Lombok. This is a place where family bonds are strengthened, where school friends celebrate graduation, and where communities gather. Behind its plastic rides, Cafless holds stories of simple happiness: seeing smiles blooming on the faces of children playing in the water is the best therapy for adult fatigue.",
+    "district": 5,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.6717403358566!2d116.09896857401796!3d-8.531214591511565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdc1750f594c77%3A0x32befc73327ae649!2sCafless%20Waterpark!5e0!3m2!1sid!2sid!4v1769223701447!5m2!1sid!2sid",
+    "additional_info": "Swimwear rules apply here to maintain water quality (avoid heavy jeans/cotton). It is highly recommended to come in the morning when the water has just been cleaned and visitors are not too crowded yet. Bringing heavy food from outside (rice boxes etc.) is prohibited because a canteen is available inside, but light snacks are usually still tolerated.",
+    "main_image": "destinations/primary/Cafless Waterpark.jpg",
+    "manager": 1,
+    "category": 7,
+    "view_count": 14,
+    "created_at": "2026-01-23T11:50:50.415Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 31,
+  "fields": {
+    "name": "Banyumulek Pottery Village",
+    "slug": "banyumulek-pottery-village",
+    "description": "Banyumulek Village is the land where mud is transformed into gold. Located in Kediri District, this village has consecrated itself as the heartbeat of pottery crafts (earthenware) on Lombok Island. The tradition of processing clay here is not just a livelihood; it is a blood heritage flowing heavily for hundreds of years, passed down from mother to daughter, from generation to generation. Entering this village, you will be greeted by rows of art galleries (art shops) displaying thousands of ceramic works of various shapes, sizes, and functions—ranging from giant flower pots as tall as humans to tiny little ashtrays. The distinctive clay color, brick red with a touch of black due to straw firing, dominates the color palette of this village.\r\n\r\nHowever, the true soul of Banyumulek does not lie in air-conditioned showrooms, but in the backyards of residents' houses. This is where the 'magic' happens. You can see firsthand the skilled hands of craftsmen mothers dancing on mounds of clay. Without the help of modern machine spinning wheels, they use the 'coiling' technique and manual hand rotation which is primitive yet precise to form a perfectly symmetrical jar. This process is a hypnotic spectacle; how a shapeless lump of earth slowly rises, curves, and manifests into a high-value art object only with the touch of fingers and feeling.\r\n\r\nThe most legendary icon of Banyumulek is the 'Thief's Jug' (Kendi Maling). Don't get me wrong, this is not a jug for thieves. Its name is taken from its unique and 'cunning' design. This jug has no hole at the top like a regular teapot. To fill it, water must be entered from a hole in the bottom base of the jug. Miraculously, when the jug is turned back over, the water does not spill. The philosophy behind it is very deep: teaching humans not to take other people's rights from above (forcibly/rudely), but to enter from below with humility. Besides the Thief's Jug, eggshell decoration motifs and rattan weaving are also hallmarks of Banyumulek pottery innovation penetrating European and American export markets.\r\n\r\nBanyumulek offers participatory tourism experiences. Visitors are encouraged to roll up their sleeves, sit on small wooden stools, and try for themselves the sensation of holding wet clay. Learning to make an ashtray or small bowl under the guidance of patient local mothers is a very grounding experience. This village teaches us appreciation for the process: that beauty requires patience, perseverance, and human touch.",
+    "district": 4,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15777.785143330597!2d116.10347773212493!3d-8.649034362364802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbebe3580f1bf%3A0x83c918c402423d37!2sBanyumulek%2C%20Kec.%20Kediri%2C%20Kabupaten%20Lombok%20Barat%2C%20Nusa%20Tenggara%20Bar.!5e0",
+    "additional_info": "It is highly recommended to take the 'Short Course' pottery making package offered by many galleries. Your masterpiece (even if not fired) can be taken home as the most authentic souvenir. Don't forget to bargain reasonably when shopping at art shops, and remember that wrapping pottery (packing) takes time to be safe for entering airplane luggage (can ask for wood packing).",
+    "main_image": "destinations/primary/Desa Wisata Banyumulek.jpg",
+    "manager": 1,
+    "category": 10,
+    "view_count": 66,
+    "created_at": "2026-01-23T11:50:50.431Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 32,
+  "fields": {
+    "name": "Kebon Ayu Tourism Village",
+    "slug": "kebon-ayu-tourism-village",
+    "description": "Kebon Ayu Tourism Village is the 'Rising Star' of West Lombok tourism which successfully proves that an ordinary village can turn into an extraordinary destination with innovation and mutual cooperation. Located in Gerung District, this village comes with a fresh concept: a blend of modern agrotourism, preservation of old culinary delights, and historical tourism. The main icon that immediately steals attention is the Kebon Ayu Suspension Bridge. This Dutch colonial heritage bridge stretching firmly over the river has been revitalized into a very instagrammable photo spot, connecting the historic past with the dynamic present.\r\n\r\nThe mainstay attraction that made this village viral is the Golden Melon Agrotourism. Inside neat rows of Green Houses, visitors are invited to feel the sensation of picking premium melons straight from the tree. The melon here is not just any melon; the Golden Aroma type and its culinary delights have a legit sweet taste and crunchy texture. Taking photos among lush fruit-bearing melon plants becomes mandatory content for visitors. Modern agricultural education is also inserted here, teaching that farming is cool and profitable.\r\n\r\nHowever, the attraction that makes people miss it most is the 'Traditional Culinary Market' held every weekend. Under the shade of lush bamboo trees, villagers spread bamboo stalls selling Sasak culinary riches that are almost extinct. You can find Serabi Lak-lak cooked on clay stoves, Lupis sprinkled with grated coconut, Kelepon Kecerit that explodes in the mouth, to countryside distinct Red Rice. Uniquely, at certain events, buying and selling transactions use special wooden coins that must be exchanged first, creating an authentic royal era market nuance.\r\n\r\nThe atmosphere in Kebon Ayu is very lively and communal. The strains of traditional Sasak Gamelan music are often heard accompanying market activities, while village youths who are members of Pokdarwis (Tourism Awareness Group) swiftly serve guests. Kebon Ayu is a perfect example of how tourism can drive the people's economy without losing its cultural identity.",
+    "district": 3,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63107.69782076127!2d116.04957740293041!3d-8.669557792661195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbc2ac71ec83b%3A0x5030bfbcaf7d330!2sKebunayu%2C%20Kec.%20Gerung%2C%20Kabupaten%20Lombok%20Barat%2C%20Nusa%20Tenggara%2",
+    "additional_info": "The best visit time is Saturday or Sunday morning starting at 07.00 WITA to enjoy the most complete and crowded culinary market atmosphere. For melon picking tourism, it is highly recommended to check the village's official social media account first to ensure the availability of harvest-ready fruit, because the harvest cycle does not happen every day.",
+    "main_image": "destinations/primary/Desa Wisata Kebon Ayu.jpg",
+    "manager": 1,
+    "category": 10,
+    "view_count": 35,
+    "created_at": "2026-01-23T11:50:50.448Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 33,
+  "fields": {
+    "name": "Lembar Sacred Tomb",
+    "slug": "lembar-sacred-tomb",
+    "description": "Perched on a small hill facing directly to the harbor bay, the Sacred Tomb of Lembar is a meeting point between the busy mortal world and the eternal spiritual world. This location offers a very poetic visual and inner contrast. On one hand, your eyes catch the busyness of Lembar Port: giant ferries coming and going, logistics trucks roaring, and modern economic dynamics that never sleep. Yet, on the other hand, once you step into the tomb area, primal silence immediately ambushes. The noise of the port seems muffled by invisible walls, replaced by the whisper of the hill wind and the chanting of pilgrims' prayers.\r\n\r\nThis tomb is believed to be the final resting place of a Waliyullah or Islamic propagator who had high karamah (miraculous power) in the past. Its sacred aura is very palpable, reinforced by old frangipani trees whose flowers fall on the tombstones, spreading a calming scent of death. The coastal community of Lembar and its surroundings highly respect this place. They come not only to make a pilgrimage praying for the saint, but also to 'ngalap berkah' (seek blessings), find inner peace, or reflect on the transience of life amidst the vast sea view.\r\n\r\nThe journey up the stairs to the tomb is a small simulation of spiritual ascent; requiring a little breath and effort, but ending in relief at the top. From the tomb courtyard, the sunset view also looks very beautiful, with the sun sinking behind the silhouettes of docked ships. Lembar Sacred Tomb teaches us to pause for a moment, pull over from worldly hustle (port), and recall the final destination of human journey.",
+    "district": 2,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63099.67441811595!2d116.01571129129684!3d-8.717201958830122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbd003f82e3bd%3A0x52b38bc015c90264!2sMakam%20keramat%20lamun!5e0!3m2!1sid!2sid!4v1769223591420!5m2!1sid!2sid",
+    "additional_info": "As a religious site, visitors must dress modestly (cover aurat). Footwear please removed when entering the core tomb area. The busiest visit time is on Thursday night or major Islamic holidays. Don't forget to fill in the guest book and give alms sincerely for the tomb cleanliness maintenance costs.",
+    "main_image": "destinations/primary/Makam Keramat Lembar.jpg",
+    "manager": 1,
+    "category": 9,
+    "view_count": 14,
+    "created_at": "2026-01-23T11:50:50.465Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 34,
+  "fields": {
+    "name": "Cemare Beach",
+    "slug": "cemare-beach",
+    "description": "Cemare Beach is the definition of humble and authentic beauty. Located in the South Lembar area, this beach is unique because of its position on a delta, flanked by a calm river estuary on one side and open sea on the other. To reach it, visitors must cross an iconic wooden suspension bridge. When your vehicle wheels rumble on the wooden planks of that bridge, it feels like crossing into another dimension—from hot asphalt roads to a cool and relaxed fishing village.\r\n\r\nThe main attraction of Cemare is not its white sand or luxury resorts, but its thick 'village' atmosphere. This beach is surrounded by lush mangrove forests, creating a natural green fortress that soothes the eyes. However, the real magnet is the impromptu fish market on the beach. Fishing boats with colorful paint dock right on the lip of the beach, unloading fresh catches still flapping: red snapper, rabbitfish, shrimp, to mangrove crabs. This is where the most honest transaction happens; you point to the fish you want, bargain directly with fishermen whose skin is sunburnt, then take it to the stall next door to be grilled with spicy plecing seasoning.\r\n\r\nCemare is a living room for the people of Lembar. In the afternoon, this beach is filled with locals coming to relax. Bamboo gazebos (berugak) along the beach become silent witnesses to family intimacy eating together (begibung) greedily, accompanied by sea breeze and soft wave sounds. No pretense, no prestige. Cemare teaches us that life's pleasure is simple: fresh fish, spicy chili sauce, warm rice, and family laughter by the beach.",
+    "district": 2,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63099.67366868258!2d116.01571137757557!3d-8.717206397009088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbde90460e2f7%3A0x33ab1837098a8b32!2sPantai%20Cemare%20Lembar!5e0!3m2!1sid!2sid!4v1769223542033!5m2!1sid!2sid",
+    "additional_info": "Entrance tickets to this area are very cheap (village retribution). The suspension bridge to the location can only be passed by motorcycles; cars must park across the river and passengers walk across the bridge (about 5 minutes). Bring small denomination cash because digital payments (QRIS) are rare here.",
+    "main_image": "destinations/primary/Pantai Cemare.jpg",
+    "manager": 1,
+    "category": 6,
+    "view_count": 13,
+    "created_at": "2026-01-23T11:50:50.481Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 35,
+  "fields": {
+    "name": "Lembar Mangrove Ecotourism",
+    "slug": "lembar-mangrove-ecotourism",
+    "description": "In the southern coast of West Lombok, where river fresh water meets the salty sea, lies a giant green fortress named South Lembar Mangrove Ecotourism. This mangrove forest conservation area is not just a collection of trees; it is a complex ecosystem that serves as the coastal lungs as well as land protector from abrasion. Since being arranged into a tourist destination, this mangrove forest has transformed into a mesmerizing educational and recreational space, offering a cool escape from the hot port air.\r\n\r\nExploring this area is very comfortable thanks to the wooden boardwalk built winding through the density of the forest. Walking on this boardwalk, you feel as if you are entering a quiet green labyrinth. Mangrove stilt roots sticking out of the mud create unique natural architecture, becoming homes for thousands of fiddler crabs waving their one large claw, as well as agile jumping mudskipper fish. The sound of coastal birds calling to each other adds to the serene atmosphere, making this place a paradise for birdwatchers and nature photographers.\r\n\r\nThe visual miracle of Lembar Mangrove reaches its peak as dusk approaches (golden hour). Slanting afternoon sunlight penetrates through the cracks of mangrove leaves, creating a dramatic shadow play on the calm swamp water. At the end of the trekking path, the view opens wide towards the open sea and Lembar Port. You can sit relaxed in the available gazebo, watching the silhouette of ferries passing by against an orange sky background. The contrast between wild mangrove nature and port industrial activity creates a unique and photogenic view.\r\n\r\nBesides walking, visitors can also rent mangrove canoes or fishermen's sampans to go down the river alleys among the mangroves. The perspective from above the water provides a more intimate experience with nature. You can touch the water, see mangrove roots up close, and feel the mesmerizing silence of the river. Lembar Mangrove teaches us about the importance of ecological balance; that protecting trees means protecting our coastal future.",
+    "district": 2,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15774.918317636531!2d116.04661171169896!3d-8.717208754790303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbd0cd2afd363%3A0x6c85047674b95fb0!2sEco%20Wisata%20Mangrove%20Forest%20Lembar%20Selatan!5e0!3m2!1sid!2sid!4v17692235",
+    "additional_info": "Bring mosquito repellent lotion or use long-sleeved clothing because inside the mangrove density there are often many mosquitoes, especially in the afternoon. Do not throw even the smallest plastic trash into the swamp because it will be trapped in mangrove roots and damage the ecosystem. Entrance tickets are very affordable, suitable for school children's educational tours.",
+    "main_image": "destinations/primary/Ekowisata Mangrove Lembar.jpg",
+    "manager": 1,
+    "category": 7,
+    "view_count": 35,
+    "created_at": "2026-01-23T11:50:50.499Z"
+  }
+},
+{
+  "model": "core.destination",
+  "pk": 36,
+  "fields": {
+    "name": "Mount Sasak",
+    "slug": "mount-sasak",
+    "description": "Mount Sasak stands gallantly as the guardian of the southern border of West Lombok, a giant hill offering a quick escape for city residents missing heights. Although called 'Mountain', technically this is a very climb-friendly hill, even for beginners. This area is a paradise for nature sports lovers; trekking paths and mountain bike (MTB) trails available offer a combination of heart-pumping climbs and adrenaline-rushing descents, all under the shade of lush protected forest canopy.\r\n\r\nThe Sasak Mountain forest is not just a collection of trees; it is home to herds of long-tailed macaques living wild but accustomed enough to human presence. Walking here, you will feel watched by hundreds of pairs of eyes from behind tree branches, occasionally they come down to the path with playful curiosity. Interaction with this wildlife gives a real jungle adventure sensation, even though this location is only a stone's throw from the West Lombok government center in Gerung.\r\n\r\nThe main reward of climbing Mount Sasak awaits at its peak. From the viewing post built at the highest point, a stunning 360-degree view stretches out. On one side, you can see the expanse of green Kuripan rice fields like a giant carpet; on the other side, the Airport By-Pass road winding like an asphalt snake; and in the distance, the Gerung sea glittering hit by the sun. This is the best spot to enjoy 'Golden Hour' at sunrise or sunset, giving a 'bird-eye view' perspective of the West Lombok landscape. Mount Sasak is a place where sweat is paid off by cool wind and epic views.",
+    "district": 1,
+    "maps_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31551.35842701792!2d116.14134469356745!3d-8.699165996357328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcdbba199a45acd%3A0x3119f0f5d3b68daa!2sGn.%20Sasak!5e0!3m2!1sid!2sid!4v1769223435745!5m2!1sid!2sid",
+    "additional_info": "Bring enough drinking water because there are no hawkers along the hiking trail to the peak. Be careful with your luggage (glasses, hats, food) because monkeys here can sometimes be a little 'naughty' and light-fingered. Use comfortable sports shoes because the path can be dusty during the dry season and slippery when raining.",
+    "main_image": "destinations/primary/Gunung Sasak.jpg",
+    "manager": 1,
+    "category": 7,
+    "view_count": 15,
+    "created_at": "2026-01-23T11:50:50.520Z"
+  }
+}
+]
