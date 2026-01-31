@@ -40,8 +40,8 @@ Make sure you have installed:
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/USERNAME/west-lombok.git
-cd west-lombok
+git clone https://github.com/zidan-idz/WestLombok.git
+cd WestLombok
 ```
 
 ### 2. Create Virtual Environment
