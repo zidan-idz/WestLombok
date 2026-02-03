@@ -185,7 +185,15 @@ python manage.py migrate
 
 ## Troubleshooting
 
-### Tailwind not working
+### Tailwind not working or styles not updating
+
+If you add new Tailwind classes but they don't show up, you need to rebuild the CSS:
+
+```bash
+cd theme/static_src
+npm install
+npm run build
+```
 
 Make sure Node.js is installed:
 

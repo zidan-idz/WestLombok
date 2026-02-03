@@ -1,26 +1,160 @@
-    <div class="container mx-auto px-6 flex justify-between items-center">
-        <a href="{% url 'base:home' %}" class="font-oswald font-bold text-2xl text-white tracking-widest uppercase z-50">
-            West Lombok
-        </a>
-        
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-8 text-white text-sm md:text-base lg:text-lg font-medium tracking-widest uppercase font-oswald">
-            <a href="{% url 'base:home' %}" class="hover:text-gray-300 transition">Home</a>
-            <a href="{% url 'core:destination_list' %}" class="hover:text-gray-300 transition">Destinations</a>
-            <a href="{% url 'core:category_list' %}" class="hover:text-gray-300 transition">Categories</a>
-            <a href="{% url 'core:surprise_me' %}" class="hover:text-gray-300 transition">Surprise Me</a>
-            <a href="{% url 'base:about' %}" class="hover:text-gray-300 transition">About</a>
-            {% if user.is_authenticated and user.is_staff %}
-            <a href="/admin/" class="border border-white px-5 py-1.5 hover:bg-white hover:text-black transition">Dashboard</a>
-            {% else %}
-            <a href="/admin/" class="border border-white px-5 py-1.5 hover:bg-white hover:text-black transition">Log In</a>
-            {% endif %}
-        </div>
+{% load static %}
 
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none z-50 transition-opacity duration-300 cursor-pointer touch-action-manipulation" type="button">
-            <span class="material-icons text-3xl">menu</span>
-        </button>
+<!-- Navigation Links Data (Single Source of Truth) -->
+{% with nav_links="Home:base:home,Destinations:core:destination_list,Categories:core:category_list,Surprise Me:core:surprise_me,About:base:about" %}
+
+<div class="container mx-auto px-6 flex justify-between items-center">
+    <a href="{% url 'base:home' %}" class="font-oswald font-bold text-2xl text-white tracking-widest uppercase">
+        West Lombok
+    </a>
+    
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-8 text-white text-sm md:text-base lg:text-lg font-medium tracking-widest uppercase font-oswald">
+        <a href="{% url 'base:home' %}" class="hover:text-gray-300 transition nav-link">Home</a>
+        <a href="{% url 'core:destination_list' %}" class="hover:text-gray-300 transition nav-link">Destinations</a>
+        <a href="{% url 'core:category_list' %}" class="hover:text-gray-300 transition nav-link">Categories</a>
+        <a href="{% url 'core:surprise_me' %}" class="hover:text-gray-300 transition nav-link">Surprise Me</a>
+        <a href="{% url 'base:about' %}" class="hover:text-gray-300 transition nav-link">About</a>
+        {% if user.is_authenticated and user.is_staff %}
+        <a href="/admin/" class="border border-white px-5 py-1.5 hover:bg-white hover:text-black transition">Dashboard</a>
+        {% else %}
+        <a href="/admin/" class="border border-white px-5 py-1.5 hover:bg-white hover:text-black transition">Log In</a>
+        {% endif %}
     </div>
 
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none transition-opacity duration-300 cursor-pointer" type="button">
+        <span class="material-icons text-3xl">menu</span>
+    </button>
+</div>
 
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 bg-black z-[99999] hidden flex items-center justify-center">
+    
+    
+    <!-- Centered Navigation (Same links as desktop) -->
+    <nav id="menu-nav" class="flex flex-col items-center px-8 pt-5">
+        <ul class="space-y-6 text-center">
+            <li><a href="{% url 'base:home' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">Home</a></li>
+            <li><a href="{% url 'core:destination_list' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">Destinations</a></li>
+            <li><a href="{% url 'core:category_list' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">Categories</a></li>
+            <li><a href="{% url 'core:surprise_me' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">Surprise Me</a></li>
+            <li><a href="{% url 'base:about' %}" class="block text-white text-3xl font-oswald font-bold tracking-wider uppercase hover:text-gray-400 transition-colors duration-200 mobile-link">About</a></li>
+        </ul>
+        
+        <div class="mt-12">
+            {% if user.is_authenticated and user.is_staff %}
+            <a href="/admin/" class="inline-block border-2 border-white text-white px-10 py-3 text-sm font-oswald font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-200 mobile-link">Dashboard</a>
+            {% else %}
+            <a href="/admin/" class="inline-block border-2 border-white text-white px-10 py-3 text-sm font-oswald font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-200 mobile-link">Log In</a>
+            {% endif %}
+        </div>
+    </nav>
+
+</div>
+
+{% endwith %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('main-navbar');
+        const links = document.querySelectorAll('.mobile-link');
+        
+        // PORTAL FIX: Move menu to body to avoid being hidden when navbar is hidden
+        if (menu) {
+            document.body.appendChild(menu);
+        }
+
+        let isAnimating = false;
+
+        if (!menuBtn || !menu) {
+            console.warn("Mobile menu elements missing");
+            return;
+        }
+
+        function openMenu() {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            // Hide navbar
+            if (navbar) navbar.style.display = 'none';
+            
+            menu.classList.remove('hidden');
+            menu.style.opacity = '0';
+            document.body.style.overflow = 'hidden';
+
+            anime({
+                targets: menu,
+                opacity: [0, 1],
+                duration: 400,
+                easing: 'easeOutQuad',
+                complete: () => { isAnimating = false; }
+            });
+
+            anime({
+                targets: menuBtn,
+                opacity: 0,
+                duration: 300,
+                easing: 'easeOutQuad'
+            });
+
+            anime({
+                targets: '.mobile-link',
+                translateY: [20, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(100, {start: 100}),
+                easing: 'easeOutExpo'
+            });
+        }
+
+        function closeMenu() {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            anime({
+                targets: menu,
+                opacity: [1, 0],
+                duration: 300,
+                easing: 'easeInQuad',
+                complete: () => {
+                    menu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    if (navbar) navbar.style.display = '';
+                    isAnimating = false;
+                }
+            });
+
+            anime({
+                targets: menuBtn,
+                opacity: 1,
+                duration: 300,
+                easing: 'easeOutQuad'
+            });
+        }
+
+        // Open menu
+        menuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openMenu();
+        });
+
+        // Close menu when tapping anywhere outside menu items
+        menu.addEventListener('click', (e) => {
+            if (!e.target.closest('.mobile-link') && !e.target.closest('#menu-nav ul')) {
+                closeMenu();
+            }
+        });
+
+        // Close when link clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                document.body.style.overflow = '';
+                if (navbar) navbar.style.display = '';
+                menu.style.opacity = '0';
+                menu.classList.add('hidden');
+            });
+        });
+    });
+</script>

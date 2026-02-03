@@ -46,6 +46,12 @@
 
     <!-- White Container (Overlapping the Background) -->
     <div class="relative z-10 h-screen w-full lg:w-[500px] flex flex-col items-center justify-center px-12 lg:px-16 bg-white shadow-2xl">
+        
+        <!-- Back Button (Mobile/App Style - Hidden on Desktop) -->
+        <a href="/" class="absolute lg:hidden text-gray-400 hover:text-black transition-colors p-2 z-20" style="top: 24px; left: 24px;" title="Back to Home">
+            <span class="material-icons text-2xl">arrow_back</span>
+        </a>
+
         {% block content %}{% endblock %}
     </div>
 
